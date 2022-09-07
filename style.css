@@ -389,8 +389,10 @@ section .title::after{
 .skills-content .right .reactjs::before{
     width: 70%;
 }
+.skills-content .right .laravel::before{
     width: 50%;
 }
+  
 
 /* teams section styling */
 .teams .title::after{
