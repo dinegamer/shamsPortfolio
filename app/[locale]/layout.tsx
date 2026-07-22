@@ -33,6 +33,9 @@ export function generateMetadata({
     metadataBase: new URL(siteUrl),
     title: current.title,
     description: current.description,
+    verification: {
+      google: 'vbGp19kYZPXBLH4Ucq7yDmS2twd7C2ti7_DCO8vqiyc'
+    },
     alternates: {
       canonical,
       languages: {
