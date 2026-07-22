@@ -1,0 +1,133 @@
+{
+  "nav": {
+    "work": "Projects",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Contact me",
+    "primaryNav": "Primary navigation",
+    "mobileNav": "Mobile navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "badge": "Based in Bamako, available locally and internationally",
+    "line1": "Software Engineer",
+    "line2": "& Data Analyst",
+    "line3": "Backend, APIs, Databases & Data Systems",
+    "subtitle": "I design and build software systems, APIs and data-driven solutions for organizations operating in real-world environments.",
+    "brand": "Founder of SH☀MSI Digital — Software, Data & AI. Indexable name: Shamsi Digital.",
+    "primary": "View my projects",
+    "secondary": "Explore my GitHub",
+    "tertiary": "Contact me",
+    "metric1": "200+",
+    "metric1Label": "Students trained",
+    "metric2": "Bamako",
+    "metric2Label": "Mali",
+    "metric3": "EN/FR",
+    "metric3Label": "French fluent, English intermediate"
+  },
+  "morph": {
+    "prefix": "I work on",
+    "words": ["Backend systems", "REST APIs", "Databases", "Dashboards", "Data workflows"]
+  },
+  "about": {
+    "kicker": "About",
+    "title": "Software, data and operational systems.",
+    "imageAlt": "Portrait of Chamsoudine THIENTA",
+    "body": "I am Chamsoudine THIENTA, also known as Shams, a Software Engineer and Data Analyst based in Bamako, Mali. My work covers web development, backend architecture, APIs and databases with Java/Spring Boot, Node.js, React/Next.js, Python, SQL, PostgreSQL, MySQL, MongoDB and Power BI. I also teach software development, databases, MERISE and computer architecture, with more than 200 students trained.",
+    "points": [
+      "Building stronger skills in Data Engineering while staying grounded in software delivery and analytics.",
+      "Interested in banks, NGOs, telecommunications, mining, technology companies and international missions.",
+      "Designing solutions for unstable connections, modest devices and organizations still moving from manual processes to digital systems."
+    ]
+  },
+  "projects": {
+    "kicker": "Selected work",
+    "title": "Selected projects and prototypes",
+    "subtitle": "Case studies with clear status, confirmed stack and public links only when they exist.",
+    "statusProduct": "Product",
+    "statusProject": "Project",
+    "statusPrototype": "Prototype",
+    "labels": {
+      "problem": "Problem",
+      "contribution": "Contribution",
+      "features": "Main features",
+      "capture": "Screenshot"
+    },
+    "kalansup": {
+      "problem": "University operations often combine registrations, payments, timetables, grades and documents across fragmented tools.",
+      "contribution": "Designed and built modules for an academic ERP with backend, database and dashboard workflows.",
+      "features": "Registrations, payments, timetables, grades, documents, attendance and dashboards.",
+      "capture": "No local screenshot available in this repository.",
+      "imageAlt": "KalanSUP project placeholder"
+    },
+    "storesup": {
+      "problem": "Small operations need clearer stock tracking and daily management without relying only on spreadsheets.",
+      "contribution": "Built a MERN inventory and operations management application.",
+      "features": "Stock management, operational tracking and dashboard-oriented views.",
+      "capture": "No local screenshot available in this repository.",
+      "imageAlt": "StoreSup project placeholder"
+    },
+    "agritechmali": {
+      "problem": "Agricultural decisions can benefit from crop recommendations and fast plant disease identification.",
+      "contribution": "Worked on AI-assisted crop recommendation and plant disease recognition flows.",
+      "features": "Crop recommendation, plant disease recognition and agriculture-focused user interface.",
+      "capture": "Local screenshot available.",
+      "imageAlt": "AgritechMali agriculture application screenshot"
+    },
+    "apeda": {
+      "problem": "Learning difficulties and dyslexia need accessible, clear and locally understandable online information.",
+      "contribution": "Created an accessible informational website for APEDA Mali.",
+      "features": "Accessible content structure, responsive pages and learning-difficulty information.",
+      "capture": "No local screenshot available in this repository.",
+      "imageAlt": "APEDA Mali project placeholder"
+    },
+    "ae2c": {
+      "problem": "An accounting and audit firm needs a professional web presence that presents its expertise clearly.",
+      "contribution": "Built an animated website for an accounting and audit consultancy.",
+      "features": "Company presentation, service sections, animation and responsive layout.",
+      "capture": "No local screenshot available in this repository.",
+      "imageAlt": "AE2C project placeholder"
+    },
+    "bamboolab": {
+      "problem": "Innovation initiatives need concise and interactive presentation formats for their audiences.",
+      "contribution": "Built an interactive presentation experience for an innovation lab.",
+      "features": "Interactive sections, responsive presentation and visual storytelling.",
+      "capture": "No local screenshot available in this repository.",
+      "imageAlt": "BambooLab project placeholder"
+    },
+    "bnda-queue": {
+      "problem": "Banking environments can require better queue organization and service flow visibility.",
+      "contribution": "Built a prototype queue-management platform designed for a banking context.",
+      "features": "Queue management screens, service tracking concepts and real-time interaction patterns.",
+      "capture": "Local prototype screenshot available.",
+      "imageAlt": "BNDA Queue banking-context prototype screenshot"
+    }
+  },
+  "services": {
+    "kicker": "What I do",
+    "title": "Focused engineering and data support.",
+    "subtitle": "No fixed public pricing or artificial delivery guarantees: scope, timeline and budget depend on the real context.",
+    "softwareTitle": "Software Engineering",
+    "softwareBody": "Business applications, backend architecture, REST APIs and integrations.",
+    "analyticsTitle": "Data Analytics",
+    "analyticsBody": "SQL, data cleaning, dashboards, reporting and Power BI.",
+    "systemsTitle": "Data Systems",
+    "systemsBody": "Database modeling, automation and gradual evolution toward data pipelines."
+  },
+  "stack": {
+    "kicker": "Stack",
+    "title": "Confirmed tools and working areas.",
+    "subtitle": "Technologies shown here reflect the current portfolio positioning rather than every dependency found in the repository."
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Discuss software, data or backend work.",
+    "body": "Reach me by email, LinkedIn or GitHub for local or international opportunities.",
+    "email": "Email me"
+  },
+  "footer": {
+    "rights": "Built by Chamsoudine THIENTA — Shamsi Digital — 2026"
+  }
+}

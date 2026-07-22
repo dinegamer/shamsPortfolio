@@ -1,0 +1,133 @@
+{
+  "nav": {
+    "work": "Projets",
+    "services": "Services",
+    "about": "À propos",
+    "contact": "Contact",
+    "cta": "Me contacter",
+    "primaryNav": "Navigation principale",
+    "mobileNav": "Navigation mobile",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "hero": {
+    "badge": "Basé à Bamako, disponible localement et à l'international",
+    "line1": "Ingénieur logiciel",
+    "line2": "& Data Analyst",
+    "line3": "Backend, API, bases de données & systèmes de données",
+    "subtitle": "Je conçois et développe des logiciels, des API et des solutions fondées sur les données, adaptés aux réalités opérationnelles des organisations.",
+    "brand": "Fondateur de SH☀MSI Digital — Software, Data & AI. Nom indexable : Shamsi Digital.",
+    "primary": "Voir mes projets",
+    "secondary": "Explorer mon GitHub",
+    "tertiary": "Me contacter",
+    "metric1": "200+",
+    "metric1Label": "Étudiants formés",
+    "metric2": "Bamako",
+    "metric2Label": "Mali",
+    "metric3": "FR/EN",
+    "metric3Label": "Français courant, anglais intermédiaire"
+  },
+  "morph": {
+    "prefix": "Je travaille sur",
+    "words": ["Systèmes backend", "API REST", "Bases de données", "Tableaux de bord", "Flux de données"]
+  },
+  "about": {
+    "kicker": "À propos",
+    "title": "Logiciel, données et systèmes opérationnels.",
+    "imageAlt": "Portrait de Chamsoudine THIENTA",
+    "body": "Je suis Chamsoudine THIENTA, aussi connu sous le nom de Shams, Software Engineer et Data Analyst basé à Bamako, Mali. Mon travail couvre le développement web, l'architecture backend, les API et les bases de données avec Java/Spring Boot, Node.js, React/Next.js, Python, SQL, PostgreSQL, MySQL, MongoDB et Power BI. J'enseigne aussi le développement logiciel, les bases de données, MERISE et l'architecture informatique, avec plus de 200 étudiants formés.",
+    "points": [
+      "Développement progressif de compétences en Data Engineering, tout en gardant une base solide en logiciel et en analyse de données.",
+      "Intérêt pour les banques, ONG, télécommunications, mines, entreprises technologiques et missions internationales.",
+      "Conception de solutions adaptées aux connexions instables, appareils modestes et organisations qui passent encore de processus manuels à des systèmes numériques."
+    ]
+  },
+  "projects": {
+    "kicker": "Projets sélectionnés",
+    "title": "Projets, produits et expérimentations",
+    "subtitle": "Études de cas avec statut clair, stack confirmée et liens publics uniquement quand ils existent.",
+    "statusProduct": "Produit",
+    "statusProject": "Projet",
+    "statusPrototype": "Prototype",
+    "labels": {
+      "problem": "Problème",
+      "contribution": "Contribution",
+      "features": "Fonctionnalités principales",
+      "capture": "Capture"
+    },
+    "kalansup": {
+      "problem": "Les opérations universitaires combinent souvent inscriptions, paiements, emplois du temps, notes et documents dans des outils fragmentés.",
+      "contribution": "Conception et développement de modules pour un ERP académique avec backend, base de données et tableaux de bord.",
+      "features": "Inscriptions, paiements, emplois du temps, notes, documents, présence et tableaux de bord.",
+      "capture": "Aucune capture locale disponible dans ce dépôt.",
+      "imageAlt": "Emplacement du projet KalanSUP"
+    },
+    "storesup": {
+      "problem": "Les petites opérations ont besoin d'un suivi de stock et d'une gestion quotidienne plus clairs que les seuls tableurs.",
+      "contribution": "Développement d'une application MERN de gestion de stock et des opérations.",
+      "features": "Gestion de stock, suivi opérationnel et vues orientées tableau de bord.",
+      "capture": "Aucune capture locale disponible dans ce dépôt.",
+      "imageAlt": "Emplacement du projet StoreSup"
+    },
+    "agritechmali": {
+      "problem": "Les décisions agricoles peuvent bénéficier de recommandations de cultures et d'une identification rapide des maladies végétales.",
+      "contribution": "Travail sur des parcours assistés par IA pour la recommandation de cultures et la reconnaissance de maladies végétales.",
+      "features": "Recommandation de cultures, reconnaissance de maladies végétales et interface orientée agriculture.",
+      "capture": "Capture locale disponible.",
+      "imageAlt": "Capture de l'application agricole AgritechMali"
+    },
+    "apeda": {
+      "problem": "Les difficultés d'apprentissage et la dyslexie nécessitent une information en ligne accessible, claire et compréhensible localement.",
+      "contribution": "Création d'un site informationnel accessible pour APEDA Mali.",
+      "features": "Structure de contenu accessible, pages responsive et informations sur les difficultés d'apprentissage.",
+      "capture": "Aucune capture locale disponible dans ce dépôt.",
+      "imageAlt": "Emplacement du projet APEDA Mali"
+    },
+    "ae2c": {
+      "problem": "Un cabinet d'expertise comptable et d'audit a besoin d'une présence web professionnelle qui présente clairement son expertise.",
+      "contribution": "Développement d'un site animé pour un cabinet d'expertise comptable et d'audit.",
+      "features": "Présentation du cabinet, sections de services, animation et mise en page responsive.",
+      "capture": "Aucune capture locale disponible dans ce dépôt.",
+      "imageAlt": "Emplacement du projet AE2C"
+    },
+    "bamboolab": {
+      "problem": "Les initiatives d'innovation ont besoin de formats de présentation concis et interactifs pour leurs publics.",
+      "contribution": "Développement d'une expérience de présentation interactive pour un laboratoire d'innovation.",
+      "features": "Sections interactives, présentation responsive et narration visuelle.",
+      "capture": "Aucune capture locale disponible dans ce dépôt.",
+      "imageAlt": "Emplacement du projet BambooLab"
+    },
+    "bnda-queue": {
+      "problem": "Les environnements bancaires peuvent nécessiter une meilleure organisation des files d'attente et une visibilité sur les flux de service.",
+      "contribution": "Développement d'un prototype de plateforme de gestion de files d'attente pensé pour un contexte bancaire.",
+      "features": "Écrans de gestion de file, concepts de suivi des services et interactions temps réel.",
+      "capture": "Capture locale du prototype disponible.",
+      "imageAlt": "Capture du prototype BNDA Queue pensé pour un contexte bancaire"
+    }
+  },
+  "services": {
+    "kicker": "Ce que je fais",
+    "title": "Ingénierie et données, avec un périmètre clair.",
+    "subtitle": "Pas de prix publics fixes ni de garantie artificielle : le périmètre, le délai et le budget dépendent du contexte réel.",
+    "softwareTitle": "Software Engineering",
+    "softwareBody": "Applications métier, architecture backend, API REST et intégrations.",
+    "analyticsTitle": "Data Analytics",
+    "analyticsBody": "SQL, nettoyage des données, tableaux de bord, reporting et Power BI.",
+    "systemsTitle": "Data Systems",
+    "systemsBody": "Modélisation de bases de données, automatisation et évolution progressive vers les pipelines de données."
+  },
+  "stack": {
+    "kicker": "Stack",
+    "title": "Outils et domaines confirmés.",
+    "subtitle": "Les technologies affichées reflètent le positionnement actuel du portfolio, pas chaque dépendance trouvée dans le dépôt."
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Discutons logiciel, données ou backend.",
+    "body": "Contactez-moi par e-mail, LinkedIn ou GitHub pour des opportunités locales ou internationales.",
+    "email": "M'écrire"
+  },
+  "footer": {
+    "rights": "Construit par Chamsoudine THIENTA — Shamsi Digital — 2026"
+  }
+}

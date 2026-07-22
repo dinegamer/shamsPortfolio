@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+.vercel
+.env*
+.DS_Store
+*.log
+coverage
+test-results
+playwright-report
+prompt.md
+tsconfig.tsbuildinfo
