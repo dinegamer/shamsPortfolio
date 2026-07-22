@@ -92,6 +92,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <meta name="google-site-verification" content="vbGp19kYZPXBLH4Ucq7yDmS2twd7C2ti7_DCO8vqiyc" />
+      </head>
       <body className="bg-black text-white">
         <a
           href="#top"
