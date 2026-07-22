@@ -21,10 +21,11 @@ const seo = {
 } satisfies Record<Locale, { title: string; description: string }>;
 
 export function generateMetadata({
-  params: { locale }
+  params
 }: {
-  params: { locale: Locale };
-}): Metadata {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  return params.then(({ locale }) => {
   const current = seo[locale] ?? seo.en;
   const canonical = locale === 'fr' ? '/fr' : '/';
 
@@ -67,6 +68,7 @@ export function generateMetadata({
     },
     manifest: '/manifest.webmanifest'
   };
+  });
 }
 
 export function generateStaticParams() {
@@ -75,11 +77,12 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   if (!locales.includes(locale as any)) notFound();
   setRequestLocale(locale);
   const messages = await getMessages();
