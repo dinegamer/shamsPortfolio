@@ -23,8 +23,13 @@ const personJsonLd = {
   },
   sameAs: [
     'https://github.com/dinegamer',
-    'https://www.linkedin.com/in/chamsoudine-thienta'
-  ]
+    'https://www.linkedin.com/in/chamsoudine-thienta-146b21183'
+  ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Shamsi Digital',
+    url: 'https://shamsi-dev.vercel.app'
+  }
 };
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {

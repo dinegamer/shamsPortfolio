@@ -64,6 +64,14 @@ const PROJECTS: Project[] = [
   }
 ];
 
+const TRANSLATED_STACK: Record<string, string> = {
+  Accessibility: 'technologies.accessibility',
+  Content: 'technologies.content',
+  Animation: 'technologies.animation',
+  'Responsive UI': 'technologies.responsiveUi',
+  'Interactive UI': 'technologies.interactiveUi'
+};
+
 export function Projects() {
   const t = useTranslations('projects');
   return (
@@ -137,7 +145,7 @@ export function Projects() {
                       key={s}
                       className="px-2.5 py-1 text-[10px] uppercase tracking-wider font-medium rounded-full bg-white/5 text-white/70 border border-white/10"
                     >
-                      {s}
+                      {TRANSLATED_STACK[s] ? t(TRANSLATED_STACK[s]) : s}
                     </span>
                   ))}
                 </div>

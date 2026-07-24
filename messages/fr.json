@@ -16,7 +16,7 @@
     "line2": "& Data Analyst",
     "line3": "Backend, API, bases de données & systèmes de données",
     "subtitle": "Je conçois et développe des logiciels, des API et des solutions fondées sur les données, adaptés aux réalités opérationnelles des organisations.",
-    "brand": "Fondateur de SH☀MSI Digital — Software, Data & AI. Nom indexable : Shamsi Digital.",
+    "brand": "Fondateur de SH☀MSI Digital — solutions logicielles, data et IA.",
     "primary": "Voir mes projets",
     "secondary": "Explorer mon GitHub",
     "tertiary": "Me contacter",
@@ -54,6 +54,13 @@
       "contribution": "Contribution",
       "features": "Fonctionnalités principales",
       "capture": "Capture"
+    },
+    "technologies": {
+      "accessibility": "Accessibilité",
+      "content": "Contenu",
+      "animation": "Animation",
+      "responsiveUi": "Interface responsive",
+      "interactiveUi": "Interface interactive"
     },
     "kalansup": {
       "problem": "Les opérations universitaires combinent souvent inscriptions, paiements, emplois du temps, notes et documents dans des outils fragmentés.",
@@ -119,7 +126,8 @@
   "stack": {
     "kicker": "Stack",
     "title": "Outils et domaines confirmés.",
-    "subtitle": "Les technologies affichées reflètent le positionnement actuel du portfolio, pas chaque dépendance trouvée dans le dépôt."
+    "subtitle": "Les technologies affichées reflètent le positionnement actuel du portfolio, pas chaque dépendance trouvée dans le dépôt.",
+    "items": ["Java", "Spring Boot", "Node.js", "React", "Next.js", "Python", "SQL", "PostgreSQL", "MySQL", "MongoDB", "Power BI", "API REST", "Modélisation de bases de données", "Reporting de données"]
   },
   "contact": {
     "kicker": "Contact",

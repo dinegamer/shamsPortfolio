@@ -19,7 +19,7 @@ export function Footer() {
             <Github className="w-4 h-4" />
           </a>
           <a
-            href="https://www.linkedin.com/in/chamsoudine-thienta"
+            href="https://www.linkedin.com/in/chamsoudine-thienta-146b21183"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full text-white/60 hover:text-white hover:bg-white/10 transition"

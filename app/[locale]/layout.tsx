@@ -11,12 +11,12 @@ const seo = {
   en: {
     title: 'Chamsoudine THIENTA | Software Engineer & Data Analyst',
     description:
-      'Software Engineer and Data Analyst based in Bamako, building backend systems, APIs, databases and data-driven products. Founder of Shamsi Digital.'
+      'Chamsoudine THIENTA builds software systems, backend APIs, databases and data analytics solutions through Shamsi Digital.'
   },
   fr: {
     title: 'Chamsoudine THIENTA | Ingénieur logiciel & Data Analyst',
     description:
-      'Ingénieur logiciel et Data Analyst basé à Bamako, spécialisé dans les systèmes backend, API, bases de données et solutions fondées sur les données. Fondateur de Shamsi Digital.'
+      'Chamsoudine THIENTA conçoit avec Shamsi Digital des logiciels, des API backend, des bases de données et des solutions d’analyse de données.'
   }
 } satisfies Record<Locale, { title: string; description: string }>;
 
@@ -27,7 +27,7 @@ export function generateMetadata({
 }): Promise<Metadata> {
   return params.then(({ locale }) => {
   const current = seo[locale] ?? seo.en;
-  const canonical = locale === 'fr' ? '/fr' : '/';
+  const canonical = `/${locale}`;
 
   return {
     metadataBase: new URL(siteUrl),
@@ -39,9 +39,9 @@ export function generateMetadata({
     alternates: {
       canonical,
       languages: {
-        en: '/',
+        en: '/en',
         fr: '/fr',
-        'x-default': '/'
+        'x-default': '/fr'
       }
     },
     openGraph: {
@@ -56,7 +56,9 @@ export function generateMetadata({
           url: '/me.jpg',
           width: 800,
           height: 800,
-          alt: 'Chamsoudine THIENTA'
+          alt: locale === 'fr'
+            ? 'Portrait de Chamsoudine THIENTA'
+            : 'Portrait of Chamsoudine THIENTA'
         }
       ]
     },
@@ -100,7 +102,7 @@ export default async function LocaleLayout({
           href="#top"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black"
         >
-          Skip to content
+          {locale === 'fr' ? 'Aller au contenu' : 'Skip to content'}
         </a>
         <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>

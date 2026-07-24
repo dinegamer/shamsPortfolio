@@ -27,7 +27,7 @@ export function Contact() {
               <Github className="w-4 h-4" /> GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/chamsoudine-thienta"
+              href="https://www.linkedin.com/in/chamsoudine-thienta-146b21183"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-11 items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-medium text-sm hover:bg-white/10 hover:border-brand-400/50 transition"
