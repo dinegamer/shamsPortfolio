@@ -16,10 +16,10 @@ export function About() {
         <div className="md:col-span-2 flex flex-col items-center md:items-start gap-6">
           <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-2 ring-brand-400/40 ring-offset-2 ring-offset-black">
             <Image
-              src="/me.jpg"
+              src="/chamsoudine-thienta-portrait.webp"
               alt={t('imageAlt')}
               fill
-              className="object-cover"
+              className="object-cover object-[center_18%]"
               sizes="160px"
             />
           </div>

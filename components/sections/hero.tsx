@@ -1,12 +1,29 @@
 'use client';
 import { useTranslations } from 'next-intl';
 import HeroShaderBg from '@/components/ui/hero-shader';
+import Image from 'next/image';
 
 export function Hero() {
   const t = useTranslations('hero');
   return (
     <section id="top" className="relative min-h-[92vh] overflow-hidden flex items-end">
       <HeroShaderBg />
+
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 z-[1] hidden w-[42%] lg:block"
+        aria-hidden="true"
+      >
+        <Image
+          src="/chamsoudine-thienta-portrait.webp"
+          alt=""
+          fill
+          priority
+          className="object-cover object-top"
+          sizes="42vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/35 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/15" />
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pb-20 pt-32">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 animate-fade-in-up">
@@ -20,7 +37,7 @@ export function Hero() {
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/75">
           {t('name')}
         </p>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight max-w-5xl">
+        <h1 className="text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight max-w-5xl lg:max-w-4xl">
           <span
             className="block font-light text-white/90"
             style={{
