@@ -1,18 +1,21 @@
 import type { MetadataRoute } from 'next';
+import { projectSlugs, siteUrl } from '@/lib/portfolio-content';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://shamsi-dev.vercel.app/fr',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1
-    },
-    {
-      url: 'https://shamsi-dev.vercel.app/en',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1
-    }
+  const lastModified = new Date();
+  const locales = ['fr', 'en'] as const;
+  const paths = [
+    '',
+    '/about',
+    ...projectSlugs.map((slug) => `/projects/${slug}`)
   ];
+
+  return locales.flatMap((locale) =>
+    paths.map((path) => ({
+      url: `${siteUrl}/${locale}${path}`,
+      lastModified,
+      changeFrequency: path ? ('monthly' as const) : ('weekly' as const),
+      priority: path ? 0.8 : 1
+    }))
+  );
 }

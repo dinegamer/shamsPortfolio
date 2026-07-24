@@ -7,6 +7,29 @@ import '../globals.css';
 
 const siteUrl = 'https://shamsi-dev.vercel.app';
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Chamsoudine THIENTA',
+  alternateName: 'Shams',
+  url: siteUrl,
+  jobTitle: 'Software Engineer & Data Analyst',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bamako',
+    addressCountry: 'Mali'
+  },
+  sameAs: [
+    'https://github.com/dinegamer',
+    'https://www.linkedin.com/in/chamsoudine-thienta-146b21183'
+  ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Shamsi Digital',
+    url: siteUrl
+  }
+};
+
 const seo = {
   en: {
     title: 'Chamsoudine THIENTA | Software Engineer & Data Analyst',
@@ -98,8 +121,12 @@ export default async function LocaleLayout({
         <meta name="google-site-verification" content="vbGp19kYZPXBLH4Ucq7yDmS2twd7C2ti7_DCO8vqiyc" />
       </head>
       <body className="bg-black text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <a
-          href="#top"
+          href="#content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black"
         >
           {locale === 'fr' ? 'Aller au contenu' : 'Skip to content'}

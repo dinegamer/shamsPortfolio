@@ -1,6 +1,7 @@
 'use client';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowUpRight, Github } from 'lucide-react';
 
 type Project = {
@@ -10,6 +11,7 @@ type Project = {
   statusKey: string;
   image?: string;
   github?: string;
+  detailSlug?: string;
 };
 
 const PROJECTS: Project[] = [
@@ -17,13 +19,15 @@ const PROJECTS: Project[] = [
     slug: 'kalansup',
     name: 'KalanSUP',
     stack: ['React', 'Spring Boot', 'PostgreSQL'],
-    statusKey: 'statusProduct'
+    statusKey: 'statusProduct',
+    detailSlug: 'kalansup'
   },
   {
     slug: 'storesup',
     name: 'StoreSup',
     stack: ['MongoDB', 'Express', 'React', 'Node.js'],
     statusKey: 'statusProject',
+    detailSlug: 'storesup',
     github: 'https://github.com/dinegamer/hackhaton_dev_frontEnd2'
   },
   {
@@ -32,7 +36,7 @@ const PROJECTS: Project[] = [
     stack: ['Python', 'AI', 'React'],
     statusKey: 'statusPrototype',
     image: '/projects/agritech.png',
-    github: 'https://github.com/dinegamer/agritechMali'
+    detailSlug: 'agritech-mali'
   },
   {
     slug: 'apeda',
@@ -60,7 +64,8 @@ const PROJECTS: Project[] = [
     name: 'BNDA Queue',
     stack: ['Next.js', 'TypeScript', 'Prisma', 'Socket.io'],
     statusKey: 'statusPrototype',
-    image: '/projects/bnda-queue.png'
+    image: '/projects/bnda-queue.png',
+    detailSlug: 'digital-queue'
   }
 ];
 
@@ -74,6 +79,7 @@ const TRANSLATED_STACK: Record<string, string> = {
 
 export function Projects() {
   const t = useTranslations('projects');
+  const locale = useLocale();
   return (
     <section id="work" className="relative py-24 md:py-32 bg-black">
       <div className="max-w-7xl mx-auto px-6">
@@ -149,6 +155,15 @@ export function Projects() {
                     </span>
                   ))}
                 </div>
+                {p.detailSlug ? (
+                  <Link
+                    href={`/${locale}/projects/${p.detailSlug}`}
+                    className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-white/90"
+                  >
+                    {t('details')}
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                ) : null}
               </div>
             </article>
           ))}

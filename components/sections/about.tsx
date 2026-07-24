@@ -1,10 +1,13 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import { Check } from 'lucide-react';
+import { useLocale } from 'next-intl';
+import { ArrowUpRight, Check } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function About() {
   const t = useTranslations('about');
+  const locale = useLocale();
   const points = t.raw('points') as string[];
 
   return (
@@ -39,6 +42,13 @@ export function About() {
               </li>
             ))}
           </ul>
+          <Link
+            href={`/${locale}/about`}
+            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-brand-400/50"
+          >
+            {t('link')}
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

@@ -11,12 +11,13 @@
     "closeMenu": "Fermer le menu"
   },
   "hero": {
+    "name": "Chamsoudine THIENTA — Shams",
     "badge": "Basé à Bamako, disponible localement et à l'international",
     "line1": "Ingénieur logiciel",
     "line2": "& Data Analyst",
     "line3": "Backend, API, bases de données & systèmes de données",
     "subtitle": "Je conçois et développe des logiciels, des API et des solutions fondées sur les données, adaptés aux réalités opérationnelles des organisations.",
-    "brand": "Fondateur de SH☀MSI Digital — solutions logicielles, data et IA.",
+    "brand": "Fondateur de SH☀MSI Digital",
     "primary": "Voir mes projets",
     "secondary": "Explorer mon GitHub",
     "tertiary": "Me contacter",
@@ -36,6 +37,7 @@
     "title": "Logiciel, données et systèmes opérationnels.",
     "imageAlt": "Portrait de Chamsoudine THIENTA",
     "body": "Je suis Chamsoudine THIENTA, aussi connu sous le nom de Shams, Software Engineer et Data Analyst basé à Bamako, Mali. Mon travail couvre le développement web, l'architecture backend, les API et les bases de données avec Java/Spring Boot, Node.js, React/Next.js, Python, SQL, PostgreSQL, MySQL, MongoDB et Power BI. J'enseigne aussi le développement logiciel, les bases de données, MERISE et l'architecture informatique, avec plus de 200 étudiants formés.",
+    "link": "En savoir plus sur mon parcours",
     "points": [
       "Développement progressif de compétences en Data Engineering, tout en gardant une base solide en logiciel et en analyse de données.",
       "Intérêt pour les banques, ONG, télécommunications, mines, entreprises technologiques et missions internationales.",
@@ -46,6 +48,7 @@
     "kicker": "Projets sélectionnés",
     "title": "Projets, produits et expérimentations",
     "subtitle": "Études de cas avec statut clair, stack confirmée et liens publics uniquement quand ils existent.",
+    "details": "Voir l’étude de cas",
     "statusProduct": "Produit",
     "statusProject": "Projet",
     "statusPrototype": "Prototype",

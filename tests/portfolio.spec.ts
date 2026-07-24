@@ -1,6 +1,24 @@
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 
-const linkedInUrl = 'https://www.linkedin.com/in/chamsoudine-thienta-146b21183';
+const siteUrl = 'https://shamsi-dev.vercel.app';
+const linkedInUrl =
+  'https://www.linkedin.com/in/chamsoudine-thienta-146b21183';
+const storeSupGitHub =
+  'https://github.com/dinegamer/hackhaton_dev_frontEnd2';
+const projectSlugs = [
+  'kalansup',
+  'digital-queue',
+  'agritech-mali',
+  'storesup'
+];
+const locales = ['fr', 'en'];
+const indexedPaths = [
+  '',
+  '/about',
+  ...projectSlugs.map((slug) => `/projects/${slug}`)
+];
 
 function collectCriticalErrors(page: Page) {
   const errors: string[] = [];
@@ -17,143 +35,217 @@ function collectCriticalErrors(page: Page) {
   return errors;
 }
 
-test('redirects the root to the stable French default', async ({ page }) => {
+test('redirects the root to the stable French homepage', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveURL(/\/fr$/);
 });
 
-test('renders independent French and English pages', async ({ page }) => {
-  await page.goto('/fr');
-  await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Ingénieur logiciel');
-  await expect(page.getByText('Projets sélectionnés')).toBeVisible();
-
-  await page.goto('/en');
-  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Software Engineer');
-  await expect(page.getByText('Selected work')).toBeVisible();
-});
-
-test('English page does not retain major French interface copy', async ({ page }) => {
-  await page.goto('/en');
-  const body = await page.locator('body').innerText();
-  for (const frenchText of [
-    'Ingénieur logiciel',
-    'Projets sélectionnés',
-    'À propos',
-    'Me contacter',
-    'Je travaille sur',
-    'Étudiants formés'
-  ]) {
-    expect(body).not.toContain(frenchText);
-  }
-});
-
-test('switches both ways and preserves the active section', async ({ page }) => {
-  await page.goto('/fr#services');
-  await page.getByRole('link', { name: 'Afficher le site en anglais' }).click();
-  await expect(page).toHaveURL(/\/en#services$/);
-  await expect(page.getByText('Focused engineering and data support.')).toBeVisible();
-
-  await page.getByRole('link', { name: 'View site in French' }).click();
-  await expect(page).toHaveURL(/\/fr#services$/);
-  await expect(page.getByText('Ingénierie et données, avec un périmètre clair.')).toBeVisible();
-});
-
-test('language switch works from the mobile navigation', async ({ page }) => {
-  await page.setViewportSize({ width: 375, height: 800 });
-  await page.goto('/fr#about');
-  await page.getByRole('link', { name: 'Afficher le site en anglais' }).click();
-  await expect(page).toHaveURL(/\/en#about$/);
-  await page.getByRole('button', { name: 'Open menu' }).click();
-  await expect(page.locator('#mobile-navigation')).toBeVisible();
-});
-
-test('publishes locale-specific canonical and hreflang metadata', async ({ page }) => {
-  for (const locale of ['fr', 'en']) {
+test('shows Chamsoudine THIENTA and Shams in both heroes', async ({ page }) => {
+  for (const locale of locales) {
     await page.goto(`/${locale}`);
-    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
-      'href',
-      `https://shamsi-dev.vercel.app/${locale}`
-    );
-    await expect(page.locator('link[rel="alternate"][hreflang="fr"]')).toHaveAttribute(
-      'href',
-      'https://shamsi-dev.vercel.app/fr'
-    );
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
-      'href',
-      'https://shamsi-dev.vercel.app/en'
-    );
-    await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute(
-      'href',
-      'https://shamsi-dev.vercel.app/fr'
-    );
+    await expect(
+      page.getByText('Chamsoudine THIENTA — Shams', { exact: true })
+    ).toBeVisible();
+    await expect(
+      page.getByText(
+        locale === 'fr'
+          ? 'Fondateur de SH☀MSI Digital'
+          : 'Founder of SH☀MSI Digital'
+      )
+    ).toBeVisible();
   }
 });
 
-test('publishes locale-specific titles and descriptions', async ({ page }) => {
-  await page.goto('/fr');
-  await expect(page).toHaveTitle('Chamsoudine THIENTA | Ingénieur logiciel & Data Analyst');
-  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
-    'content',
-    /Shamsi Digital/
+test('renders dedicated French and English About pages', async ({ page }) => {
+  await page.goto('/fr/about');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    'Chamsoudine THIENTA'
   );
+  await expect(page.getByText('Une trajectoire vers le Data Engineering')).toBeVisible();
 
-  await page.goto('/en');
-  await expect(page).toHaveTitle('Chamsoudine THIENTA | Software Engineer & Data Analyst');
-  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
-    'content',
-    /software systems, backend APIs, databases and data analytics/
+  await page.goto('/en/about');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    'Chamsoudine THIENTA'
   );
+  await expect(page.getByText('A gradual path toward Data Engineering')).toBeVisible();
 });
 
-test('publishes accurate Person structured data and public profiles', async ({ page }) => {
-  await page.goto('/en');
-  const jsonLd = JSON.parse(
-    (await page.locator('script[type="application/ld+json"]').textContent()) ?? '{}'
-  );
-  expect(jsonLd).toMatchObject({
-    '@type': 'Person',
-    name: 'Chamsoudine THIENTA',
-    alternateName: 'Shams',
-    url: 'https://shamsi-dev.vercel.app',
-    jobTitle: 'Software Engineer & Data Analyst'
+for (const locale of locales) {
+  for (const slug of projectSlugs) {
+    test(`${locale} project route renders: ${slug}`, async ({ page }) => {
+      await page.goto(`/${locale}/projects/${slug}`);
+      await expect(page.locator('html')).toHaveAttribute('lang', locale);
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+      await expect(
+        page.getByText(locale === 'fr' ? 'Statut réel' : 'Current status')
+      ).toBeVisible();
+      await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+    });
+  }
+}
+
+test('About language switch preserves the corresponding page', async ({ page }) => {
+  await page.goto('/fr/about');
+  await page.getByRole('link', { name: 'Afficher le site en anglais' }).click();
+  await expect(page).toHaveURL(/\/en\/about$/);
+  await page.getByRole('link', { name: 'View site in French' }).click();
+  await expect(page).toHaveURL(/\/fr\/about$/);
+});
+
+for (const slug of projectSlugs) {
+  test(`language switch preserves project: ${slug}`, async ({ page }) => {
+    await page.goto(`/fr/projects/${slug}`);
+    await page.getByRole('link', { name: 'Afficher le site en anglais' }).click();
+    await expect(page).toHaveURL(new RegExp(`/en/projects/${slug}$`));
+    await page.getByRole('link', { name: 'View site in French' }).click();
+    await expect(page).toHaveURL(new RegExp(`/fr/projects/${slug}$`));
   });
-  expect(jsonLd.sameAs).toContain('https://github.com/dinegamer');
-  expect(jsonLd.sameAs).toContain(linkedInUrl);
-  expect(jsonLd.worksFor.name).toBe('Shamsi Digital');
+}
+
+test('homepage links to About and all four detailed projects', async ({ page }) => {
+  await page.goto('/fr');
+  await expect(page.locator('a[href="/fr/about"]').first()).toBeVisible();
+  for (const slug of projectSlugs) {
+    await expect(page.locator(`a[href="/fr/projects/${slug}"]`)).toBeVisible();
+  }
 });
 
-test('serves an XML sitemap with both canonical locales', async ({ request }) => {
+test('only verified project repositories are linked', async ({ page }) => {
+  await page.goto('/en/projects/storesup');
+  await expect(page.locator(`a[href="${storeSupGitHub}"]`)).toBeVisible();
+
+  for (const slug of ['kalansup', 'digital-queue', 'agritech-mali']) {
+    await page.goto(`/en/projects/${slug}`);
+    await expect(page.locator('a[href*="github.com/dinegamer/"]')).toHaveCount(0);
+  }
+});
+
+test('all indexed pages publish correct canonical and hreflang links', async ({
+  page
+}) => {
+  for (const locale of locales) {
+    for (const path of indexedPaths) {
+      await page.goto(`/${locale}${path}`);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+        'href',
+        `${siteUrl}/${locale}${path}`
+      );
+      await expect(
+        page.locator('link[rel="alternate"][hreflang="fr"]')
+      ).toHaveAttribute('href', `${siteUrl}/fr${path}`);
+      await expect(
+        page.locator('link[rel="alternate"][hreflang="en"]')
+      ).toHaveAttribute('href', `${siteUrl}/en${path}`);
+      await expect(
+        page.locator('link[rel="alternate"][hreflang="x-default"]')
+      ).toHaveAttribute('href', `${siteUrl}/fr${path}`);
+    }
+  }
+});
+
+test('every indexed page has unique localized metadata', async ({ page }) => {
+  const titles = new Set<string>();
+  const descriptions = new Set<string>();
+  for (const locale of locales) {
+    for (const path of indexedPaths) {
+      await page.goto(`/${locale}${path}`);
+      const title = await page.title();
+      const description =
+        (await page.locator('meta[name="description"]').getAttribute('content')) ?? '';
+      expect(title.length).toBeGreaterThan(20);
+      expect(description.length).toBeGreaterThan(60);
+      expect(titles.has(title)).toBe(false);
+      expect(descriptions.has(description)).toBe(false);
+      titles.add(title);
+      descriptions.add(description);
+    }
+  }
+});
+
+test('global Person and project CreativeWork JSON-LD are valid', async ({ page }) => {
+  await page.goto('/en/projects/storesup');
+  const blocks = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  const structuredData = blocks.map((block) => JSON.parse(block));
+  expect(structuredData).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        '@type': 'Person',
+        name: 'Chamsoudine THIENTA',
+        alternateName: 'Shams',
+        sameAs: expect.arrayContaining([
+          'https://github.com/dinegamer',
+          linkedInUrl
+        ])
+      }),
+      expect.objectContaining({
+        '@type': 'CreativeWork',
+        name: 'StoreSup',
+        creator: expect.objectContaining({
+          name: 'Chamsoudine THIENTA'
+        })
+      })
+    ])
+  );
+});
+
+test('sitemap contains exactly the expected official content routes', async ({
+  request
+}) => {
   const response = await request.get('/sitemap.xml');
   expect(response.ok()).toBeTruthy();
   expect(response.headers()['content-type']).toContain('application/xml');
   const xml = await response.text();
-  expect(xml).toContain('https://shamsi-dev.vercel.app/fr');
-  expect(xml).toContain('https://shamsi-dev.vercel.app/en');
-  expect(xml).not.toContain('localhost');
-  expect(xml).not.toContain('vercel.app.vercel');
-});
 
-test('exposes official social and contact links', async ({ page }) => {
-  await page.goto('/fr');
-  await expect(page.locator('a[href="https://github.com/dinegamer"]').first()).toBeVisible();
-  await expect(page.locator(`a[href="${linkedInUrl}"]`).first()).toBeVisible();
-  await expect(page.locator('a[href^="mailto:"]').first()).toBeVisible();
-});
-
-test('renders all projects in both languages', async ({ page }) => {
-  for (const locale of ['fr', 'en']) {
-    await page.goto(`/${locale}`);
-    await expect(page.locator('#work article')).toHaveCount(7);
-    await expect(page.getByText('KalanSUP', { exact: true }).first()).toBeVisible();
+  for (const locale of locales) {
+    for (const path of indexedPaths) {
+      expect(xml).toContain(`${siteUrl}/${locale}${path}`);
+    }
   }
+
+  expect((xml.match(/<url>/g) ?? []).length).toBe(12);
+  expect(xml).not.toContain('localhost');
+  expect(xml).not.toContain('shams-portfolio-');
 });
 
-for (const width of [320, 375, 768, 1024, 1440]) {
+test('robots allows the portfolio and points to the official sitemap', async ({
+  request
+}) => {
+  const response = await request.get('/robots.txt');
+  expect(response.ok()).toBeTruthy();
+  const robots = await response.text();
+  expect(robots).toContain('Allow: /');
+  expect(robots).toContain(`Sitemap: ${siteUrl}/sitemap.xml`);
+});
+
+test('keyboard navigation reaches the skip link and page content', async ({ page }) => {
+  await page.goto('/en/about');
+  await page.keyboard.press('Tab');
+  await expect(page.locator('a[href="#content"]')).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#content')).toBeFocused();
+});
+
+test('mobile menu and detail-page layout remain usable', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/fr/projects/digital-queue');
+  await page.getByRole('button', { name: 'Ouvrir le menu' }).click();
+  await expect(page.locator('#mobile-navigation')).toBeVisible();
+  await page.getByRole('link', { name: 'À propos' }).click();
+  await expect(page).toHaveURL(/\/fr\/about$/);
+  const hasOverflow = await page.evaluate(
+    () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
+  );
+  expect(hasOverflow).toBe(false);
+});
+
+for (const width of [320, 768, 1024, 1440]) {
   test(`has no horizontal overflow at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto('/en');
+    await page.goto('/en/projects/storesup');
     const hasOverflow = await page.evaluate(
       () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
     );
@@ -164,14 +256,31 @@ for (const width of [320, 375, 768, 1024, 1440]) {
 test('honors reduced motion', async ({ browser }) => {
   const context = await browser.newContext({ reducedMotion: 'reduce' });
   const page = await context.newPage();
-  await page.goto('/fr');
+  await page.goto('/fr/projects/agritech-mali');
   await expect(page.locator('h1')).toBeVisible();
   await context.close();
 });
 
-test('has no critical console or network errors in either locale', async ({ page }) => {
+test('has no critical console or network errors across new routes', async ({
+  page
+}) => {
   const errors = collectCriticalErrors(page);
-  await page.goto('/fr');
-  await page.goto('/en');
+  for (const locale of locales) {
+    for (const path of indexedPaths) {
+      await page.goto(`/${locale}${path}`);
+    }
+  }
   expect(errors).toEqual([]);
+});
+
+test('serves the exact unchanged portrait file', async ({ request }) => {
+  const response = await request.get('/me.jpg');
+  expect(response.ok()).toBeTruthy();
+  const productionHash = createHash('sha256')
+    .update(await response.body())
+    .digest('hex');
+  const repositoryHash = createHash('sha256')
+    .update(readFileSync('public/me.jpg'))
+    .digest('hex');
+  expect(productionHash).toBe(repositoryHash);
 });

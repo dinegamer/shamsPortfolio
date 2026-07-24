@@ -1,23 +1,24 @@
 'use client';
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Menu, X } from 'lucide-react';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
 
 export function Navbar() {
   const t = useTranslations('nav');
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const links = [
-    { href: '#work', label: t('work') },
-    { href: '#services', label: t('services') },
-    { href: '#about', label: t('about') },
-    { href: '#contact', label: t('contact') }
+    { href: `/${locale}#work`, label: t('work') },
+    { href: `/${locale}#services`, label: t('services') },
+    { href: `/${locale}/about`, label: t('about') },
+    { href: `/${locale}#contact`, label: t('contact') }
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 bg-black/85 border-b border-white/10">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-        <a href="#top" className="font-black text-lg tracking-tight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-400">
+        <a href={`/${locale}`} className="font-black text-lg tracking-tight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-400">
           SH☀MSI <span className="sr-only">Shamsi Digital</span>
         </a>
         <nav className="hidden md:flex items-center gap-1 text-sm" aria-label={t('primaryNav')}>
@@ -34,7 +35,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
           <a
-            href="#contact"
+            href={`/${locale}#contact`}
             className="hidden sm:inline-flex min-h-11 items-center px-4 py-2 text-xs font-medium bg-white text-black rounded-full hover:bg-white/90 transition"
           >
             {t('cta')}

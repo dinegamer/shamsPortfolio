@@ -17,6 +17,9 @@ export function Hero() {
           <span className="text-xs font-medium text-white/90 tracking-wide">{t('badge')}</span>
         </div>
 
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/75">
+          {t('name')}
+        </p>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight max-w-5xl">
           <span
             className="block font-light text-white/90"
