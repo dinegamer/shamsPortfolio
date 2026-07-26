@@ -3,32 +3,10 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/i18n';
+import { identityGraph, portraitUrl } from '@/lib/structured-data';
 import '../globals.css';
 
 const siteUrl = 'https://shamsi-dev.vercel.app';
-
-const personJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Chamsoudine THIENTA',
-  alternateName: 'Shams',
-  url: siteUrl,
-  jobTitle: 'Software Engineer & Data Analyst',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Bamako',
-    addressCountry: 'Mali'
-  },
-  sameAs: [
-    'https://github.com/dinegamer',
-    'https://www.linkedin.com/in/chamsoudine-thienta-146b21183'
-  ],
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Shamsi Digital',
-    url: siteUrl
-  }
-};
 
 const seo = {
   en: {
@@ -56,6 +34,22 @@ export function generateMetadata({
     metadataBase: new URL(siteUrl),
     title: current.title,
     description: current.description,
+    keywords:
+      locale === 'fr'
+        ? [
+            'Chamsoudine Thienta',
+            'Shams',
+            'Ingénieur logiciel Bamako',
+            'analyse de données Mali',
+            'Shamsi Digital'
+          ]
+        : [
+            'Chamsoudine Thienta',
+            'Shams',
+            'Software Engineer Bamako',
+            'Data Analyst Mali',
+            'Shamsi Digital'
+          ],
     verification: {
       google: 'vbGp19kYZPXBLH4Ucq7yDmS2twd7C2ti7_DCO8vqiyc'
     },
@@ -76,9 +70,9 @@ export function generateMetadata({
       locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       images: [
         {
-          url: '/me.jpg',
-          width: 800,
-          height: 800,
+          url: portraitUrl,
+          width: 900,
+          height: 1125,
           alt: locale === 'fr'
             ? 'Portrait de Chamsoudine THIENTA'
             : 'Portrait of Chamsoudine THIENTA'
@@ -89,7 +83,7 @@ export function generateMetadata({
       card: 'summary_large_image',
       title: current.title,
       description: current.description,
-      images: ['/me.jpg']
+      images: [portraitUrl]
     },
     icons: {
       icon: '/icon.svg'
@@ -122,8 +116,9 @@ export default async function LocaleLayout({
       </head>
       <body className="bg-black text-white">
         <script
+          id="identity-graph"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(identityGraph) }}
         />
         <a
           href="#content"

@@ -5,6 +5,8 @@ import { expect, test, type Page } from '@playwright/test';
 const siteUrl = 'https://shamsi-dev.vercel.app';
 const linkedInUrl =
   'https://www.linkedin.com/in/chamsoudine-thienta-146b21183';
+const personId = `${siteUrl}/#chamsoudine-thienta`;
+const organizationId = `${siteUrl}/#shamsi-digital`;
 const storeSupGitHub =
   'https://github.com/dinegamer/hackhaton_dev_frontEnd2';
 const projectSlugs = [
@@ -164,32 +166,82 @@ test('every indexed page has unique localized metadata', async ({ page }) => {
   }
 });
 
-test('global Person and project CreativeWork JSON-LD are valid', async ({ page }) => {
-  await page.goto('/en/projects/storesup');
-  const blocks = await page
-    .locator('script[type="application/ld+json"]')
-    .allTextContents();
-  const structuredData = blocks.map((block) => JSON.parse(block));
-  expect(structuredData).toEqual(
-    expect.arrayContaining([
-      expect.objectContaining({
-        '@type': 'Person',
-        name: 'Chamsoudine THIENTA',
-        alternateName: 'Shams',
-        sameAs: expect.arrayContaining([
-          'https://github.com/dinegamer',
-          linkedInUrl
-        ])
-      }),
-      expect.objectContaining({
-        '@type': 'CreativeWork',
-        name: 'StoreSup',
-        creator: expect.objectContaining({
-          name: 'Chamsoudine THIENTA'
-        })
-      })
-    ])
+test('publishes one reusable Person and Organization identity graph', async ({
+  page
+}) => {
+  await page.goto('/en');
+  const graph = JSON.parse(
+    (await page.locator('#identity-graph').textContent()) ?? '{}'
   );
+  const person = graph['@graph'].find(
+    (entity: Record<string, unknown>) => entity['@id'] === personId
+  );
+  const organization = graph['@graph'].find(
+    (entity: Record<string, unknown>) => entity['@id'] === organizationId
+  );
+
+  expect(person).toMatchObject({
+    '@type': 'Person',
+    name: 'Chamsoudine Thienta',
+    alternateName: ['Shams', 'Chamsoudine THIENTA'],
+    url: `${siteUrl}/fr`,
+    jobTitle: ['Software Engineer', 'Data Analyst'],
+    sameAs: ['https://github.com/dinegamer', linkedInUrl],
+    affiliation: { '@id': organizationId }
+  });
+  expect(person.image.url).toBe(
+    `${siteUrl}/chamsoudine-thienta-portrait.webp`
+  );
+  expect(organization).toMatchObject({
+    '@type': 'Organization',
+    name: 'Shamsi Digital',
+    alternateName: 'SH☀MSI Digital',
+    founder: { '@id': personId }
+  });
+});
+
+test('About pages publish localized ProfilePage JSON-LD', async ({ page }) => {
+  for (const locale of locales) {
+    await page.goto(`/${locale}/about`);
+    const profile = JSON.parse(
+      (await page.locator('#profile-page-graph').textContent()) ?? '{}'
+    );
+    expect(profile).toMatchObject({
+      '@type': 'ProfilePage',
+      '@id': `${siteUrl}/${locale}/about#profile-page`,
+      url: `${siteUrl}/${locale}/about`,
+      inLanguage: locale,
+      dateModified: '2026-07-26',
+      mainEntity: { '@id': personId }
+    });
+  }
+});
+
+test('projects reference the Person and expose evidence-based schema types', async ({
+  page
+}) => {
+  const expectedTypes: Record<string, string> = {
+    kalansup: 'SoftwareApplication',
+    'digital-queue': 'SoftwareApplication',
+    'agritech-mali': 'CreativeWork',
+    storesup: 'SoftwareSourceCode'
+  };
+
+  for (const slug of projectSlugs) {
+    await page.goto(`/en/projects/${slug}`);
+    const project = JSON.parse(
+      (await page.locator('#project-graph').textContent()) ?? '{}'
+    );
+    expect(project['@type']).toBe(expectedTypes[slug]);
+    expect(project.creator).toEqual({ '@id': personId });
+    expect(project.dateModified).toBe('2026-07-26');
+    expect(project.keywords.length).toBeGreaterThan(2);
+    await expect(page.locator('meta[name="keywords"]')).toHaveCount(1);
+    await expect(page.locator('meta[name="date-modified"]')).toHaveAttribute(
+      'content',
+      '2026-07-26'
+    );
+  }
 });
 
 test('sitemap contains exactly the expected official content routes', async ({
@@ -217,8 +269,44 @@ test('robots allows the portfolio and points to the official sitemap', async ({
   const response = await request.get('/robots.txt');
   expect(response.ok()).toBeTruthy();
   const robots = await response.text();
-  expect(robots).toContain('Allow: /');
+  expect(robots).toContain('User-Agent: OAI-SearchBot');
+  expect(robots).toContain('User-Agent: ClaudeBot');
+  expect(robots).toContain('User-Agent: *');
+  expect((robots.match(/Allow: \//g) ?? []).length).toBe(3);
+  expect(robots).not.toContain('OAI-AdsBot');
   expect(robots).toContain(`Sitemap: ${siteUrl}/sitemap.xml`);
+});
+
+test('serves a short factual llms.txt with official routes and profiles', async ({
+  request
+}) => {
+  const response = await request.get('/llms.txt');
+  expect(response.ok()).toBeTruthy();
+  expect(response.headers()['content-type']).toContain('text/plain');
+  const content = await response.text();
+  expect(content).toContain('Chamsoudine Thienta');
+  expect(content).toContain('Software Engineer and Data Analyst');
+  expect(content).toContain('Bamako, Mali');
+  expect(content).toContain(`${siteUrl}/fr/about`);
+  expect(content).toContain(`${siteUrl}/en/projects/storesup`);
+  expect(content).toContain('https://github.com/dinegamer');
+  expect(content).toContain(linkedInUrl);
+});
+
+test('identity and official links exist in initial server HTML', async ({
+  request
+}) => {
+  for (const locale of locales) {
+    const response = await request.get(`/${locale}`);
+    const html = await response.text();
+    expect(html).toContain('Chamsoudine THIENTA');
+    expect(html).toContain('Bamako');
+    expect(html).toContain('Mali');
+    expect(html).toContain('Software Engineer');
+    expect(html).toContain('Data Analyst');
+    expect(html).toContain('href="https://github.com/dinegamer"');
+    expect(html).toContain(`href="${linkedInUrl}"`);
+  }
 });
 
 test('keyboard navigation reaches the skip link and page content', async ({ page }) => {
@@ -274,13 +362,13 @@ test('has no critical console or network errors across new routes', async ({
 });
 
 test('serves the exact unchanged portrait file', async ({ request }) => {
-  const response = await request.get('/me.jpg');
+  const response = await request.get('/chamsoudine-thienta-portrait.webp');
   expect(response.ok()).toBeTruthy();
   const productionHash = createHash('sha256')
     .update(await response.body())
     .digest('hex');
   const repositoryHash = createHash('sha256')
-    .update(readFileSync('public/me.jpg'))
+    .update(readFileSync('public/chamsoudine-thienta-portrait.webp'))
     .digest('hex');
   expect(productionHash).toBe(repositoryHash);
 });

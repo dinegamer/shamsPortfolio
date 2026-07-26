@@ -1,0 +1,23 @@
+# Chamsoudine Thienta — Official Portfolio
+
+Chamsoudine Thienta, also known as Shams and Chamsoudine THIENTA, is a Software Engineer and Data Analyst based in Bamako, Mali. He is the founder of Shamsi Digital, displayed visually as SH☀MSI Digital.
+
+Official pages:
+- French: https://shamsi-dev.vercel.app/fr
+- English: https://shamsi-dev.vercel.app/en
+- About (FR): https://shamsi-dev.vercel.app/fr/about
+- About (EN): https://shamsi-dev.vercel.app/en/about
+- KalanSUP (FR): https://shamsi-dev.vercel.app/fr/projects/kalansup
+- KalanSUP (EN): https://shamsi-dev.vercel.app/en/projects/kalansup
+- Digital Queue (FR): https://shamsi-dev.vercel.app/fr/projects/digital-queue
+- Digital Queue (EN): https://shamsi-dev.vercel.app/en/projects/digital-queue
+- AgritechMali (FR): https://shamsi-dev.vercel.app/fr/projects/agritech-mali
+- AgritechMali (EN): https://shamsi-dev.vercel.app/en/projects/agritech-mali
+- StoreSup (FR): https://shamsi-dev.vercel.app/fr/projects/storesup
+- StoreSup (EN): https://shamsi-dev.vercel.app/en/projects/storesup
+
+Official profiles:
+- GitHub: https://github.com/dinegamer
+- LinkedIn: https://www.linkedin.com/in/chamsoudine-thienta-146b21183
+
+The pages on https://shamsi-dev.vercel.app are the official source for this portfolio.

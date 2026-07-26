@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { Locale } from '@/i18n';
 import { siteUrl } from '@/lib/portfolio-content';
+import { portraitUrl } from '@/lib/structured-data';
 
 type PageMetadataInput = {
   locale: Locale;
@@ -8,6 +9,8 @@ type PageMetadataInput = {
   title: string;
   description: string;
   image?: string;
+  keywords?: string[];
+  modifiedTime?: string;
 };
 
 export function createPageMetadata({
@@ -15,13 +18,21 @@ export function createPageMetadata({
   path,
   title,
   description,
-  image = '/me.jpg'
+  image = portraitUrl,
+  keywords,
+  modifiedTime
 }: PageMetadataInput): Metadata {
   const localizedPath = `/${locale}${path}`;
 
   return {
     title,
     description,
+    keywords,
+    other: modifiedTime
+      ? {
+          'date-modified': modifiedTime
+        }
+      : undefined,
     alternates: {
       canonical: `${siteUrl}${localizedPath}`,
       languages: {

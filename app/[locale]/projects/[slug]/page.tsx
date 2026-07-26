@@ -11,6 +11,10 @@ import {
   portfolioContent,
   projectSlugs
 } from '@/lib/portfolio-content';
+import {
+  contentModifiedDate,
+  getProjectKeywords
+} from '@/lib/structured-data';
 
 export function generateStaticParams() {
   return projectSlugs.map((slug) => ({ slug }));
@@ -29,7 +33,9 @@ export function generateMetadata({
       path: `/projects/${slug}`,
       title: project.seoTitle,
       description: project.seoDescription,
-      image: project.image?.src
+      image: project.image?.src,
+      keywords: getProjectKeywords(locale, slug),
+      modifiedTime: contentModifiedDate
     });
   });
 }

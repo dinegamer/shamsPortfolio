@@ -12,6 +12,7 @@ import {
   linkedInUrl,
   portfolioContent
 } from '@/lib/portfolio-content';
+import { createProfilePageJsonLd } from '@/lib/structured-data';
 
 export function generateMetadata({
   params
@@ -25,7 +26,23 @@ export function generateMetadata({
       locale,
       path: '/about',
       title: content.seoTitle,
-      description: content.seoDescription
+      description: content.seoDescription,
+      keywords:
+        locale === 'fr'
+          ? [
+              'Chamsoudine Thienta',
+              'Shams',
+              'Ingénieur logiciel Bamako',
+              'analyse de données Mali',
+              'Shamsi Digital'
+            ]
+          : [
+              'Chamsoudine Thienta',
+              'Shams',
+              'Software Engineer Bamako',
+              'Data Analyst Mali',
+              'Shamsi Digital'
+            ]
     });
   });
 }
@@ -42,10 +59,20 @@ export default async function AboutPage({
   setRequestLocale(locale);
   const content = portfolioContent[locale];
   const { about, navigation } = content;
+  const profilePageJsonLd = createProfilePageJsonLd({
+    locale,
+    name: about.seoTitle,
+    description: about.seoDescription
+  });
 
   return (
     <>
       <Navbar />
+      <script
+        id="profile-page-graph"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd) }}
+      />
       <main id="content" tabIndex={-1} className="min-h-screen bg-black pt-28 text-white">
         <header className="border-b border-white/10 px-6 pb-16 pt-10 md:pb-24">
           <div className="mx-auto max-w-5xl">

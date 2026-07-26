@@ -8,6 +8,12 @@ import {
   projectSlugs,
   type ProjectSlug
 } from '@/lib/portfolio-content';
+import {
+  contentModifiedDate,
+  getProjectKeywords,
+  getProjectStructuredType,
+  personId
+} from '@/lib/structured-data';
 
 type ProjectDetailProps = {
   locale: Locale;
@@ -20,20 +26,28 @@ export function ProjectDetail({ locale, slug }: ProjectDetailProps) {
   const labels = content.projectLabels;
   const navigation = content.navigation;
   const related = projectSlugs.filter((item) => item !== slug);
+  const projectUrl = `https://shamsi-dev.vercel.app/${locale}/projects/${slug}`;
+  const structuredType = getProjectStructuredType(slug);
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'CreativeWork',
+    '@type': structuredType,
+    '@id': `${projectUrl}#project`,
     name: project.name,
     description: project.summary,
-    url: `https://shamsi-dev.vercel.app/${locale}/projects/${slug}`,
+    url: projectUrl,
     inLanguage: locale,
+    dateModified: contentModifiedDate,
+    keywords: getProjectKeywords(locale, slug),
     creator: {
-      '@type': 'Person',
-      name: 'Chamsoudine THIENTA',
-      alternateName: 'Shams',
-      url: 'https://shamsi-dev.vercel.app'
+      '@id': personId
     },
+    ...(structuredType === 'SoftwareApplication'
+      ? { applicationCategory: 'BusinessApplication' }
+      : {}),
+    ...(structuredType === 'SoftwareSourceCode' && project.github
+      ? { codeRepository: project.github }
+      : {}),
     ...(project.image
       ? { image: `https://shamsi-dev.vercel.app${project.image.src}` }
       : {})
@@ -42,6 +56,7 @@ export function ProjectDetail({ locale, slug }: ProjectDetailProps) {
   return (
     <main id="content" tabIndex={-1} className="min-h-screen bg-black pt-28 text-white">
       <script
+        id="project-graph"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
