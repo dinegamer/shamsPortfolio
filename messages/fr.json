@@ -170,7 +170,9 @@
       "again": "Envoyer un autre message"
     },
     "errors": {
-      "generic": "L’envoi a échoué. Réessayez ou utilisez l’e-mail direct."
+      "generic": "L’envoi a échoué. Réessayez ou utilisez l’e-mail direct.",
+      "tooFast": "Veuillez patienter un instant, puis renvoyer le formulaire.",
+      "wait": "Un message vient d’être envoyé. Patientez une minute avant un nouvel envoi."
     }
   },
   "footer": {
