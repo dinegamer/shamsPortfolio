@@ -134,9 +134,44 @@
   },
   "contact": {
     "kicker": "Contact",
-    "title": "Discutons logiciel, données ou backend.",
-    "body": "Contactez-moi par e-mail, LinkedIn ou GitHub pour des opportunités locales ou internationales.",
-    "email": "M'écrire"
+    "title": "Parlons de votre besoin.",
+    "body": "Recrutement, mission logicielle ou data, KalanSUP ou partenariat : envoyez-moi les informations utiles directement depuis ce formulaire.",
+    "privacy": "Les informations demandées servent uniquement à vous répondre. N’envoyez aucun mot de passe, document d’identité ni donnée confidentielle.",
+    "email": "E-mail direct",
+    "optional": "Facultatif",
+    "fields": {
+      "name": "Nom complet",
+      "email": "Adresse e-mail",
+      "organization": "Entreprise ou organisation",
+      "reason": "Motif du contact",
+      "subject": "Objet",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Votre nom",
+      "email": "vous@entreprise.com",
+      "organization": "Nom de votre organisation",
+      "reason": "Sélectionnez un motif",
+      "subject": "En quelques mots",
+      "message": "Présentez votre besoin, le contexte et, si possible, vos délais."
+    },
+    "reasons": {
+      "recruitment": "Recrutement ou mission",
+      "project": "Projet logiciel ou data",
+      "kalansup": "KalanSUP",
+      "partnership": "Partenariat",
+      "other": "Autre demande"
+    },
+    "submit": "Envoyer le message",
+    "sending": "Envoi en cours…",
+    "success": {
+      "title": "Message envoyé",
+      "body": "Merci. Votre message a bien été transmis et je vous répondrai directement par e-mail.",
+      "again": "Envoyer un autre message"
+    },
+    "errors": {
+      "generic": "L’envoi a échoué. Réessayez ou utilisez l’e-mail direct."
+    }
   },
   "footer": {
     "rights": "Construit par Chamsoudine THIENTA — Shamsi Digital — 2026"

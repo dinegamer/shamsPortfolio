@@ -134,9 +134,44 @@
   },
   "contact": {
     "kicker": "Contact",
-    "title": "Discuss software, data or backend work.",
-    "body": "Reach me by email, LinkedIn or GitHub for local or international opportunities.",
-    "email": "Email me"
+    "title": "Tell me what you need.",
+    "body": "Recruitment, software or data work, KalanSUP, or a partnership: send the useful details directly through this form.",
+    "privacy": "The information requested is used only to reply to you. Do not send passwords, identity documents, or confidential data.",
+    "email": "Direct email",
+    "optional": "Optional",
+    "fields": {
+      "name": "Full name",
+      "email": "Email address",
+      "organization": "Company or organization",
+      "reason": "Reason for contacting",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "email": "you@company.com",
+      "organization": "Your organization",
+      "reason": "Select a reason",
+      "subject": "A short summary",
+      "message": "Describe your need, the context and, if possible, your timeline."
+    },
+    "reasons": {
+      "recruitment": "Recruitment or contract work",
+      "project": "Software or data project",
+      "kalansup": "KalanSUP",
+      "partnership": "Partnership",
+      "other": "Other inquiry"
+    },
+    "submit": "Send message",
+    "sending": "Sending…",
+    "success": {
+      "title": "Message sent",
+      "body": "Thank you. Your message has been delivered and I will reply directly by email.",
+      "again": "Send another message"
+    },
+    "errors": {
+      "generic": "The message could not be sent. Please try again or use direct email."
+    }
   },
   "footer": {
     "rights": "Built by Chamsoudine THIENTA — Shamsi Digital — 2026"
