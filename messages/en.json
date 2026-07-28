@@ -170,7 +170,9 @@
       "again": "Send another message"
     },
     "errors": {
-      "generic": "The message could not be sent. Please try again or use direct email."
+      "generic": "The message could not be sent. Please try again or use direct email.",
+      "tooFast": "Please wait a moment, then submit the form again.",
+      "wait": "A message was just sent. Please wait one minute before sending another."
     }
   },
   "footer": {

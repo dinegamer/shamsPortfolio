@@ -14,6 +14,12 @@ import {
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
+const formSubmitEndpoint =
+  'https://formsubmit.co/ajax/teenagerdine@gmail.com';
+const minimumCompletionTime = 2_500;
+const submissionCooldown = 60_000;
+const lastSubmissionKey = 'shams-portfolio-contact-last-submission';
+
 export function Contact() {
   const t = useTranslations('contact');
   const locale = useLocale();
@@ -30,24 +36,59 @@ export function Contact() {
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
 
+    if (payload._honey) {
+      form.reset();
+      setStatus('success');
+      return;
+    }
+
+    if (Date.now() - startedAt.current < minimumCompletionTime) {
+      setError(t('errors.tooFast'));
+      setStatus('error');
+      return;
+    }
+
+    const lastSubmission = Number(
+      window.localStorage.getItem(lastSubmissionKey) ?? 0
+    );
+    if (Date.now() - lastSubmission < submissionCooldown) {
+      setError(t('errors.wait'));
+      setStatus('error');
+      return;
+    }
+
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(formSubmitEndpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           ...payload,
-          locale,
-          startedAt: startedAt.current
+          language: locale,
+          _replyto: payload.email,
+          _subject: `[Portfolio] ${payload.subject}`,
+          _template: 'table',
+          _url: `https://shamsi-dev.vercel.app/${locale}#contact`
         })
       });
-      const data = (await response.json()) as { error?: string };
+      const data = (await response.json()) as {
+        error?: string;
+        success?: boolean | string;
+      };
 
-      if (!response.ok) {
-        throw new Error(data.error || t('errors.generic'));
+      if (
+        !response.ok ||
+        data.success === false ||
+        data.success === 'false'
+      ) {
+        throw new Error(t('errors.generic'));
       }
 
       form.reset();
       startedAt.current = Date.now();
+      window.localStorage.setItem(lastSubmissionKey, String(Date.now()));
       setStatus('success');
     } catch (submissionError) {
       setError(
@@ -241,7 +282,7 @@ export function Contact() {
                     <label htmlFor="contact-website">Website</label>
                     <input
                       id="contact-website"
-                      name="website"
+                      name="_honey"
                       type="text"
                       tabIndex={-1}
                       autoComplete="off"
