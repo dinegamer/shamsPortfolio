@@ -164,6 +164,7 @@
     },
     "submit": "Send message",
     "sending": "Sending…",
+    "submissionFrameTitle": "Secure form submission",
     "success": {
       "title": "Message sent",
       "body": "Thank you. Your message has been delivered and I will reply directly by email.",

@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test('French contact form submits without leaving the portfolio', async ({
   page
 }) => {
-  await page.route('https://formsubmit.co/ajax/**', async (route) => {
+  await page.route('https://formsubmit.co/**', async (route) => {
     const payload = route.request().postDataJSON();
     expect(payload).toMatchObject({
       name: 'Aminata Traoré',
@@ -13,13 +13,14 @@ test('French contact form submits without leaving the portfolio', async ({
       subject: 'Opportunité backend',
       language: 'fr',
       _replyto: 'aminata@example.com',
-      _subject: '[Portfolio] Opportunité backend'
+      _subject: '[Portfolio] Opportunité backend',
+      _captcha: 'false'
     });
     expect(payload.message).toContain('équipe backend');
     await route.fulfill({
       status: 200,
-      contentType: 'application/json',
-      body: JSON.stringify({ success: 'true' })
+      contentType: 'text/html',
+      body: '<!doctype html><html><body>Accepted</body></html>'
     });
   });
 

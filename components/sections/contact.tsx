@@ -15,7 +15,7 @@ import {
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 const formSubmitEndpoint =
-  'https://formsubmit.co/ajax/teenagerdine@gmail.com';
+  'https://formsubmit.co/teenagerdine@gmail.com';
 const minimumCompletionTime = 2_500;
 const submissionCooldown = 60_000;
 const lastSubmissionKey = 'shams-portfolio-contact-last-submission';
@@ -24,12 +24,13 @@ export function Contact() {
   const t = useTranslations('contact');
   const locale = useLocale();
   const startedAt = useRef(Date.now());
+  const formRef = useRef<HTMLFormElement>(null);
+  const submissionStarted = useRef(false);
   const [status, setStatus] = useState<FormStatus>('idle');
   const [error, setError] = useState('');
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setStatus('sending');
     setError('');
 
     const form = event.currentTarget;
@@ -57,47 +58,41 @@ export function Contact() {
       return;
     }
 
-    try {
-      const response = await fetch(formSubmitEndpoint, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          ...payload,
-          language: locale,
-          _replyto: payload.email,
-          _subject: `[Portfolio] ${payload.subject}`,
-          _template: 'table',
-          _url: `https://shamsi-dev.vercel.app/${locale}#contact`
-        })
-      });
-      const data = (await response.json()) as {
-        error?: string;
-        success?: boolean | string;
-      };
+    const generatedFields = {
+      _replyto: String(payload.email),
+      _subject: `[Portfolio] ${String(payload.subject)}`,
+      _template: 'table',
+      _captcha: 'false',
+      _url: `https://shamsi-dev.vercel.app/${locale}#contact`,
+      language: locale
+    };
 
-      if (
-        !response.ok ||
-        data.success === false ||
-        data.success === 'false'
-      ) {
-        throw new Error(t('errors.generic'));
-      }
-
-      form.reset();
-      startedAt.current = Date.now();
-      window.localStorage.setItem(lastSubmissionKey, String(Date.now()));
-      setStatus('success');
-    } catch (submissionError) {
-      setError(
-        submissionError instanceof Error
-          ? submissionError.message
-          : t('errors.generic')
-      );
-      setStatus('error');
+    for (const [name, value] of Object.entries(generatedFields)) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = name;
+      input.value = value;
+      input.dataset.contactGenerated = 'true';
+      form.appendChild(input);
     }
+
+    submissionStarted.current = true;
+    setStatus('sending');
+    form.submit();
+  }
+
+  function handleSubmissionFrameLoad() {
+    if (!submissionStarted.current) return;
+    submissionStarted.current = false;
+
+    const form = formRef.current;
+    form?.reset();
+    form
+      ?.querySelectorAll('[data-contact-generated="true"]')
+      .forEach((field) => field.remove());
+    startedAt.current = Date.now();
+    window.localStorage.setItem(lastSubmissionKey, String(Date.now()));
+    setStatus('success');
   }
 
   return (
@@ -180,7 +175,14 @@ export function Contact() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form
+                  ref={formRef}
+                  action={formSubmitEndpoint}
+                  method="POST"
+                  target="contact-submission-target"
+                  onSubmit={handleSubmit}
+                  className="space-y-5"
+                >
                   <div className="grid gap-5 sm:grid-cols-2">
                     <FormField label={t('fields.name')} htmlFor="contact-name">
                       <input
@@ -320,6 +322,13 @@ export function Contact() {
                   </button>
                 </form>
               )}
+              <iframe
+                name="contact-submission-target"
+                title={t('submissionFrameTitle')}
+                onLoad={handleSubmissionFrameLoad}
+                className="hidden"
+                aria-hidden="true"
+              />
             </div>
           </div>
         </div>

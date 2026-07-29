@@ -164,6 +164,7 @@
     },
     "submit": "Envoyer le message",
     "sending": "Envoi en cours…",
+    "submissionFrameTitle": "Transmission sécurisée du formulaire",
     "success": {
       "title": "Message envoyé",
       "body": "Merci. Votre message a bien été transmis et je vous répondrai directement par e-mail.",
