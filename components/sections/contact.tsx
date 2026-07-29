@@ -15,7 +15,7 @@ import {
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 const formSubmitEndpoint =
-  'https://formsubmit.co/teenagerdine@gmail.com';
+  'https://formsubmit.co/3bc2588a7c30e68047d52b720455e7bb';
 const minimumCompletionTime = 2_500;
 const submissionCooldown = 60_000;
 const lastSubmissionKey = 'shams-portfolio-contact-last-submission';
