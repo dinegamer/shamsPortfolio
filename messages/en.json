@@ -118,7 +118,7 @@
   "services": {
     "kicker": "What I do",
     "title": "Focused engineering and data support.",
-    "subtitle": "No fixed public pricing or artificial delivery guarantees: scope, timeline and budget depend on the real context.",
+    "subtitle": "Every project starts with a conversation about your needs so we can agree on deliverables, a timeline and a budget.",
     "softwareTitle": "Software Engineering",
     "softwareBody": "Business applications, backend architecture, REST APIs and integrations.",
     "analyticsTitle": "Data Analytics",
@@ -128,8 +128,8 @@
   },
   "stack": {
     "kicker": "Stack",
-    "title": "Confirmed tools and working areas.",
-    "subtitle": "Technologies shown here reflect the current portfolio positioning rather than every dependency found in the repository.",
+    "title": "Technologies and skills.",
+    "subtitle": "The tools I use to build your applications, structure your data and create your dashboards.",
     "items": ["Java", "Spring Boot", "Node.js", "React", "Next.js", "Python", "SQL", "PostgreSQL", "MySQL", "MongoDB", "Power BI", "REST APIs", "Database modeling", "Data reporting"]
   },
   "contact": {
