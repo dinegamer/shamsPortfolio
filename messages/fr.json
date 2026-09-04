@@ -118,7 +118,7 @@
   "services": {
     "kicker": "Ce que je fais",
     "title": "Ingénierie et données, avec un périmètre clair.",
-    "subtitle": "Pas de prix publics fixes ni de garantie artificielle : le périmètre, le délai et le budget dépendent du contexte réel.",
+    "subtitle": "Chaque projet commence par un échange sur vos besoins pour définir ensemble les livrables, le calendrier et le budget.",
     "softwareTitle": "Software Engineering",
     "softwareBody": "Applications métier, architecture backend, API REST et intégrations.",
     "analyticsTitle": "Data Analytics",
@@ -128,8 +128,8 @@
   },
   "stack": {
     "kicker": "Stack",
-    "title": "Outils et domaines confirmés.",
-    "subtitle": "Les technologies affichées reflètent le positionnement actuel du portfolio, pas chaque dépendance trouvée dans le dépôt.",
+    "title": "Technologies et compétences.",
+    "subtitle": "Mes outils pour développer vos applications, structurer vos données et créer vos tableaux de bord.",
     "items": ["Java", "Spring Boot", "Node.js", "React", "Next.js", "Python", "SQL", "PostgreSQL", "MySQL", "MongoDB", "Power BI", "API REST", "Modélisation de bases de données", "Reporting de données"]
   },
   "contact": {
