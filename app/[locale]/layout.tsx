@@ -10,14 +10,14 @@ const siteUrl = 'https://shamsi-dev.vercel.app';
 
 const seo = {
   en: {
-    title: 'Chamsoudine THIENTA | Software Engineer & Data Analyst',
+    title: 'IT Consultant in Bamako | Chamsoudine THIENTA',
     description:
-      'Chamsoudine THIENTA builds software systems, backend APIs, databases and data analytics solutions through Shamsi Digital.'
+      'IT consultant and software engineer in Bamako. Chamsoudine THIENTA delivers business software, APIs, databases, automation and data solutions through SHAMSI Digital.'
   },
   fr: {
-    title: 'Chamsoudine THIENTA | Ingénieur logiciel & Data Analyst',
+    title: 'Consultant informatique à Bamako | Chamsoudine THIENTA',
     description:
-      'Chamsoudine THIENTA conçoit avec Shamsi Digital des logiciels, des API backend, des bases de données et des solutions d’analyse de données.'
+      'Consultant informatique et ingénieur logiciel à Bamako, Chamsoudine THIENTA réalise logiciels métier, API, bases de données, automatisations et solutions data avec SHAMSI Digital.'
   }
 } satisfies Record<Locale, { title: string; description: string }>;
 
@@ -39,16 +39,20 @@ export function generateMetadata({
         ? [
             'Chamsoudine Thienta',
             'Shams',
+            'Consultant informatique Bamako',
+            'Consultant SI Mali',
             'Ingénieur logiciel Bamako',
+            'Développement logiciel Mali',
             'analyse de données Mali',
-            'Shamsi Digital'
+            'SHAMSI Digital'
           ]
         : [
             'Chamsoudine Thienta',
             'Shams',
+            'IT Consultant Bamako',
             'Software Engineer Bamako',
             'Data Analyst Mali',
-            'Shamsi Digital'
+            'SHAMSI Digital'
           ],
     verification: {
       google: 'vbGp19kYZPXBLH4Ucq7yDmS2twd7C2ti7_DCO8vqiyc'
@@ -65,7 +69,7 @@ export function generateMetadata({
       title: current.title,
       description: current.description,
       url: canonical,
-      siteName: 'Shamsi Digital',
+      siteName: 'SHAMSI Digital',
       type: 'website',
       locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       images: [

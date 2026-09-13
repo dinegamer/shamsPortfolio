@@ -2,7 +2,7 @@
 
 Public portfolio for Chamsoudine THIENTA, also known as Shams.
 
-Positioning: Software Engineer & Data Analyst based in Bamako, Mali, focused on backend systems, APIs, databases, data analytics and practical data systems. The site is localized in English and French with `next-intl`.
+Positioning: IT Consultant, Software Engineer & Data Analyst based in Bamako, Mali, focused on business software, backend systems, APIs, databases, data analytics, automation and practical information systems. The site is localized in English and French with `next-intl`.
 
 ## Quick Start
 

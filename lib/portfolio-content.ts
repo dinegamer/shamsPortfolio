@@ -89,7 +89,7 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
       eyebrow: 'À propos',
       title: 'Chamsoudine THIENTA, aussi appelé Shams.',
       intro:
-        'Software Engineer & Data Analyst basé à Bamako, je conçois des logiciels, des systèmes backend, des API, des bases de données et des outils d’analyse adaptés à des contextes opérationnels concrets.',
+        'Consultant informatique, ingénieur logiciel et Data Analyst basé à Bamako, je conçois des logiciels, des systèmes backend, des API, des bases de données et des outils d’analyse adaptés à des contextes opérationnels concrets.',
       sections: [
         {
           title: 'Construire pour le terrain',
@@ -97,9 +97,9 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
             'Je m’intéresse aux solutions utiles dans des environnements où les connexions peuvent être instables, les équipements modestes et les processus encore largement manuels. Mon travail cherche à relier qualité technique, simplicité d’usage et compréhension du métier.'
         },
         {
-          title: 'SH☀MSI Digital',
+          title: 'SHAMSI Digital',
           body:
-            'SH☀MSI Digital est ma marque et mon studio pour les activités liées au logiciel, aux données et à l’intelligence artificielle. J’y développe des projets personnels, des prototypes et des solutions numériques sans présenter KalanSUP comme une entreprise distincte.'
+            'SHAMSI Digital, stylisé SH☀MSI, est ma marque et mon studio pour le conseil informatique, le logiciel, les données et l’intelligence artificielle. J’y développe des projets personnels, des prototypes et des solutions numériques sans présenter KalanSUP comme une entreprise distincte.'
         },
         {
           title: 'Transmission',
@@ -114,9 +114,9 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
         'Rester ancré dans la livraison logicielle et l’analyse de données pendant cette évolution.'
       ],
       seoTitle:
-        'À propos de Chamsoudine THIENTA — Shams | Ingénieur logiciel & Data Analyst',
+        'Chamsoudine THIENTA | Consultant informatique à Bamako',
       seoDescription:
-        'Découvrez Chamsoudine THIENTA, Shams, Software Engineer & Data Analyst à Bamako et fondateur de Shamsi Digital.'
+        'Découvrez Chamsoudine THIENTA, consultant informatique, ingénieur logiciel et Data Analyst à Bamako, fondateur de SHAMSI Digital.'
     },
     projectLabels: {
       problem: 'Problème traité',
@@ -286,7 +286,7 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
       eyebrow: 'About',
       title: 'Chamsoudine THIENTA, also known as Shams.',
       intro:
-        'I am a Software Engineer & Data Analyst based in Bamako, designing software, backend systems, APIs, databases and analytics tools for practical operating environments.',
+        'I am an IT consultant, Software Engineer and Data Analyst based in Bamako, designing software, backend systems, APIs, databases and analytics tools for practical operating environments.',
       sections: [
         {
           title: 'Building for real conditions',
@@ -294,9 +294,9 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
             'I am interested in useful systems for environments where connectivity can be unstable, devices modest and processes still largely manual. My work connects engineering quality, usability and a clear understanding of operations.'
         },
         {
-          title: 'SH☀MSI Digital',
+          title: 'SHAMSI Digital',
           body:
-            'SH☀MSI Digital is my brand and studio for software, data and artificial intelligence work. It is where I develop personal projects, prototypes and digital solutions; KalanSUP remains one of my projects, not a separate company.'
+            'SHAMSI Digital, stylized SH☀MSI, is my brand and studio for IT consulting, software, data and artificial intelligence work. It is where I develop personal projects, prototypes and digital solutions; KalanSUP remains one of my projects, not a separate company.'
         },
         {
           title: 'Teaching',
@@ -311,9 +311,9 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
         'Stay grounded in software delivery and data analytics throughout that progression.'
       ],
       seoTitle:
-        'About Chamsoudine THIENTA — Shams | Software Engineer & Data Analyst',
+        'Chamsoudine THIENTA | IT Consultant in Bamako',
       seoDescription:
-        'Learn about Chamsoudine THIENTA, Shams, a Software Engineer & Data Analyst in Bamako and founder of Shamsi Digital.'
+        'Learn about Chamsoudine THIENTA, an IT consultant, Software Engineer and Data Analyst in Bamako, founder of SHAMSI Digital.'
     },
     projectLabels: {
       problem: 'Problem',

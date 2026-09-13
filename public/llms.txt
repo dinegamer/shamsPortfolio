@@ -1,6 +1,14 @@
 # Chamsoudine Thienta — Official Portfolio
 
-Chamsoudine Thienta, also known as Shams and Chamsoudine THIENTA, is a Software Engineer and Data Analyst based in Bamako, Mali. He is the founder of Shamsi Digital, displayed visually as SH☀MSI Digital.
+Chamsoudine Thienta, also known as Shams and Chamsoudine THIENTA, is an IT consultant, Software Engineer and Data Analyst based in Bamako, Mali, with more than seven years of experience. He is the founder of SHAMSI Digital, displayed visually as SH☀MSI Digital.
+
+Consulting services include business software and REST APIs, database design, SQL and data cleaning, Power BI dashboards, workflow automation, short information-system audits, specifications, training and user support. Engagements can be delivered in Bamako, across Mali or remotely.
+
+Verified professional context:
+- More than 200 students trained in software development, databases, MERISE and computer architecture.
+- KalanSUP: an academic-management software product designed and developed with React, Spring Boot and PostgreSQL.
+- StoreSup: a MERN inventory and operations application with a public source repository.
+- No client institution, deployment or commercial result is claimed unless explicitly stated on the relevant project page.
 
 Official pages:
 - French: https://shamsi-dev.vercel.app/fr
@@ -20,4 +28,4 @@ Official profiles:
 - GitHub: https://github.com/dinegamer
 - LinkedIn: https://www.linkedin.com/in/chamsoudine-thienta-146b21183
 
-The pages on https://shamsi-dev.vercel.app are the official source for this portfolio.
+The pages on https://shamsi-dev.vercel.app are the official source for this portfolio and for the professional identity of Chamsoudine THIENTA and SHAMSI Digital.

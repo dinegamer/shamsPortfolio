@@ -12,11 +12,11 @@
   },
   "hero": {
     "name": "Chamsoudine THIENTA — Shams",
-    "badge": "Basé à Bamako, disponible localement et à l'international",
-    "line1": "Ingénieur logiciel",
-    "line2": "& Data Analyst",
-    "line3": "Backend, API, bases de données & systèmes de données",
-    "subtitle": "Je conçois et développe des logiciels, des API et des solutions fondées sur les données, adaptés aux réalités opérationnelles des organisations.",
+    "badge": "Consultant informatique à Bamako — disponible au Mali et à distance",
+    "line1": "Consultant informatique",
+    "line2": "& ingénieur logiciel",
+    "line3": "Data, API, bases de données & systèmes métier",
+    "subtitle": "J'accompagne entreprises, ONG et établissements d'enseignement dans la conception de logiciels, l'automatisation de leurs processus et l'exploitation de leurs données.",
     "brand": "Fondateur de SH☀MSI Digital",
     "primary": "Voir mes projets",
     "secondary": "Explorer mon GitHub",
@@ -25,8 +25,8 @@
     "metric1Label": "Étudiants formés",
     "metric2": "Bamako",
     "metric2Label": "Mali",
-    "metric3": "FR/EN",
-    "metric3Label": "Français courant, anglais intermédiaire"
+    "metric3": "7+",
+    "metric3Label": "Années d'expérience"
   },
   "morph": {
     "prefix": "Je travaille sur",
@@ -34,9 +34,9 @@
   },
   "about": {
     "kicker": "À propos",
-    "title": "Logiciel, données et systèmes opérationnels.",
+    "title": "Conseil informatique, logiciels et systèmes de données.",
     "imageAlt": "Portrait de Chamsoudine THIENTA",
-    "body": "Je suis Chamsoudine THIENTA, aussi connu sous le nom de Shams, Software Engineer et Data Analyst basé à Bamako, Mali. Mon travail couvre le développement web, l'architecture backend, les API et les bases de données avec Java/Spring Boot, Node.js, React/Next.js, Python, SQL, PostgreSQL, MySQL, MongoDB et Power BI. J'enseigne aussi le développement logiciel, les bases de données, MERISE et l'architecture informatique, avec plus de 200 étudiants formés.",
+    "body": "Je suis Chamsoudine THIENTA, aussi connu sous le nom de Shams, consultant informatique, ingénieur logiciel et Data Analyst basé à Bamako, au Mali. J'accompagne les organisations de l'analyse du besoin à la livraison de logiciels, d'API, de bases de données, d'automatisations et de tableaux de bord. J'enseigne aussi le développement logiciel, les bases de données, MERISE et l'architecture informatique, avec plus de 200 étudiants formés.",
     "link": "En savoir plus sur mon parcours",
     "points": [
       "Développement progressif de compétences en Data Engineering, tout en gardant une base solide en logiciel et en analyse de données.",
@@ -116,15 +116,15 @@
     }
   },
   "services": {
-    "kicker": "Ce que je fais",
-    "title": "Ingénierie et données, avec un périmètre clair.",
-    "subtitle": "Chaque projet commence par un échange sur vos besoins pour définir ensemble les livrables, le calendrier et le budget.",
-    "softwareTitle": "Software Engineering",
-    "softwareBody": "Applications métier, architecture backend, API REST et intégrations.",
-    "analyticsTitle": "Data Analytics",
-    "analyticsBody": "SQL, nettoyage des données, tableaux de bord, reporting et Power BI.",
-    "systemsTitle": "Data Systems",
-    "systemsBody": "Modélisation de bases de données, automatisation et évolution progressive vers les pipelines de données."
+    "kicker": "Prestations de conseil",
+    "title": "Des interventions concrètes, du diagnostic à la livraison.",
+    "subtitle": "Mission ponctuelle, renfort technique ou accompagnement durable : nous cadrons les livrables, le calendrier et le budget avant de commencer.",
+    "softwareTitle": "Logiciels métier & API",
+    "softwareBody": "Conception, développement, correction et reprise d'applications web, de backends et d'intégrations API.",
+    "analyticsTitle": "Données & automatisation",
+    "analyticsBody": "SQL, nettoyage de données, tableaux de bord Power BI, reporting et automatisation de tâches chronophages.",
+    "systemsTitle": "Conseil SI & accompagnement",
+    "systemsBody": "Analyse du besoin, audit court, cahier des charges, modélisation de bases de données, formation et support aux utilisateurs."
   },
   "stack": {
     "kicker": "Stack",
@@ -134,8 +134,8 @@
   },
   "contact": {
     "kicker": "Contact",
-    "title": "Parlons de votre besoin.",
-    "body": "Recrutement, mission logicielle ou data, KalanSUP ou partenariat : envoyez-moi les informations utiles directement depuis ce formulaire.",
+    "title": "Parlons de votre mission.",
+    "body": "Besoin d'un consultant informatique à Bamako ou à distance ? Décrivez votre problème, vos délais et le résultat attendu. Je vous répondrai avec une première proposition de cadrage.",
     "privacy": "Les informations demandées servent uniquement à vous répondre. N’envoyez aucun mot de passe, document d’identité ni donnée confidentielle.",
     "email": "E-mail direct",
     "optional": "Facultatif",
@@ -156,7 +156,7 @@
       "message": "Présentez votre besoin, le contexte et, si possible, vos délais."
     },
     "reasons": {
-      "recruitment": "Recrutement ou mission",
+      "recruitment": "Mission de conseil ou recrutement",
       "project": "Projet logiciel ou data",
       "kalansup": "KalanSUP",
       "partnership": "Partenariat",
@@ -177,6 +177,6 @@
     }
   },
   "footer": {
-    "rights": "Construit par Chamsoudine THIENTA — Shamsi Digital — 2026"
+    "rights": "Construit par Chamsoudine THIENTA — SHAMSI Digital — 2026"
   }
 }

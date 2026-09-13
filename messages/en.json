@@ -12,11 +12,11 @@
   },
   "hero": {
     "name": "Chamsoudine THIENTA — Shams",
-    "badge": "Based in Bamako, available locally and internationally",
-    "line1": "Software Engineer",
-    "line2": "& Data Analyst",
-    "line3": "Backend, APIs, Databases & Data Systems",
-    "subtitle": "I design and build software systems, APIs and data-driven solutions for organizations operating in real-world environments.",
+    "badge": "IT consultant in Bamako — available across Mali and remotely",
+    "line1": "IT Consultant",
+    "line2": "& Software Engineer",
+    "line3": "Data, APIs, Databases & Business Systems",
+    "subtitle": "I help companies, NGOs and education institutions design software, automate operational processes and make better use of their data.",
     "brand": "Founder of SH☀MSI Digital",
     "primary": "View my projects",
     "secondary": "Explore my GitHub",
@@ -25,8 +25,8 @@
     "metric1Label": "Students trained",
     "metric2": "Bamako",
     "metric2Label": "Mali",
-    "metric3": "EN/FR",
-    "metric3Label": "French fluent, English intermediate"
+    "metric3": "7+",
+    "metric3Label": "Years of experience"
   },
   "morph": {
     "prefix": "I work on",
@@ -34,9 +34,9 @@
   },
   "about": {
     "kicker": "About",
-    "title": "Software, data and operational systems.",
+    "title": "IT consulting, software and data systems.",
     "imageAlt": "Portrait of Chamsoudine THIENTA",
-    "body": "I am Chamsoudine THIENTA, also known as Shams, a Software Engineer and Data Analyst based in Bamako, Mali. My work covers web development, backend architecture, APIs and databases with Java/Spring Boot, Node.js, React/Next.js, Python, SQL, PostgreSQL, MySQL, MongoDB and Power BI. I also teach software development, databases, MERISE and computer architecture, with more than 200 students trained.",
+    "body": "I am Chamsoudine THIENTA, also known as Shams, an IT consultant, Software Engineer and Data Analyst based in Bamako, Mali. I support organizations from needs analysis to the delivery of software, APIs, databases, automations and dashboards. I also teach software development, databases, MERISE and computer architecture, with more than 200 students trained.",
     "link": "Read more about me",
     "points": [
       "Building stronger skills in Data Engineering while staying grounded in software delivery and analytics.",
@@ -116,15 +116,15 @@
     }
   },
   "services": {
-    "kicker": "What I do",
-    "title": "Focused engineering and data support.",
-    "subtitle": "Every project starts with a conversation about your needs so we can agree on deliverables, a timeline and a budget.",
-    "softwareTitle": "Software Engineering",
-    "softwareBody": "Business applications, backend architecture, REST APIs and integrations.",
-    "analyticsTitle": "Data Analytics",
-    "analyticsBody": "SQL, data cleaning, dashboards, reporting and Power BI.",
-    "systemsTitle": "Data Systems",
-    "systemsBody": "Database modeling, automation and gradual evolution toward data pipelines."
+    "kicker": "Consulting services",
+    "title": "Practical support, from diagnosis to delivery.",
+    "subtitle": "One-off assignment, technical reinforcement or ongoing support: we agree on deliverables, a timeline and a budget before work begins.",
+    "softwareTitle": "Business software & APIs",
+    "softwareBody": "Design, development, debugging and takeover of web applications, backends and API integrations.",
+    "analyticsTitle": "Data & automation",
+    "analyticsBody": "SQL, data cleaning, Power BI dashboards, reporting and automation of time-consuming tasks.",
+    "systemsTitle": "IT consulting & enablement",
+    "systemsBody": "Needs analysis, short audits, specifications, database modeling, training and user support."
   },
   "stack": {
     "kicker": "Stack",
@@ -134,8 +134,8 @@
   },
   "contact": {
     "kicker": "Contact",
-    "title": "Tell me what you need.",
-    "body": "Recruitment, software or data work, KalanSUP, or a partnership: send the useful details directly through this form.",
+    "title": "Tell me about your assignment.",
+    "body": "Need an IT consultant in Bamako or remotely? Describe the problem, your timeline and the expected result. I will reply with an initial scope proposal.",
     "privacy": "The information requested is used only to reply to you. Do not send passwords, identity documents, or confidential data.",
     "email": "Direct email",
     "optional": "Optional",
@@ -156,7 +156,7 @@
       "message": "Describe your need, the context and, if possible, your timeline."
     },
     "reasons": {
-      "recruitment": "Recruitment or contract work",
+      "recruitment": "Consulting assignment or recruitment",
       "project": "Software or data project",
       "kalansup": "KalanSUP",
       "partnership": "Partnership",
@@ -177,6 +177,6 @@
     }
   },
   "footer": {
-    "rights": "Built by Chamsoudine THIENTA — Shamsi Digital — 2026"
+    "rights": "Built by Chamsoudine THIENTA — SHAMSI Digital — 2026"
   }
 }

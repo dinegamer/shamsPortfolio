@@ -9,7 +9,7 @@ import {
 export const personId = `${siteUrl}/#chamsoudine-thienta`;
 export const organizationId = `${siteUrl}/#shamsi-digital`;
 export const portraitUrl = `${siteUrl}/chamsoudine-thienta-portrait.webp`;
-export const contentModifiedDate = '2026-07-26';
+export const contentModifiedDate = '2026-09-13';
 
 export const identityGraph = {
   '@context': 'https://schema.org',
@@ -24,7 +24,14 @@ export const identityGraph = {
         '@type': 'ImageObject',
         url: portraitUrl
       },
-      jobTitle: ['Software Engineer', 'Data Analyst'],
+      jobTitle: [
+        'Consultant informatique',
+        'IT Consultant',
+        'Software Engineer',
+        'Data Analyst'
+      ],
+      description:
+        'Consultant informatique, ingénieur logiciel et Data Analyst basé à Bamako, fondateur de SHAMSI Digital.',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Bamako',
@@ -35,7 +42,10 @@ export const identityGraph = {
         '@id': organizationId
       },
       knowsAbout: [
+        'IT consulting',
+        'Information systems consulting',
         'Software development',
+        'Business software',
         'Backend systems',
         'REST APIs',
         'Databases',
@@ -44,11 +54,23 @@ export const identityGraph = {
       ]
     },
     {
-      '@type': 'Organization',
+      '@type': 'ProfessionalService',
       '@id': organizationId,
-      name: 'Shamsi Digital',
+      name: 'SHAMSI Digital',
       alternateName: 'SH☀MSI Digital',
       url: siteUrl,
+      description:
+        'Conseil informatique, développement logiciel, automatisation et solutions de données à Bamako et à distance.',
+      areaServed: [
+        {
+          '@type': 'City',
+          name: 'Bamako'
+        },
+        {
+          '@type': 'Country',
+          name: 'Mali'
+        }
+      ],
       founder: {
         '@id': personId
       }

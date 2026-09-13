@@ -1,6 +1,6 @@
 # SEO and Entity Audit
 
-Audit date: 2026-07-26
+Audit updated: 2026-09-13
 
 ## Scope
 
@@ -19,10 +19,10 @@ The audit covered the 12 public French and English pages, initial server-rendere
 
 | Route | Title | Description |
 | --- | --- | --- |
-| `/fr` | Chamsoudine THIENTA \| Ingénieur logiciel & Data Analyst | Chamsoudine THIENTA conçoit avec Shamsi Digital des logiciels, des API backend, des bases de données et des solutions d’analyse de données. |
-| `/en` | Chamsoudine THIENTA \| Software Engineer & Data Analyst | Chamsoudine THIENTA builds software systems, backend APIs, databases and data analytics solutions through Shamsi Digital. |
-| `/fr/about` | À propos de Chamsoudine THIENTA — Shams \| Ingénieur logiciel & Data Analyst | Découvrez Chamsoudine THIENTA, Shams, Software Engineer & Data Analyst à Bamako et fondateur de Shamsi Digital. |
-| `/en/about` | About Chamsoudine THIENTA — Shams \| Software Engineer & Data Analyst | Learn about Chamsoudine THIENTA, Shams, a Software Engineer & Data Analyst in Bamako and founder of Shamsi Digital. |
+| `/fr` | Consultant informatique à Bamako \| Chamsoudine THIENTA | Consultant informatique et ingénieur logiciel à Bamako, Chamsoudine THIENTA réalise logiciels métier, API, bases de données, automatisations et solutions data avec SHAMSI Digital. |
+| `/en` | IT Consultant in Bamako \| Chamsoudine THIENTA | IT consultant and software engineer in Bamako. Chamsoudine THIENTA delivers business software, APIs, databases, automation and data solutions through SHAMSI Digital. |
+| `/fr/about` | Chamsoudine THIENTA \| Consultant informatique à Bamako | Découvrez Chamsoudine THIENTA, consultant informatique, ingénieur logiciel et Data Analyst à Bamako, fondateur de SHAMSI Digital. |
+| `/en/about` | Chamsoudine THIENTA \| IT Consultant in Bamako | Learn about Chamsoudine THIENTA, an IT consultant, Software Engineer and Data Analyst in Bamako, founder of SHAMSI Digital. |
 | `/fr/projects/kalansup` | KalanSUP — ERP de gestion scolaire \| Chamsoudine THIENTA | KalanSUP est le projet de gestion scolaire et universitaire conçu par Chamsoudine THIENTA avec React, Spring Boot et PostgreSQL. |
 | `/en/projects/kalansup` | KalanSUP — School Management ERP \| Chamsoudine THIENTA | KalanSUP is a school and university management project designed by Chamsoudine THIENTA with React, Spring Boot and PostgreSQL. |
 | `/fr/projects/digital-queue` | File d’attente numérique \| Projet de Chamsoudine THIENTA | Découvrez le prototype de file d’attente numérique conçu par Chamsoudine THIENTA pour visualiser files, agences et indicateurs de service. |
@@ -37,17 +37,19 @@ All routes use their absolute official canonical, FR/EN/x-default alternates, ma
 ## Corrected Gaps
 
 - Consolidated the Person entity under `https://shamsi-dev.vercel.app/#chamsoudine-thienta`.
-- Added the Shamsi Digital organization under `https://shamsi-dev.vercel.app/#shamsi-digital`.
+- Added SHAMSI Digital as a ProfessionalService under `https://shamsi-dev.vercel.app/#shamsi-digital`.
 - Reused the Person identifier from About and project structured data.
 - Added localized ProfilePage structured data to both About pages.
 - Assigned an evidence-based schema type to each project and added specific keywords and a modification date.
 - Replaced the legacy social image reference with the current official WebP portrait.
 - Added explicit allow rules for OAI-SearchBot and ClaudeBot while retaining the general allow rule.
 - Added a short factual `llms.txt` as a supplementary machine-readable summary. It is not treated as a ranking directive.
+- Added the explicit local-market position “Consultant informatique à Bamako” to the homepage title, visible hero, About page, service copy, metadata and Person schema.
+- Standardized the written brand as “SHAMSI Digital” while retaining the stylized alternate name “SH☀MSI Digital”.
 
 ## Unchanged
 
-- No routes, visible design, animation, image, project claims, client claims, testimonials, or performance behavior were changed.
+- No routes, layout, animation, image, project claims, client claims, testimonials, or performance behavior were changed.
 - Existing canonical URLs, hreflang strategy, sitemap route set, and root redirect were preserved.
 
 ## Structured Data Validation
@@ -55,7 +57,7 @@ All routes use their absolute official canonical, FR/EN/x-default alternates, ma
 The automated validation parses every JSON-LD block as JSON and checks the entity topology and required factual fields:
 
 - one Person entity with the stable `#chamsoudine-thienta` identifier;
-- one Organization entity with the stable `#shamsi-digital` identifier;
+- one ProfessionalService entity with the stable `#shamsi-digital` identifier;
 - localized ProfilePage entities referencing the Person;
 - SoftwareApplication for KalanSUP and Digital Queue;
 - CreativeWork for AgritechMali;

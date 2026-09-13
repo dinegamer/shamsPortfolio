@@ -45,7 +45,7 @@ export function createPageMetadata({
       title,
       description,
       url: `${siteUrl}${localizedPath}`,
-      siteName: 'Shamsi Digital',
+      siteName: 'SHAMSI Digital',
       type: 'website',
       locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       alternateLocale: locale === 'fr' ? ['en_US'] : ['fr_FR'],

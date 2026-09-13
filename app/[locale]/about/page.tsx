@@ -32,16 +32,19 @@ export function generateMetadata({
           ? [
               'Chamsoudine Thienta',
               'Shams',
+              'Consultant informatique Bamako',
+              'Consultant SI Mali',
               'Ingénieur logiciel Bamako',
               'analyse de données Mali',
-              'Shamsi Digital'
+              'SHAMSI Digital'
             ]
           : [
               'Chamsoudine Thienta',
               'Shams',
+              'IT Consultant Bamako',
               'Software Engineer Bamako',
               'Data Analyst Mali',
-              'Shamsi Digital'
+              'SHAMSI Digital'
             ]
     });
   });

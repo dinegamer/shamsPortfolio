@@ -55,6 +55,14 @@ test('shows Chamsoudine THIENTA and Shams in both heroes', async ({ page }) => {
           : 'Founder of SH☀MSI Digital'
       )
     ).toBeVisible();
+    await expect(
+      page.getByRole('heading', { level: 1 })
+    ).toContainText(locale === 'fr' ? 'Consultant informatique' : 'IT Consultant');
+    await expect(page).toHaveTitle(
+      locale === 'fr'
+        ? 'Consultant informatique à Bamako | Chamsoudine THIENTA'
+        : 'IT Consultant in Bamako | Chamsoudine THIENTA'
+    );
   }
 });
 
@@ -185,7 +193,12 @@ test('publishes one reusable Person and Organization identity graph', async ({
     name: 'Chamsoudine Thienta',
     alternateName: ['Shams', 'Chamsoudine THIENTA'],
     url: `${siteUrl}/fr`,
-    jobTitle: ['Software Engineer', 'Data Analyst'],
+    jobTitle: [
+      'Consultant informatique',
+      'IT Consultant',
+      'Software Engineer',
+      'Data Analyst'
+    ],
     sameAs: ['https://github.com/dinegamer', linkedInUrl],
     affiliation: { '@id': organizationId }
   });
@@ -193,8 +206,8 @@ test('publishes one reusable Person and Organization identity graph', async ({
     `${siteUrl}/chamsoudine-thienta-portrait.webp`
   );
   expect(organization).toMatchObject({
-    '@type': 'Organization',
-    name: 'Shamsi Digital',
+    '@type': 'ProfessionalService',
+    name: 'SHAMSI Digital',
     alternateName: 'SH☀MSI Digital',
     founder: { '@id': personId }
   });
@@ -211,7 +224,7 @@ test('About pages publish localized ProfilePage JSON-LD', async ({ page }) => {
       '@id': `${siteUrl}/${locale}/about#profile-page`,
       url: `${siteUrl}/${locale}/about`,
       inLanguage: locale,
-      dateModified: '2026-07-26',
+      dateModified: '2026-09-13',
       mainEntity: { '@id': personId }
     });
   }
@@ -234,12 +247,12 @@ test('projects reference the Person and expose evidence-based schema types', asy
     );
     expect(project['@type']).toBe(expectedTypes[slug]);
     expect(project.creator).toEqual({ '@id': personId });
-    expect(project.dateModified).toBe('2026-07-26');
+    expect(project.dateModified).toBe('2026-09-13');
     expect(project.keywords.length).toBeGreaterThan(2);
     await expect(page.locator('meta[name="keywords"]')).toHaveCount(1);
     await expect(page.locator('meta[name="date-modified"]')).toHaveAttribute(
       'content',
-      '2026-07-26'
+      '2026-09-13'
     );
   }
 });
