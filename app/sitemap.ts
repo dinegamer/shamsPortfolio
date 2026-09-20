@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { projectSlugs, siteUrl } from '@/lib/portfolio-content';
+import { serviceSlugs } from '@/lib/service-content';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -7,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     '',
     '/about',
+    ...serviceSlugs.map((slug) => `/services/${slug}`),
     ...projectSlugs.map((slug) => `/projects/${slug}`)
   ];
 

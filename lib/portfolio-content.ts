@@ -136,7 +136,7 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
         name: 'KalanSUP',
         eyebrow: 'Gestion académique',
         summary:
-          'Un projet de logiciel de gestion scolaire et universitaire qui rassemble les opérations académiques dans un même système.',
+          'Un logiciel de gestion universitaire qui relie les opérations académiques, administratives et financières dans un même parcours traçable.',
         problem:
           'Les inscriptions, paiements, emplois du temps, notes et documents sont souvent répartis entre plusieurs outils ou traitements manuels.',
         solution:
@@ -144,11 +144,11 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
         role:
           'Conception du produit, modélisation des données et développement des modules applicatifs.',
         features: [
-          'Inscriptions et dossiers étudiants',
-          'Suivi des scolarités et des paiements',
-          'Notes, résultats, relevés et bulletins',
-          'Emplois du temps et documents académiques',
-          'Tableaux de bord et portails par profil'
+          'Inscriptions, dossiers, paiements, reliquats et caisse',
+          'Enseignants, séances, absences et honoraires',
+          'Emplois du temps multi-sites',
+          'Notes, réclamations, crédits et diplômabilité',
+          'Documents, parchemins, eVerify et tableaux de bord'
         ],
         technologies: ['React', 'Spring Boot', 'PostgreSQL'],
         constraints: [
@@ -156,8 +156,8 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
           'Garder une structure de données cohérente entre les différents modules.'
         ],
         status:
-          'Produit en développement. Aucun établissement client ni déploiement public n’est revendiqué.',
-        seoTitle: 'KalanSUP — ERP de gestion scolaire | Chamsoudine THIENTA',
+          'Disponible pour des démonstrations sur données fictives et des pilotes encadrés. Un parcours étudiant → scolarité → direction → notification a été testé de bout en bout. Aucun établissement client n’est revendiqué.',
+        seoTitle: 'KalanSUP — Logiciel de gestion universitaire au Mali',
         seoDescription:
           'KalanSUP est le projet de gestion scolaire et universitaire conçu par Chamsoudine THIENTA avec React, Spring Boot et PostgreSQL.'
       },

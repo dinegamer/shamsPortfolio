@@ -144,6 +144,9 @@
       "email": "Adresse e-mail",
       "organization": "Entreprise ou organisation",
       "reason": "Motif du contact",
+      "role": "Votre fonction",
+      "timeline": "Délai souhaité",
+      "budget": "Budget envisagé",
       "subject": "Objet",
       "message": "Message"
     },
@@ -152,9 +155,14 @@
       "email": "vous@entreprise.com",
       "organization": "Nom de votre organisation",
       "reason": "Sélectionnez un motif",
+      "role": "Direction, DSI, porteur de projet…",
+      "timeline": "Choisir un délai",
+      "budget": "Choisir une fourchette",
       "subject": "En quelques mots",
       "message": "Présentez votre besoin, le contexte et, si possible, vos délais."
     },
+    "timelines": { "urgent": "Moins de 2 semaines", "month": "Sous 30 jours", "quarter": "1 à 3 mois", "exploration": "Phase d’exploration" },
+    "budgets": { "small": "Moins de 150 000 FCFA", "medium": "150 000 à 500 000 FCFA", "large": "500 000 à 2 000 000 FCFA", "structured": "Plus de 2 000 000 FCFA", "unknown": "À déterminer" },
     "reasons": {
       "recruitment": "Mission de conseil ou recrutement",
       "project": "Projet logiciel ou data",

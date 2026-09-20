@@ -9,7 +9,7 @@ import {
 export const personId = `${siteUrl}/#chamsoudine-thienta`;
 export const organizationId = `${siteUrl}/#shamsi-digital`;
 export const portraitUrl = `${siteUrl}/chamsoudine-thienta-portrait.webp`;
-export const contentModifiedDate = '2026-09-13';
+export const contentModifiedDate = '2026-09-20';
 
 export const identityGraph = {
   '@context': 'https://schema.org',
@@ -73,6 +73,17 @@ export const identityGraph = {
       ],
       founder: {
         '@id': personId
+      },
+      email: 'teenagerdine@gmail.com',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Services SHAMSI Digital',
+        itemListElement: [
+          'Développement de logiciels métiers',
+          'Audit et automatisation SI',
+          'Data, SQL et tableaux de bord',
+          'Formation et support utilisateurs'
+        ].map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } }))
       }
     }
   ]

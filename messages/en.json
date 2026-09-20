@@ -144,6 +144,9 @@
       "email": "Email address",
       "organization": "Company or organization",
       "reason": "Reason for contacting",
+      "role": "Your role",
+      "timeline": "Desired timeline",
+      "budget": "Expected budget",
       "subject": "Subject",
       "message": "Message"
     },
@@ -152,9 +155,14 @@
       "email": "you@company.com",
       "organization": "Your organization",
       "reason": "Select a reason",
+      "role": "Director, IT lead, project owner…",
+      "timeline": "Select a timeline",
+      "budget": "Select a range",
       "subject": "A short summary",
       "message": "Describe your need, the context and, if possible, your timeline."
     },
+    "timelines": { "urgent": "Under 2 weeks", "month": "Within 30 days", "quarter": "1 to 3 months", "exploration": "Exploration stage" },
+    "budgets": { "small": "Under 150,000 FCFA", "medium": "150,000 to 500,000 FCFA", "large": "500,000 to 2,000,000 FCFA", "structured": "Over 2,000,000 FCFA", "unknown": "To be determined" },
     "reasons": {
       "recruitment": "Consulting assignment or recruitment",
       "project": "Software or data project",
