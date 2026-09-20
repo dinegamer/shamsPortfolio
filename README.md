@@ -2,6 +2,8 @@
 
 Public portfolio for Chamsoudine THIENTA, also known as Shams.
 
+**Identity:** SHAMSI Digital Mali is the professional brand of Chamsoudine THIENTA in Bamako, Mali. It is unrelated to foreign businesses using the similar name “Shams Digital”.
+
 Positioning: IT Consultant, Software Engineer & Data Analyst based in Bamako, Mali, focused on business software, backend systems, APIs, databases, data analytics, automation and practical information systems. The site is localized in English and French with `next-intl`.
 
 ## Consulting missions

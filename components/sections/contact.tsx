@@ -211,18 +211,6 @@ export function Contact() {
                     </FormField>
                   </div>
 
-                  <div className="grid gap-5 sm:grid-cols-3">
-                    <FormField label={t('fields.role')} htmlFor="contact-role" optional={t('optional')}>
-                      <input id="contact-role" name="role" type="text" maxLength={100} className="contact-input" placeholder={t('placeholders.role')} />
-                    </FormField>
-                    <FormField label={t('fields.timeline')} htmlFor="contact-timeline" optional={t('optional')}>
-                      <select id="contact-timeline" name="timeline" defaultValue="" className="contact-input"><option value="">{t('placeholders.timeline')}</option><option value="urgent">{t('timelines.urgent')}</option><option value="30-days">{t('timelines.month')}</option><option value="1-3-months">{t('timelines.quarter')}</option><option value="exploration">{t('timelines.exploration')}</option></select>
-                    </FormField>
-                    <FormField label={t('fields.budget')} htmlFor="contact-budget" optional={t('optional')}>
-                      <select id="contact-budget" name="budget" defaultValue="" className="contact-input"><option value="">{t('placeholders.budget')}</option><option value="under-150k">{t('budgets.small')}</option><option value="150k-500k">{t('budgets.medium')}</option><option value="500k-2m">{t('budgets.large')}</option><option value="over-2m">{t('budgets.structured')}</option><option value="unknown">{t('budgets.unknown')}</option></select>
-                    </FormField>
-                  </div>
-
                   <div className="grid gap-5 sm:grid-cols-2">
                     <FormField
                       label={t('fields.organization')}

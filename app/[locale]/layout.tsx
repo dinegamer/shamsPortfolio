@@ -12,12 +12,12 @@ const seo = {
   en: {
     title: 'IT Consultant in Bamako | Chamsoudine THIENTA',
     description:
-      'IT consultant and software engineer in Bamako. Chamsoudine THIENTA delivers business software, APIs, databases, automation and data solutions through SHAMSI Digital.'
+      'IT consultant and software engineer in Bamako. Chamsoudine THIENTA delivers business software, APIs, databases, automation and data solutions through SHAMSI Digital Mali.'
   },
   fr: {
     title: 'Consultant informatique à Bamako | Chamsoudine THIENTA',
     description:
-      'Consultant informatique et ingénieur logiciel à Bamako, Chamsoudine THIENTA réalise logiciels métier, API, bases de données, automatisations et solutions data avec SHAMSI Digital.'
+      'Consultant informatique et ingénieur logiciel à Bamako, Chamsoudine THIENTA réalise logiciels métier, API, bases de données, automatisations et solutions data avec SHAMSI Digital Mali.'
   }
 } satisfies Record<Locale, { title: string; description: string }>;
 
@@ -44,7 +44,7 @@ export function generateMetadata({
             'Ingénieur logiciel Bamako',
             'Développement logiciel Mali',
             'analyse de données Mali',
-            'SHAMSI Digital'
+            'SHAMSI Digital Mali'
           ]
         : [
             'Chamsoudine Thienta',
@@ -52,7 +52,7 @@ export function generateMetadata({
             'IT Consultant Bamako',
             'Software Engineer Bamako',
             'Data Analyst Mali',
-            'SHAMSI Digital'
+            'SHAMSI Digital Mali'
           ],
     verification: {
       google: 'vbGp19kYZPXBLH4Ucq7yDmS2twd7C2ti7_DCO8vqiyc'
@@ -69,7 +69,7 @@ export function generateMetadata({
       title: current.title,
       description: current.description,
       url: canonical,
-      siteName: 'SHAMSI Digital',
+      siteName: 'SHAMSI Digital Mali',
       type: 'website',
       locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       images: [

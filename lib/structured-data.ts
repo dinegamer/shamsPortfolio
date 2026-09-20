@@ -31,7 +31,7 @@ export const identityGraph = {
         'Data Analyst'
       ],
       description:
-        'Consultant informatique, ingénieur logiciel et Data Analyst basé à Bamako, fondateur de SHAMSI Digital.',
+        'Consultant informatique, ingénieur logiciel, Data Analyst et formateur basé à Bamako, fondateur de SHAMSI Digital Mali.',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Bamako',
@@ -56,11 +56,18 @@ export const identityGraph = {
     {
       '@type': 'ProfessionalService',
       '@id': organizationId,
-      name: 'SHAMSI Digital',
-      alternateName: 'SH☀MSI Digital',
+      name: 'SHAMSI Digital Mali',
+      alternateName: ['SHAMSI Digital', 'SH☀MSI Digital'],
       url: siteUrl,
       description:
-        'Conseil informatique, développement logiciel, automatisation et solutions de données à Bamako et à distance.',
+        'Marque professionnelle de Chamsoudine THIENTA à Bamako, au Mali, dédiée au conseil informatique, au développement logiciel, à l’automatisation, aux données et à la formation. Entité distincte des sociétés étrangères portant le nom Shams Digital.',
+      disambiguatingDescription:
+        'SHAMSI Digital Mali est la marque professionnelle de Chamsoudine THIENTA, consultant informatique basé à Bamako. Elle n’est affiliée à aucune agence Shams Digital située au Maroc, en Arabie saoudite ou ailleurs.',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Bamako',
+        addressCountry: 'ML'
+      },
       areaServed: [
         {
           '@type': 'City',
@@ -77,7 +84,7 @@ export const identityGraph = {
       email: 'teenagerdine@gmail.com',
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Services SHAMSI Digital',
+        name: 'Services SHAMSI Digital Mali',
         itemListElement: [
           'Développement de logiciels métiers',
           'Audit et automatisation SI',

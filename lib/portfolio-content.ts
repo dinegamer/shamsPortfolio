@@ -97,9 +97,9 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
             'Je m’intéresse aux solutions utiles dans des environnements où les connexions peuvent être instables, les équipements modestes et les processus encore largement manuels. Mon travail cherche à relier qualité technique, simplicité d’usage et compréhension du métier.'
         },
         {
-          title: 'SHAMSI Digital',
+          title: 'SHAMSI Digital Mali',
           body:
-            'SHAMSI Digital, stylisé SH☀MSI, est ma marque et mon studio pour le conseil informatique, le logiciel, les données et l’intelligence artificielle. J’y développe des projets personnels, des prototypes et des solutions numériques sans présenter KalanSUP comme une entreprise distincte.'
+            'SHAMSI Digital Mali, stylisé SH☀MSI, est ma marque professionnelle à Bamako pour le conseil informatique, le logiciel, les données, la formation et l’intelligence artificielle. Elle est portée par Chamsoudine THIENTA et n’est affiliée à aucune société étrangère appelée Shams Digital. KalanSUP reste l’un de mes produits, pas une entreprise distincte.'
         },
         {
           title: 'Transmission',
@@ -116,7 +116,7 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
       seoTitle:
         'Chamsoudine THIENTA | Consultant informatique à Bamako',
       seoDescription:
-        'Découvrez Chamsoudine THIENTA, consultant informatique, ingénieur logiciel et Data Analyst à Bamako, fondateur de SHAMSI Digital.'
+        'Découvrez Chamsoudine THIENTA, consultant informatique, ingénieur logiciel, Data Analyst et formateur à Bamako, fondateur de SHAMSI Digital Mali.'
     },
     projectLabels: {
       problem: 'Problème traité',
@@ -294,9 +294,9 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
             'I am interested in useful systems for environments where connectivity can be unstable, devices modest and processes still largely manual. My work connects engineering quality, usability and a clear understanding of operations.'
         },
         {
-          title: 'SHAMSI Digital',
+          title: 'SHAMSI Digital Mali',
           body:
-            'SHAMSI Digital, stylized SH☀MSI, is my brand and studio for IT consulting, software, data and artificial intelligence work. It is where I develop personal projects, prototypes and digital solutions; KalanSUP remains one of my projects, not a separate company.'
+            'SHAMSI Digital Mali, stylized SH☀MSI, is my professional brand in Bamako for IT consulting, software, data, training and artificial intelligence work. It is led by Chamsoudine THIENTA and is not affiliated with any foreign company named Shams Digital. KalanSUP remains one of my products, not a separate company.'
         },
         {
           title: 'Teaching',
@@ -313,7 +313,7 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
       seoTitle:
         'Chamsoudine THIENTA | IT Consultant in Bamako',
       seoDescription:
-        'Learn about Chamsoudine THIENTA, an IT consultant, Software Engineer and Data Analyst in Bamako, founder of SHAMSI Digital.'
+        'Learn about Chamsoudine THIENTA, an IT consultant, Software Engineer, Data Analyst and trainer in Bamako, founder of SHAMSI Digital Mali.'
     },
     projectLabels: {
       problem: 'Problem',

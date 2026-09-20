@@ -2,8 +2,8 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Chamsoudine THIENTA | SHAMSI Digital',
-    short_name: 'SHAMSI Digital',
+    name: 'Chamsoudine THIENTA | SHAMSI Digital Mali',
+    short_name: 'SHAMSI Mali',
     description: 'IT consultant, Software Engineer & Data Analyst based in Bamako, Mali.',
     start_url: '/',
     display: 'standalone',

@@ -19,7 +19,7 @@ export function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 bg-black/85 border-b border-white/10">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
         <a href={`/${locale}`} className="font-black text-lg tracking-tight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-400">
-          SH☀MSI <span className="sr-only">SHAMSI Digital</span>
+          SH☀MSI <span className="sr-only">SHAMSI Digital Mali, Bamako</span>
         </a>
         <nav className="hidden md:flex items-center gap-1 text-sm" aria-label={t('primaryNav')}>
           {links.map((link) => (
