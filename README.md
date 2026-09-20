@@ -4,6 +4,15 @@ Public portfolio for Chamsoudine THIENTA, also known as Shams.
 
 Positioning: IT Consultant, Software Engineer & Data Analyst based in Bamako, Mali, focused on business software, backend systems, APIs, databases, data analytics, automation and practical information systems. The site is localized in English and French with `next-intl`.
 
+## Consulting missions
+
+Chamsoudine THIENTA works as an information-systems engineer, software/web developer, Data Analyst and trainer. Assignments include short IT diagnoses, requirements and specifications, workflow automation, application/API/database delivery, data cleaning and dashboards, technical takeover, training and user support.
+
+- [IT consultant in Bamako](https://shamsi-dev.vercel.app/en/services/consultant-informatique-bamako)
+- [Consultant informatique à Bamako](https://shamsi-dev.vercel.app/fr/services/consultant-informatique-bamako)
+- [IT consulting for NGOs in Mali](https://shamsi-dev.vercel.app/en/services/consultant-si-ong)
+- [University management with KalanSUP](https://shamsi-dev.vercel.app/en/services/kalansup-universites)
+
 ## Quick Start
 
 ```bash

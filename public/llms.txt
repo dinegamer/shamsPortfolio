@@ -15,6 +15,14 @@ Official pages:
 - English: https://shamsi-dev.vercel.app/en
 - About (FR): https://shamsi-dev.vercel.app/fr/about
 - About (EN): https://shamsi-dev.vercel.app/en/about
+- IT consulting missions in Bamako (FR): https://shamsi-dev.vercel.app/fr/services/consultant-informatique-bamako
+- IT consulting missions in Bamako (EN): https://shamsi-dev.vercel.app/en/services/consultant-informatique-bamako
+- NGO information-systems consulting: https://shamsi-dev.vercel.app/fr/services/consultant-si-ong
+- Custom application development in Mali: https://shamsi-dev.vercel.app/fr/services/developpement-application-mali
+- KalanSUP for universities: https://shamsi-dev.vercel.app/fr/services/kalansup-universites
+- Kalan+ for private schools: https://shamsi-dev.vercel.app/fr/services/kalanplus-ecoles
+- SmartCare for clinic reception and queues: https://shamsi-dev.vercel.app/fr/services/smartcare-cliniques
+- Buyer guide — choosing an IT consultant in Mali: https://shamsi-dev.vercel.app/fr/guides/choisir-consultant-informatique-mali
 - KalanSUP (FR): https://shamsi-dev.vercel.app/fr/projects/kalansup
 - KalanSUP (EN): https://shamsi-dev.vercel.app/en/projects/kalansup
 - Digital Queue (FR): https://shamsi-dev.vercel.app/fr/projects/digital-queue

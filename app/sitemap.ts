@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     '',
     '/about',
+    '/guides/choisir-consultant-informatique-mali',
     ...serviceSlugs.map((slug) => `/services/${slug}`),
     ...projectSlugs.map((slug) => `/projects/${slug}`)
   ];
