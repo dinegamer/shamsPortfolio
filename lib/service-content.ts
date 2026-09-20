@@ -1,6 +1,7 @@
 import type { Locale } from '@/i18n';
 
 export const serviceSlugs = [
+  'consultant-informatique-bamako',
   'kalansup-universites',
   'kalanplus-ecoles',
   'smartcare-cliniques',
@@ -25,6 +26,19 @@ type ServicePage = {
 };
 
 const fr: Record<ServiceSlug, ServicePage> = {
+  'consultant-informatique-bamako': {
+    eyebrow: 'Missions de conseil et d’exécution',
+    title: 'Un consultant informatique à Bamako capable de cadrer, construire et transmettre.',
+    promise: 'J’interviens comme ingénieur systèmes d’information, développeur logiciel/web, Data Analyst et formateur : diagnostic, cahier des charges, automatisation, application, données, formation et support.',
+    audience: 'PME, ONG, banques, assurances, mines, télécoms, cabinets, établissements, administrations et porteurs de projets au Mali ou à distance.',
+    pains: ['Besoin métier difficile à traduire en solution technique', 'Application ou projet bloqué avant livraison', 'Données dispersées et reporting peu fiable', 'Équipe ayant besoin de formation ou de renfort ponctuel'],
+    deliverables: ['Diagnostic SI court et recommandations priorisées', 'Cahier des charges, architecture, backlog et plan de recette', 'Développement ou reprise d’application, API et base de données', 'Nettoyage de données, SQL, tableau de bord et automatisation', 'Formation pratique et accompagnement des utilisateurs'],
+    proof: 'Le portfolio documente des produits et prototypes logiciels, une réalisation web publique, des systèmes de données et une expérience d’enseignement universitaire depuis 2019. Chaque mission reste cadrée selon les compétences et preuves disponibles.',
+    firstStep: 'Présentez le problème, les utilisateurs, le délai et le résultat attendu. Je propose ensuite un diagnostic, un lot pilote ou un devis adapté.',
+    cta: 'Discuter d’une mission de conseil',
+    seoTitle: 'Consultant informatique à Bamako | Chamsoudine THIENTA',
+    seoDescription: 'Consultant informatique, ingénieur SI, développeur, Data Analyst et formateur à Bamako : audit, logiciel, automatisation, data et accompagnement.'
+  },
   'kalansup-universites': {
     eyebrow: 'Universités et instituts supérieurs',
     title: 'Rendre la gestion universitaire traçable, du paiement au diplôme.',
@@ -93,6 +107,19 @@ const fr: Record<ServiceSlug, ServicePage> = {
 };
 
 const en: Record<ServiceSlug, ServicePage> = {
+  'consultant-informatique-bamako': {
+    eyebrow: 'Consulting and delivery assignments',
+    title: 'A Bamako-based IT consultant who can scope, build and train.',
+    promise: 'I work as an information-systems engineer, software/web developer, Data Analyst and trainer across diagnosis, requirements, automation, applications, data, training and support.',
+    audience: 'SMEs, NGOs, banks, insurers, mining and telecom companies, consultancies, schools, public bodies and project owners in Mali or remotely.',
+    pains: ['Business needs that are hard to translate into a technical solution', 'Applications or projects blocked before delivery', 'Scattered data and unreliable reporting', 'Teams needing practical training or temporary technical reinforcement'],
+    deliverables: ['Short IT diagnosis and prioritized recommendations', 'Requirements, architecture, backlog and acceptance plan', 'Application, API and database development or takeover', 'Data cleaning, SQL, dashboards and automation', 'Practical training and user enablement'],
+    proof: 'The portfolio documents software products and prototypes, a public web delivery, data systems and university teaching experience since 2019. Every assignment is scoped against available skills and evidence.',
+    firstStep: 'Share the problem, users, timeline and expected result. I will propose a diagnosis, pilot package or appropriate quote.',
+    cta: 'Discuss a consulting assignment',
+    seoTitle: 'IT Consultant in Bamako | Chamsoudine THIENTA',
+    seoDescription: 'IT consultant, information-systems engineer, developer, Data Analyst and trainer in Bamako: audit, software, automation, data and support.'
+  },
   'kalansup-universites': {
     eyebrow: 'Universities and higher-education institutes',
     title: 'Make university operations traceable, from payment to graduation.',

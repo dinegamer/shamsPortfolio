@@ -1,10 +1,11 @@
 'use client';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import HeroShaderBg from '@/components/ui/hero-shader';
 import Image from 'next/image';
 
 export function Hero() {
   const t = useTranslations('hero');
+  const locale = useLocale();
   return (
     <section id="top" className="relative min-h-[92vh] overflow-hidden flex items-end">
       <HeroShaderBg />
@@ -59,10 +60,10 @@ export function Hero() {
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
-            href="#work"
+            href={`/${locale}/services/consultant-informatique-bamako`}
             className="inline-flex min-h-11 items-center px-8 py-4 rounded-full bg-brand-500 text-black font-semibold text-sm hover:bg-brand-400 transition"
           >
-            {t('primary')}
+            {locale === 'fr' ? 'Découvrir mes missions' : 'Explore my services'}
           </a>
           <a
             href="https://github.com/dinegamer"
