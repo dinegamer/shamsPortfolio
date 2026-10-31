@@ -3,11 +3,13 @@ import { projectSlugs, siteUrl } from '@/lib/portfolio-content';
 import { serviceSlugs } from '@/lib/service-content';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const lastModified = new Date('2026-10-31');
   const locales = ['fr', 'en'] as const;
   const paths = [
     '',
     '/about',
+    '/shamsi-digital',
+    '/mentions-legales',
     '/guides/choisir-consultant-informatique-mali',
     ...serviceSlugs.map((slug) => `/services/${slug}`),
     ...projectSlugs.map((slug) => `/projects/${slug}`)

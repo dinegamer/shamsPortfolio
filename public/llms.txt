@@ -1,8 +1,8 @@
-# Chamsoudine Thienta — Official Portfolio
+# SHAMSI DIGITAL Mali — Official business website and portfolio
 
 Chamsoudine Thienta, also known as Shams and Chamsoudine THIENTA, is an IT consultant, Software Engineer, Data Analyst and trainer based in Bamako, Mali, with more than seven years of experience. He is the founder of SHAMSI Digital Mali, displayed visually as SH☀MSI Digital.
 
-Identity clarification: SHAMSI Digital Mali is Chamsoudine THIENTA's professional brand in Bamako. It is not affiliated with similarly named Shams Digital businesses in Morocco, Saudi Arabia or other countries.
+Business identity: SHAMSI DIGITAL is the trade name of Chamsoudine THIENTA's sole proprietorship in Bamako, Mali. RCCM: ML-BKO-01-2026-A-07041. SHAMSI Digital Mali and ShamsiDigital refer to this business. No tax identification number or procurement accreditation is claimed here. KalanSUP source code and project data are private; only public case studies and demonstrations with synthetic data may be shared.
 
 Consulting services include business software and REST APIs, database design, SQL and data cleaning, Power BI dashboards, workflow automation, short information-system audits, specifications, training and user support. Engagements can be delivered in Bamako, across Mali or remotely.
 
@@ -13,6 +13,10 @@ Verified professional context:
 - No client institution, deployment or commercial result is claimed unless explicitly stated on the relevant project page.
 
 Official pages:
+- Business (FR): https://shamsi-dev.vercel.app/fr/shamsi-digital
+- Business (EN): https://shamsi-dev.vercel.app/en/shamsi-digital
+- Legal notice and privacy (FR): https://shamsi-dev.vercel.app/fr/mentions-legales
+- Legal notice and privacy (EN): https://shamsi-dev.vercel.app/en/mentions-legales
 - French: https://shamsi-dev.vercel.app/fr
 - English: https://shamsi-dev.vercel.app/en
 - About (FR): https://shamsi-dev.vercel.app/fr/about

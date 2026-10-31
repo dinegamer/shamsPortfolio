@@ -9,6 +9,7 @@ export function Navbar() {
   const locale = useLocale();
   const [open, setOpen] = useState(false);
   const links = [
+    { href: `/${locale}/shamsi-digital`, label: t('business') },
     { href: `/${locale}#work`, label: t('work') },
     { href: `/${locale}#services`, label: t('services') },
     { href: `/${locale}/about`, label: t('about') },

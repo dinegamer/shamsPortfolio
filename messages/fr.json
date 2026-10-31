@@ -8,7 +8,8 @@
     "primaryNav": "Navigation principale",
     "mobileNav": "Navigation mobile",
     "openMenu": "Ouvrir le menu",
-    "closeMenu": "Fermer le menu"
+    "closeMenu": "Fermer le menu",
+    "business": "Entreprise"
   },
   "hero": {
     "name": "Chamsoudine THIENTA — Shams",
@@ -17,7 +18,7 @@
     "line2": "& ingénieur logiciel",
     "line3": "Data, API, bases de données & systèmes métier",
     "subtitle": "J'accompagne entreprises, ONG et établissements d'enseignement dans la conception de logiciels, l'automatisation de leurs processus et l'exploitation de leurs données.",
-    "brand": "Fondateur de SH☀MSI Digital",
+    "brand": "SHAMSI DIGITAL — entreprise individuelle à Bamako",
     "primary": "Voir mes projets",
     "secondary": "Explorer mon GitHub",
     "tertiary": "Me contacter",
@@ -30,7 +31,13 @@
   },
   "morph": {
     "prefix": "Je travaille sur",
-    "words": ["Systèmes backend", "API REST", "Bases de données", "Tableaux de bord", "Flux de données"]
+    "words": [
+      "Systèmes backend",
+      "API REST",
+      "Bases de données",
+      "Tableaux de bord",
+      "Flux de données"
+    ]
   },
   "about": {
     "kicker": "À propos",
@@ -130,7 +137,22 @@
     "kicker": "Stack",
     "title": "Technologies et compétences.",
     "subtitle": "Mes outils pour développer vos applications, structurer vos données et créer vos tableaux de bord.",
-    "items": ["Java", "Spring Boot", "Node.js", "React", "Next.js", "Python", "SQL", "PostgreSQL", "MySQL", "MongoDB", "Power BI", "API REST", "Modélisation de bases de données", "Reporting de données"]
+    "items": [
+      "Java",
+      "Spring Boot",
+      "Node.js",
+      "React",
+      "Next.js",
+      "Python",
+      "SQL",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Power BI",
+      "API REST",
+      "Modélisation de bases de données",
+      "Reporting de données"
+    ]
   },
   "contact": {
     "kicker": "Contact",
@@ -161,8 +183,19 @@
       "subject": "En quelques mots",
       "message": "Présentez votre besoin, le contexte et, si possible, vos délais."
     },
-    "timelines": { "urgent": "Moins de 2 semaines", "month": "Sous 30 jours", "quarter": "1 à 3 mois", "exploration": "Phase d’exploration" },
-    "budgets": { "small": "Moins de 150 000 FCFA", "medium": "150 000 à 500 000 FCFA", "large": "500 000 à 2 000 000 FCFA", "structured": "Plus de 2 000 000 FCFA", "unknown": "À déterminer" },
+    "timelines": {
+      "urgent": "Moins de 2 semaines",
+      "month": "Sous 30 jours",
+      "quarter": "1 à 3 mois",
+      "exploration": "Phase d’exploration"
+    },
+    "budgets": {
+      "small": "Moins de 150 000 FCFA",
+      "medium": "150 000 à 500 000 FCFA",
+      "large": "500 000 à 2 000 000 FCFA",
+      "structured": "Plus de 2 000 000 FCFA",
+      "unknown": "À déterminer"
+    },
     "reasons": {
       "recruitment": "Mission de conseil ou recrutement",
       "project": "Projet logiciel ou data",
@@ -182,7 +215,8 @@
       "generic": "L’envoi a échoué. Réessayez ou utilisez l’e-mail direct.",
       "tooFast": "Veuillez patienter un instant, puis renvoyer le formulaire.",
       "wait": "Un message vient d’être envoyé. Patientez une minute avant un nouvel envoi."
-    }
+    },
+    "privacyLink": "Confidentialité"
   },
   "footer": {
     "rights": "Chamsoudine THIENTA — SHAMSI Digital Mali — Bamako — 2026"

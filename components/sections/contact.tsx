@@ -118,6 +118,7 @@ export function Contact() {
                 />
                 <p className="text-sm leading-relaxed text-white/65">
                   {t('privacy')}
+                  {' '}<a href={`/${locale}/mentions-legales#confidentialite`} className="underline hover:text-white">{t('privacyLink')}</a>
                 </p>
               </div>
 

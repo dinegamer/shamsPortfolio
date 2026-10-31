@@ -1,13 +1,22 @@
 'use client';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { business } from '@/lib/business';
 
 export function Footer() {
   const t = useTranslations('footer');
+  const locale = useLocale();
   return (
     <footer className="border-t border-white/5 py-10 bg-black">
       <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-xs text-white/45">{t('rights')}</p>
+        <div className="text-center sm:text-left">
+          <p className="text-xs text-white/60">{t('rights')}</p>
+          <p className="mt-2 text-xs text-white/50">{locale === 'fr' ? 'Entreprise individuelle' : 'Sole proprietorship'} · RCCM {business.rccm}</p>
+          <div className="mt-3 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs sm:justify-start">
+            <a href={`/${locale}/shamsi-digital`} className="inline-flex min-h-11 items-center text-white/70 hover:text-white">SHAMSI DIGITAL</a>
+            <a href={`/${locale}/mentions-legales`} className="inline-flex min-h-11 items-center text-white/70 hover:text-white">{locale === 'fr' ? 'Mentions légales & confidentialité' : 'Legal notice & privacy'}</a>
+          </div>
+        </div>
         <div className="flex items-center gap-4">
           <a
             href="https://github.com/dinegamer"

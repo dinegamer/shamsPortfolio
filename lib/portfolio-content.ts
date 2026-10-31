@@ -99,7 +99,7 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
         {
           title: 'SHAMSI Digital Mali',
           body:
-            'SHAMSI Digital Mali, stylisé SH☀MSI, est ma marque professionnelle à Bamako pour le conseil informatique, le logiciel, les données, la formation et l’intelligence artificielle. Elle est portée par Chamsoudine THIENTA et n’est affiliée à aucune société étrangère appelée Shams Digital. KalanSUP reste l’un de mes produits, pas une entreprise distincte.'
+            'SHAMSI DIGITAL, également présenté comme SHAMSI Digital Mali ou SH☀MSI, est le nom commercial de mon entreprise individuelle immatriculée au Mali sous le RCCM ML-BKO-01-2026-A-07041 pour le conseil informatique, le logiciel, les données, la formation et l’intelligence artificielle. Elle est portée par Chamsoudine THIENTA et n’est affiliée à aucune société étrangère appelée Shams Digital. KalanSUP reste l’un de mes produits, pas une entreprise distincte.'
         },
         {
           title: 'Transmission',
@@ -296,7 +296,7 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
         {
           title: 'SHAMSI Digital Mali',
           body:
-            'SHAMSI Digital Mali, stylized SH☀MSI, is my professional brand in Bamako for IT consulting, software, data, training and artificial intelligence work. It is led by Chamsoudine THIENTA and is not affiliated with any foreign company named Shams Digital. KalanSUP remains one of my products, not a separate company.'
+            'SHAMSI DIGITAL, also presented as SHAMSI Digital Mali or SH☀MSI, is the trade name of my sole proprietorship registered in Mali under RCCM ML-BKO-01-2026-A-07041 for IT consulting, software, data, training and artificial intelligence work. It is led by Chamsoudine THIENTA and is not affiliated with any foreign company named Shams Digital. KalanSUP remains one of my products, not a separate company.'
         },
         {
           title: 'Teaching',
@@ -353,7 +353,7 @@ export const portfolioContent: Record<Locale, LocaleContent> = {
           'Keep data consistent across the different modules.'
         ],
         status:
-          'Product in development. No client institution or public deployment is claimed.',
+          'Available for demonstrations with synthetic data and scoped pilots. The source code is private. No client institution or public deployment is claimed.',
         seoTitle: 'KalanSUP — School Management ERP | Chamsoudine THIENTA',
         seoDescription:
           'KalanSUP is a school and university management project designed by Chamsoudine THIENTA with React, Spring Boot and PostgreSQL.'

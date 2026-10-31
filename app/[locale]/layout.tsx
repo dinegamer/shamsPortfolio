@@ -10,12 +10,12 @@ const siteUrl = 'https://shamsi-dev.vercel.app';
 
 const seo = {
   en: {
-    title: 'IT Consultant in Bamako | Chamsoudine THIENTA',
+    title: 'SHAMSI DIGITAL Mali | Business software & IT consulting',
     description:
       'IT consultant and software engineer in Bamako. Chamsoudine THIENTA delivers business software, APIs, databases, automation and data solutions through SHAMSI Digital Mali.'
   },
   fr: {
-    title: 'Consultant informatique à Bamako | Chamsoudine THIENTA',
+    title: 'SHAMSI DIGITAL Mali | Logiciels & conseil à Bamako',
     description:
       'Consultant informatique et ingénieur logiciel à Bamako, Chamsoudine THIENTA réalise logiciels métier, API, bases de données, automatisations et solutions data avec SHAMSI Digital Mali.'
   }

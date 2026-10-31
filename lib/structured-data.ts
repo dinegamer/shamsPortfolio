@@ -1,4 +1,5 @@
 import type { Locale } from '@/i18n';
+import { business } from '@/lib/business';
 import {
   githubUrl,
   linkedInUrl,
@@ -9,7 +10,7 @@ import {
 export const personId = `${siteUrl}/#chamsoudine-thienta`;
 export const organizationId = `${siteUrl}/#shamsi-digital`;
 export const portraitUrl = `${siteUrl}/chamsoudine-thienta-portrait.webp`;
-export const contentModifiedDate = '2026-09-20';
+export const contentModifiedDate = '2026-10-31';
 
 export const identityGraph = {
   '@context': 'https://schema.org',
@@ -56,13 +57,16 @@ export const identityGraph = {
     {
       '@type': 'ProfessionalService',
       '@id': organizationId,
-      name: 'SHAMSI Digital Mali',
-      alternateName: ['SHAMSI Digital', 'SH☀MSI Digital'],
-      url: siteUrl,
+      name: business.name,
+      legalName: business.owner,
+      alternateName: ['SHAMSI Digital Mali', 'SHAMSI Digital', 'ShamsiDigital', 'SH☀MSI Digital'],
+      url: `${siteUrl}/fr/shamsi-digital`,
+      identifier: { '@type': 'PropertyValue', propertyID: 'RCCM', value: business.rccm },
+      sameAs: [business.directoryUrl],
       description:
-        'Marque professionnelle de Chamsoudine THIENTA à Bamako, au Mali, dédiée au conseil informatique, au développement logiciel, à l’automatisation, aux données et à la formation. Entité distincte des sociétés étrangères portant le nom Shams Digital.',
+        'SHAMSI DIGITAL est le nom commercial de l’entreprise individuelle de Chamsoudine THIENTA à Bamako, au Mali : conseil informatique, logiciels métier, API, données, automatisation et formation.',
       disambiguatingDescription:
-        'SHAMSI Digital Mali est la marque professionnelle de Chamsoudine THIENTA, consultant informatique basé à Bamako. Elle n’est affiliée à aucune agence Shams Digital située au Maroc, en Arabie saoudite ou ailleurs.',
+        'Entreprise individuelle immatriculée au Mali sous le RCCM ML-BKO-01-2026-A-07041, également présentée comme SHAMSI Digital Mali ou ShamsiDigital.',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Bamako',
@@ -81,7 +85,8 @@ export const identityGraph = {
       founder: {
         '@id': personId
       },
-      email: 'teenagerdine@gmail.com',
+      email: business.email,
+      telephone: business.telephone,
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Services SHAMSI Digital Mali',
@@ -92,6 +97,15 @@ export const identityGraph = {
           'Formation et support utilisateurs'
         ].map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } }))
       }
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      name: 'SHAMSI DIGITAL Mali',
+      alternateName: ['SHAMSI DIGITAL', 'ShamsiDigital', 'Chamsoudine THIENTA'],
+      url: `${siteUrl}/`,
+      inLanguage: ['fr', 'en'],
+      publisher: { '@id': organizationId }
     }
   ]
 };
