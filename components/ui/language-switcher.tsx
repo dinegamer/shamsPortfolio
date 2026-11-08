@@ -31,9 +31,9 @@ export function LanguageSwitcher() {
           href={getHref(nextLocale)}
           onClick={(event) => {
             event.preventDefault();
-            router.replace(`${getHref(nextLocale)}${window.location.hash}`);
+            router.replace(`${getHref(nextLocale)}${window.location.search}${window.location.hash}`);
           }}
-          className={`inline-flex min-h-11 items-center rounded-full px-3 py-2 transition ${
+          className={`inline-flex min-h-11 items-center rounded-full px-2 sm:px-3 py-2 transition ${
             locale === nextLocale
               ? 'bg-white text-black'
               : 'text-white/70 hover:text-white hover:bg-white/10'

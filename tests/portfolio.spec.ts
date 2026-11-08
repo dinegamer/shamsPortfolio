@@ -19,6 +19,10 @@ const locales = ['fr', 'en'];
 const indexedPaths = [
   '',
   '/about',
+  '/shamsi-digital',
+  '/mentions-legales',
+  '/guides/choisir-consultant-informatique-mali',
+  ...['consultant-informatique-bamako', 'kalansup-universites', 'kalanplus-ecoles', 'smartcare-cliniques', 'developpement-application-mali', 'consultant-si-ong'].map(slug => `/services/${slug}`),
   ...projectSlugs.map((slug) => `/projects/${slug}`)
 ];
 
@@ -51,17 +55,17 @@ test('shows Chamsoudine THIENTA and Shams in both heroes', async ({ page }) => {
     await expect(
       page.getByText(
         locale === 'fr'
-          ? 'Fondateur de SH☀MSI Digital'
-          : 'Founder of SH☀MSI Digital'
+          ? 'SHAMSI DIGITAL — entreprise individuelle à Bamako'
+          : 'SHAMSI DIGITAL — sole proprietorship in Bamako'
       )
     ).toBeVisible();
     await expect(
       page.getByRole('heading', { level: 1 })
-    ).toContainText(locale === 'fr' ? 'Consultant informatique' : 'IT Consultant');
+    ).toContainText(locale === 'fr' ? 'Logiciels métier' : 'Business software');
     await expect(page).toHaveTitle(
       locale === 'fr'
-        ? 'Consultant informatique à Bamako | Chamsoudine THIENTA'
-        : 'IT Consultant in Bamako | Chamsoudine THIENTA'
+        ? 'SHAMSI DIGITAL Mali | Logiciels & conseil à Bamako'
+        : 'SHAMSI DIGITAL Mali | Business software & IT consulting'
     );
   }
 });
@@ -207,8 +211,8 @@ test('publishes one reusable Person and Organization identity graph', async ({
   );
   expect(organization).toMatchObject({
     '@type': 'ProfessionalService',
-    name: 'SHAMSI Digital',
-    alternateName: 'SH☀MSI Digital',
+    name: 'SHAMSI DIGITAL',
+    alternateName: ['SHAMSI Digital Mali', 'SHAMSI Digital', 'ShamsiDigital', 'SH☀MSI Digital'],
     founder: { '@id': personId }
   });
 });
@@ -224,7 +228,7 @@ test('About pages publish localized ProfilePage JSON-LD', async ({ page }) => {
       '@id': `${siteUrl}/${locale}/about#profile-page`,
       url: `${siteUrl}/${locale}/about`,
       inLanguage: locale,
-      dateModified: '2026-09-13',
+      dateModified: '2026-10-31',
       mainEntity: { '@id': personId }
     });
   }
@@ -247,12 +251,12 @@ test('projects reference the Person and expose evidence-based schema types', asy
     );
     expect(project['@type']).toBe(expectedTypes[slug]);
     expect(project.creator).toEqual({ '@id': personId });
-    expect(project.dateModified).toBe('2026-09-13');
+    expect(project.dateModified).toBe('2026-10-31');
     expect(project.keywords.length).toBeGreaterThan(2);
     await expect(page.locator('meta[name="keywords"]')).toHaveCount(1);
     await expect(page.locator('meta[name="date-modified"]')).toHaveAttribute(
       'content',
-      '2026-09-13'
+      '2026-10-31'
     );
   }
 });
@@ -271,7 +275,7 @@ test('sitemap contains exactly the expected official content routes', async ({
     }
   }
 
-  expect((xml.match(/<url>/g) ?? []).length).toBe(12);
+  expect((xml.match(/<url>/g) ?? []).length).toBe(locales.length * indexedPaths.length);
   expect(xml).not.toContain('localhost');
   expect(xml).not.toContain('shams-portfolio-');
 });

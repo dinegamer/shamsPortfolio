@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((locale) =>
     paths.map((path) => ({
       url: `${siteUrl}/${locale}${path}`,
-      lastModified,
+      lastModified: path === '/about' || path.startsWith('/guides/') ? lastModified : new Date('2026-11-08'),
       changeFrequency: path ? ('monthly' as const) : ('weekly' as const),
       priority: path ? 0.8 : 1
     }))
