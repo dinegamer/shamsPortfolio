@@ -76,7 +76,10 @@ export function Contact() {
       setStatus('success');
     } catch (cause) {
       if (!mounted.current) return;
-      setError(t(cause instanceof SubmissionError && cause.kind === 'rejected' ? 'errors.generic' : 'errors.unconfirmed'));
+      const errorKey = cause instanceof SubmissionError && cause.kind === 'rejected'
+        ? 'errors.generic'
+        : cause instanceof SubmissionError && cause.kind === 'timeout' ? 'errors.timeout' : 'errors.unconfirmed';
+      setError(t(errorKey));
       setStatus('error');
     } finally {
       window.clearTimeout(timeout);
@@ -148,6 +151,7 @@ export function Contact() {
                     {status === 'sending' ? <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" /> : <ArrowRight aria-hidden="true" className="h-4 w-4" />}
                     {status === 'sending' ? t('sending') : t('submit')}
                   </button>
+                  {status === 'sending' ? <p aria-live="polite" className="text-sm text-white/65">{t('pending')}</p> : null}
                   </fieldset>
                 </form>
               )}

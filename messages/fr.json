@@ -219,7 +219,8 @@
       "tooFast": "Veuillez patienter un instant, puis renvoyer le formulaire.",
       "wait": "Un message vient d’être envoyé. Patientez une minute avant un nouvel envoi.",
       "invalid": "Vérifiez votre nom et votre message avant de réessayer.",
-      "unconfirmed": "La transmission n’a pas pu être confirmée. Votre texte est conservé. Pour éviter un doublon, vous pouvez nous contacter directement avant de réessayer."
+      "unconfirmed": "La transmission n’a pas pu être confirmée. Votre texte est conservé. Pour éviter un doublon, vous pouvez nous contacter directement avant de réessayer.",
+      "timeout": "Le service met trop de temps à confirmer l’envoi. Votre texte est conservé. La demande peut avoir été transmise : contactez-nous directement avant de réessayer."
     },
     "privacyLink": "Confidentialité",
     "formLabel": "Demande de devis",
@@ -237,7 +238,8 @@
       "formation": "Formation",
       "maintenance": "Maintenance et support",
       "other": "Autre besoin"
-    }
+    },
+    "pending": "La confirmation peut prendre quelques instants. Gardez cette page ouverte."
   },
   "footer": {
     "rights": "Chamsoudine THIENTA — SHAMSI Digital Mali — Bamako — 2026"

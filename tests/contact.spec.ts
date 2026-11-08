@@ -36,6 +36,7 @@ for (const locale of ['fr', 'en']) {
 
 for (const failure of ['false', '400', '503', 'html', 'network', 'timeout']) {
   test(`preserves the enquiry and offers direct contact on ${failure}`, async ({ page }) => {
+    if (failure === 'timeout') test.setTimeout(60_000);
     await page.route(endpoint, async route => {
       if (failure === 'network') return route.abort('failed');
       if (failure === 'timeout') return; // Leave pending until the application's abort deadline.
@@ -46,7 +47,7 @@ for (const failure of ['false', '400', '503', 'html', 'network', 'timeout']) {
     await page.goto('/fr/shamsi-digital');
     await fillEnquiry(page);
     await send(page).click();
-    await expect(page.locator('#contact').getByRole('alert')).toBeVisible({ timeout: 18000 });
+    await expect(page.locator('#contact').getByRole('alert')).toBeVisible({ timeout: 48000 });
     await expect(page.getByRole('status')).toHaveCount(0);
     await expect(page.locator('#contact-message')).toHaveValue(needs);
     await expect(page.locator('#contact-name')).toHaveValue('Test prospect');

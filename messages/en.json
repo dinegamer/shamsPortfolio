@@ -219,7 +219,8 @@
       "tooFast": "Please wait a moment, then submit the form again.",
       "wait": "A message was just sent. Please wait one minute before sending another.",
       "invalid": "Check your name and message before trying again.",
-      "unconfirmed": "We could not confirm the submission. Your text is preserved. You can contact us directly before retrying to avoid a duplicate."
+      "unconfirmed": "We could not confirm the submission. Your text is preserved. You can contact us directly before retrying to avoid a duplicate.",
+      "timeout": "The service is taking too long to confirm. Your text is preserved. Your enquiry may have been sent: please contact us directly before retrying."
     },
     "privacyLink": "Privacy",
     "formLabel": "Quote enquiry",
@@ -237,7 +238,8 @@
       "formation": "Training",
       "maintenance": "Maintenance and support",
       "other": "Other enquiry"
-    }
+    },
+    "pending": "Confirmation may take a little time. Please keep this page open."
   },
   "footer": {
     "rights": "Chamsoudine THIENTA — SHAMSI Digital Mali — Bamako — 2026"
