@@ -23,6 +23,13 @@ type ServicePage = {
   cta: string;
   seoTitle: string;
   seoDescription: string;
+  starterPackage?: {
+    title: string;
+    scope: string;
+    deliverables: string[];
+    limits: string;
+    preparation: string;
+  };
 };
 
 const fr: Record<ServiceSlug, ServicePage> = {
@@ -81,15 +88,15 @@ const fr: Record<ServiceSlug, ServicePage> = {
   'developpement-application-mali': {
     eyebrow: 'Entreprises, startups et organisations',
     title: 'Passer d’une idée d’application à un périmètre livrable et chiffrable.',
-    promise: 'J’accompagne le cadrage, la conception et le développement d’applications web, API, bases de données et outils métiers depuis Bamako.',
-    audience: 'Porteurs de projet, PME, cabinets, agences et organisations ayant un besoin applicatif précis.',
+    promise: 'Depuis Bamako, j’accompagne à distance le cadrage, la conception et le développement d’applications web, API, bases de données et outils métiers au Mali et à l’international.',
+    audience: 'Porteurs de projet, PME, cabinets, agences et organisations au Mali ou ailleurs dans le monde, avec un besoin applicatif précis.',
     pains: ['Idée utile mais périmètre encore flou', 'Projet commencé puis bloqué', 'Bugs ou dette technique empêchant la livraison', 'Budget difficile à estimer sans spécifications'],
     deliverables: ['Entretien de découverte de 20 minutes', 'Cadrage écrit : utilisateurs, fonctions, contraintes et étapes', 'Devis après validation du périmètre', 'Livraison par lots, recette et maintenance optionnelle'],
     proof: 'Les réalisations et prototypes visibles sur ce portfolio montrent des architectures web, API, bases de données et interfaces métier. Chaque nouveau projet reste chiffré après cadrage.',
     firstStep: 'Le cadrage applicatif est proposé avant tout engagement de développement important.',
     cta: 'Présenter mon projet d’application',
-    seoTitle: 'Développement d’application web à Bamako | SHAMSI Digital',
-    seoDescription: 'Cadrage et développement d’applications web, API et logiciels métiers à Bamako par Chamsoudine THIENTA.'
+    seoTitle: 'Développement web au Mali et à distance | SHAMSI Digital',
+    seoDescription: 'Applications web, API et logiciels métiers pour des clients au Mali et à l’international. Cadrage et développement à distance depuis Bamako.'
   },
   'consultant-si-ong': {
     eyebrow: 'ONG et programmes de développement',
@@ -99,10 +106,17 @@ const fr: Record<ServiceSlug, ServicePage> = {
     pains: ['Collectes et reportings dépendants de fichiers fragiles', 'Règles de validation peu documentées', 'Données difficiles à consolider ou auditer', 'Outil choisi avant d’avoir cadré le processus'],
     deliverables: ['Diagnostic court et note de recommandations', 'Cartographie du processus et des responsabilités', 'Cahier des charges ou prototype ciblé', 'Nettoyage, tableau de bord, automatisation ou formation selon le besoin'],
     proof: 'Le positionnement repose sur l’ingénierie SI, le développement, SQL/data et l’enseignement. Aucune expérience ONG spécifique n’est inventée.',
-    firstStep: 'Décrire un seul processus encore géré par appels, papier ou fichiers dispersés ; je confirme sous 24 heures si un diagnostic est pertinent.',
-    cta: 'Demander un diagnostic SI court',
+    firstStep: 'Décrivez un reporting à améliorer, ses sources et les décisions qu’il doit éclairer. Nous définissons un premier lot avant tout devis.',
+    cta: 'Cadrer un premier lot de reporting',
     seoTitle: 'Consultant SI pour ONG au Mali | Chamsoudine THIENTA',
-    seoDescription: 'Diagnostic SI, cahier des charges, automatisation, reporting et formation pour ONG au Mali et à distance.'
+    seoDescription: 'Un premier lot de reporting pour ONG : qualité des données, indicateurs convenus, tableau de bord et transmission. Au Mali et à distance.',
+    starterPackage: {
+      title: 'Un premier tableau de bord de reporting',
+      scope: 'Un seul processus de reporting, à partir d’un jeu de données existant. Les sources, les indicateurs, la période couverte et les critères de validation sont convenus avec votre équipe.',
+      deliverables: ['État des données et règles de nettoyage documentées', 'Tableau de bord limité aux indicateurs convenus', 'Guide de mise à jour et prise en main avec un référent'],
+      limits: 'La collecte terrain, la refonte complète du SI, les intégrations supplémentaires et la maintenance continue font l’objet d’un cadrage séparé. Budget, calendrier et modalités d’accès aux données sont validés avant de commencer.',
+      preparation: 'Pour le premier échange, décrivez les fichiers disponibles et le résultat attendu. Utilisez des exemples fictifs ou anonymisés ; ne transmettez pas de données personnelles de bénéficiaires ni de fichiers confidentiels via le formulaire public.'
+    }
   }
 };
 
@@ -162,15 +176,15 @@ const en: Record<ServiceSlug, ServicePage> = {
   'developpement-application-mali': {
     eyebrow: 'Companies, startups and organizations',
     title: 'Turn an application idea into a deliverable, estimable scope.',
-    promise: 'From Bamako, I support the scoping, design and development of web applications, APIs, databases and business tools.',
-    audience: 'Project owners, SMEs, consultancies, agencies and organizations with a specific application need.',
+    promise: 'From Bamako, I remotely scope, design and develop web applications, APIs, databases and business tools for clients in Mali and internationally.',
+    audience: 'Project owners, SMEs, consultancies, agencies and organizations in Mali or anywhere else in the world with a specific application need.',
     pains: ['A useful idea with an unclear scope', 'A project that started and stalled', 'Bugs or technical debt blocking delivery', 'A budget that cannot be estimated without specifications'],
     deliverables: ['20-minute discovery call', 'Written scope: users, features, constraints and milestones', 'Quote after scope validation', 'Staged delivery, acceptance and optional maintenance'],
     proof: 'The portfolio shows web, API, database and business-interface work. Every new project is priced only after scoping.',
     firstStep: 'Application scoping comes before any major development commitment.',
     cta: 'Present my application project',
-    seoTitle: 'Web application development in Bamako | SHAMSI Digital',
-    seoDescription: 'Web application, API and business software scoping and development in Bamako by Chamsoudine THIENTA.'
+    seoTitle: 'Web development in Mali and remotely | SHAMSI Digital',
+    seoDescription: 'Web applications, APIs and business software for clients in Mali and internationally. Remote scoping and development from Bamako.'
   },
   'consultant-si-ong': {
     eyebrow: 'NGOs and development programmes',
@@ -180,10 +194,17 @@ const en: Record<ServiceSlug, ServicePage> = {
     pains: ['Data collection and reporting dependent on fragile files', 'Poorly documented validation rules', 'Data that is difficult to consolidate or audit', 'Tools selected before the process is scoped'],
     deliverables: ['Short diagnosis and recommendation note', 'Process and responsibility map', 'Requirements document or focused prototype', 'Cleaning, dashboard, automation or training as needed'],
     proof: 'The positioning is grounded in information systems, software, SQL/data and teaching. No NGO-specific experience is fabricated.',
-    firstStep: 'Describe one process still managed through calls, paper or scattered files; I will confirm within 24 hours whether a diagnosis is relevant.',
-    cta: 'Request a short IT diagnosis',
+    firstStep: 'Describe one report to improve, its sources and the decisions it should support. We define a first package before a quote.',
+    cta: 'Scope a first reporting package',
     seoTitle: 'IT consultant for NGOs in Mali | Chamsoudine THIENTA',
-    seoDescription: 'IT diagnosis, requirements, automation, reporting and training for NGOs in Mali and remotely.'
+    seoDescription: 'A first reporting package for NGOs: data quality, agreed indicators, a dashboard and handover. Available in Mali and remotely.',
+    starterPackage: {
+      title: 'A first reporting dashboard',
+      scope: 'One reporting process, using an existing dataset. Sources, indicators, reporting period and acceptance criteria are agreed with your team.',
+      deliverables: ['Data assessment and documented cleaning rules', 'A dashboard limited to the agreed indicators', 'An update guide and handover with a designated team member'],
+      limits: 'Field data collection, a full information-system rebuild, additional integrations and ongoing maintenance require separate scoping. Budget, schedule and data access arrangements are agreed before work starts.',
+      preparation: 'For the first conversation, describe the available files and expected result. Use fictional or anonymized examples; do not send beneficiaries’ personal data or confidential files through the public form.'
+    }
   }
 };
 

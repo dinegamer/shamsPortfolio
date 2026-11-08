@@ -1,6 +1,7 @@
 'use client';
 import { useLocale, useTranslations } from 'next-intl';
 import { ArrowUpRight, BarChart3, Building2, Code2, DatabaseZap, GraduationCap, HeartPulse } from 'lucide-react';
+import { DeliveryModes } from '@/components/delivery-modes';
 
 export function Services() {
   const t = useTranslations('services');
@@ -8,7 +9,7 @@ export function Services() {
   const items = [
     { icon: DatabaseZap, title: locale === 'fr' ? 'Consultant informatique' : 'IT consulting', body: locale === 'fr' ? 'Diagnostic SI, cahier des charges, automatisation, data, formation et accompagnement.' : 'IT diagnosis, requirements, automation, data, training and enablement.', slug: 'consultant-informatique-bamako' },
     { icon: Code2, title: t('softwareTitle'), body: t('softwareBody'), slug: 'developpement-application-mali' },
-    { icon: BarChart3, title: locale === 'fr' ? 'Missions SI pour ONG' : 'IT assignments for NGOs', body: locale === 'fr' ? 'Processus, qualité des données, reporting, automatisation et formation.' : 'Processes, data quality, reporting, automation and training.', slug: 'consultant-si-ong' },
+    { icon: BarChart3, title: locale === 'fr' ? 'Missions SI pour ONG' : 'IT assignments for NGOs', body: locale === 'fr' ? 'Un premier lot de reporting : données existantes, indicateurs convenus et tableau de bord documenté.' : 'A first reporting package: existing data, agreed indicators and a documented dashboard.', slug: 'consultant-si-ong' },
     { icon: GraduationCap, title: 'KalanSUP', body: locale === 'fr' ? 'Pilotage académique, administratif et financier des universités.' : 'Academic, administrative and financial university operations.', slug: 'kalansup-universites' },
     { icon: Building2, title: 'Kalan+', body: locale === 'fr' ? 'Suivi scolaire, assiduité et communication pour les écoles privées.' : 'School monitoring, attendance and family communication.', slug: 'kalanplus-ecoles' },
     { icon: HeartPulse, title: 'SmartCare', body: locale === 'fr' ? 'Diagnostic et prototype pour l’accueil, les files et les parcours en clinique.' : 'Diagnosis and prototyping for clinic reception, queues and service flows.', slug: 'smartcare-cliniques' }
@@ -36,6 +37,7 @@ export function Services() {
             </a>
           ))}
         </div>
+        <div className="mt-10"><DeliveryModes locale={locale} /></div>
       </div>
     </section>
   );
