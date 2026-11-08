@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { contactHref } from '@/lib/contact-options';
 import { useLocale, useTranslations } from 'next-intl';
 import { Menu, X } from 'lucide-react';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
@@ -7,22 +9,24 @@ import { LanguageSwitcher } from '@/components/ui/language-switcher';
 export function Navbar() {
   const t = useTranslations('nav');
   const locale = useLocale();
+  const pathname = usePathname();
+  const contact = pathname === `/${locale}` || pathname === `/${locale}/shamsi-digital` ? '#contact' : contactHref(locale);
   const [open, setOpen] = useState(false);
   const links = [
     { href: `/${locale}/shamsi-digital`, label: t('business') },
     { href: `/${locale}#work`, label: t('work') },
     { href: `/${locale}#services`, label: t('services') },
     { href: `/${locale}/about`, label: t('about') },
-    { href: `/${locale}#contact`, label: t('contact') }
+    { href: contact, label: t('contact') }
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 bg-black/85 border-b border-white/10">
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
         <a href={`/${locale}`} className="font-black text-lg tracking-tight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-400">
           SH☀MSI <span className="sr-only">SHAMSI Digital Mali, Bamako</span>
         </a>
-        <nav className="hidden md:flex items-center gap-1 text-sm" aria-label={t('primaryNav')}>
+        <nav className="hidden lg:flex items-center gap-1 text-sm" aria-label={t('primaryNav')}>
           {links.map((link) => (
             <a
               key={link.href}
@@ -33,17 +37,18 @@ export function Navbar() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           <LanguageSwitcher />
           <a
-            href={`/${locale}#contact`}
-            className="hidden sm:inline-flex min-h-11 items-center px-4 py-2 text-xs font-medium bg-white text-black rounded-full hover:bg-white/90 transition"
+            href={contact}
+            aria-label={t('cta')}
+            className="inline-flex min-h-11 items-center px-3 sm:px-4 py-2 text-xs font-medium bg-white text-black rounded-full hover:bg-white/90 transition"
           >
-            {t('cta')}
+            <span className="sm:hidden">{t('ctaShort')}</span><span className="hidden sm:inline">{t('cta')}</span>
           </a>
           <button
             type="button"
-            className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white"
+            className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white"
             aria-label={open ? t('closeMenu') : t('openMenu')}
             aria-expanded={open}
             aria-controls="mobile-navigation"
@@ -56,7 +61,7 @@ export function Navbar() {
       {open ? (
         <nav
           id="mobile-navigation"
-          className="md:hidden max-w-7xl mx-auto mt-3 rounded-lg border border-white/10 bg-black p-2"
+          className="lg:hidden max-w-7xl mx-auto mt-3 rounded-lg border border-white/10 bg-black p-2"
           aria-label={t('mobileNav')}
         >
           {links.map((link) => (

@@ -136,7 +136,7 @@ export function Projects() {
                   ) : null}
                 </div>
                 <dl className="mt-5 space-y-4 text-sm leading-relaxed">
-                  {['problem', 'contribution', 'features', 'capture'].map((field) => (
+                  {['problem', 'contribution', 'features'].map((field) => (
                     <div key={field}>
                       <dt className="text-xs uppercase tracking-wider text-white/40">
                         {t(`labels.${field}`)}

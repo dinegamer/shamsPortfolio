@@ -17,10 +17,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <main className="relative" id="content" tabIndex={-1}>
         <Navbar />
         <Hero />
+        <Services />
         <MorphStrip />
         <Projects />
         <About />
-        <Services />
         <Stack />
         <Contact />
         <Footer />

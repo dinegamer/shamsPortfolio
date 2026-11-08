@@ -4,23 +4,24 @@
     "services": "Services",
     "about": "About",
     "contact": "Contact",
-    "cta": "Contact me",
+    "cta": "Request a quote",
     "primaryNav": "Primary navigation",
     "mobileNav": "Mobile navigation",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "business": "Business"
+    "business": "Business",
+    "ctaShort": "Quote"
   },
   "hero": {
     "name": "Chamsoudine THIENTA — Shams",
     "badge": "IT consultant in Bamako — available across Mali and remotely",
-    "line1": "IT Consultant",
-    "line2": "& Software Engineer",
-    "line3": "Data, APIs, Databases & Business Systems",
+    "line1": "Business software",
+    "line2": "& IT consulting",
+    "line3": "in Bamako and remotely",
     "subtitle": "I help companies, NGOs and education institutions design software, automate operational processes and make better use of their data.",
     "brand": "SHAMSI DIGITAL — sole proprietorship in Bamako",
-    "primary": "View my projects",
-    "secondary": "Explore my GitHub",
+    "primary": "Request a quote",
+    "secondary": "Explore services",
     "tertiary": "Contact me",
     "metric1": "200+",
     "metric1Label": "Students trained",
@@ -156,8 +157,8 @@
   },
   "contact": {
     "kicker": "Contact",
-    "title": "Tell me about your assignment.",
-    "body": "Need an IT consultant in Bamako or remotely? Describe the problem, your timeline and the expected result. I will reply with an initial scope proposal.",
+    "title": "Let’s discuss your project.",
+    "body": "Describe your needs in a few lines, even without a specification. We can then discuss the solution, timeline and budget. Prefer a direct conversation?",
     "privacy": "The information requested is used only to reply to you. Do not send passwords, identity documents, or confidential data.",
     "email": "Direct email",
     "optional": "Optional",
@@ -170,7 +171,8 @@
       "timeline": "Desired timeline",
       "budget": "Expected budget",
       "subject": "Subject",
-      "message": "Message"
+      "message": "Your needs",
+      "service": "Service of interest"
     },
     "placeholders": {
       "name": "Your name",
@@ -181,7 +183,8 @@
       "timeline": "Select a timeline",
       "budget": "Select a range",
       "subject": "A short summary",
-      "message": "Describe your need, the context and, if possible, your timeline."
+      "message": "For example: we need to track payments and enrolments at our institution. Include your timeline if you know it.",
+      "service": "Let’s discuss it"
     },
     "timelines": {
       "urgent": "Under 2 weeks",
@@ -203,20 +206,38 @@
       "partnership": "Partnership",
       "other": "Other inquiry"
     },
-    "submit": "Send message",
+    "submit": "Send enquiry",
     "sending": "Sending…",
     "submissionFrameTitle": "Secure form submission",
     "success": {
-      "title": "Message sent",
-      "body": "Thank you. Your message has been delivered and I will reply directly by email.",
+      "title": "Enquiry submitted",
+      "body": "Thank you. The sending service has accepted your enquiry. We will reply to your email. You can also reach us on WhatsApp or by phone.",
       "again": "Send another message"
     },
     "errors": {
-      "generic": "The message could not be sent. Please try again or use direct email.",
+      "generic": "The service rejected the submission. Your text is preserved. Try again or use WhatsApp, phone or email.",
       "tooFast": "Please wait a moment, then submit the form again.",
-      "wait": "A message was just sent. Please wait one minute before sending another."
+      "wait": "A message was just sent. Please wait one minute before sending another.",
+      "invalid": "Check your name and message before trying again.",
+      "unconfirmed": "We could not confirm the submission. Your text is preserved. You can contact us directly before retrying to avoid a duplicate."
     },
-    "privacyLink": "Privacy"
+    "privacyLink": "Privacy",
+    "formLabel": "Quote enquiry",
+    "requiredHint": "Only your name, email and needs are required.",
+    "directContact": "Direct contact options",
+    "call": "Call",
+    "services": {
+      "developpement-application-mali": "Business software or website",
+      "consultant-informatique-bamako": "IT consulting",
+      "data-automatisation": "Data and automation",
+      "consultant-si-ong": "Information system for an NGO",
+      "kalansup-universites": "KalanSUP — university management",
+      "kalanplus-ecoles": "KalanPlus — school management",
+      "smartcare-cliniques": "SmartCare — clinic management",
+      "formation": "Training",
+      "maintenance": "Maintenance and support",
+      "other": "Other enquiry"
+    }
   },
   "footer": {
     "rights": "Chamsoudine THIENTA — SHAMSI Digital Mali — Bamako — 2026"

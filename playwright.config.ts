@@ -11,7 +11,7 @@ export default defineConfig({
     trace: 'retain-on-failure'
   },
   webServer: {
-    command: 'npm run start -- -p 3000',
+    command: 'npm run start -- -H 127.0.0.1 -p 3000',
     url: 'http://localhost:3000',
     reuseExistingServer: true,
     timeout: 30_000
@@ -19,7 +19,12 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] }
+      use: {
+        ...devices['Desktop Chrome'],
+        launchOptions: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH
+          ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH }
+          : {}
+      }
     }
   ]
 });

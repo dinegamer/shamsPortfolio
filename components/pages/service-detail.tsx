@@ -1,3 +1,4 @@
+import { contactHref } from '@/lib/contact-options';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { Locale } from '@/i18n';
@@ -22,7 +23,7 @@ export function ServiceDetail({ locale, slug }: { locale: Locale; slug: ServiceS
         <p className="mt-12 text-sm uppercase tracking-[0.3em] text-brand-400">{page.eyebrow}</p>
         <h1 className="mt-4 max-w-5xl text-5xl font-bold leading-tight md:text-7xl">{page.title}</h1>
         <p className="mt-7 max-w-3xl text-lg leading-relaxed text-white/70 md:text-xl">{page.promise}</p>
-        <a href="#demande" className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-brand-500 px-7 py-3.5 font-semibold text-black hover:bg-brand-400">{page.cta}<ArrowRight className="h-4 w-4" /></a>
+        <a href={contactHref(locale, { service: slug })} className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-brand-500 px-7 py-3.5 font-semibold text-black hover:bg-brand-400">{page.cta}<ArrowRight className="h-4 w-4" /></a>
       </div>
     </header>
     <section className="px-6 py-20"><div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-2">
@@ -34,8 +35,8 @@ export function ServiceDetail({ locale, slug }: { locale: Locale; slug: ServiceS
     {slug === 'consultant-informatique-bamako' ? <section className="px-6 pb-20"><div className="mx-auto max-w-6xl rounded-2xl border border-white/10 bg-white/[0.03] p-8 md:p-10"><p className="text-sm uppercase tracking-[0.25em] text-brand-400">{locale === 'fr' ? 'Ressource acheteur' : 'Buyer resource'}</p><h2 className="mt-3 text-2xl font-bold">{locale === 'fr' ? 'Comment choisir un consultant informatique au Mali ?' : 'How to choose an IT consultant in Mali'}</h2><p className="mt-3 max-w-3xl text-white/65">{locale === 'fr' ? 'Un guide transparent sur les preuves, le cadrage, les données, les pilotes et la recette — même si vous choisissez un autre prestataire.' : 'A transparent guide to evidence, scoping, data, pilots and acceptance — even if you select another provider.'}</p><Link href={`/${locale}/guides/choisir-consultant-informatique-mali`} className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-brand-400 hover:text-brand-300">{locale === 'fr' ? 'Lire le guide' : 'Read the guide'}<ArrowRight className="h-4 w-4"/></Link></div></section> : null}
     <section id="demande" className="border-y border-white/10 bg-neutral-950 px-6 py-20 text-center">
       <div className="mx-auto max-w-3xl"><p className="text-sm uppercase tracking-[0.3em] text-brand-400">{locale === 'fr' ? 'Première étape' : 'First step'}</p><h2 className="mt-4 text-3xl font-bold">{page.firstStep}</h2>
-      <p className="mt-5 text-white/60">{locale === 'fr' ? 'Indiquez votre organisation, votre rôle, le problème prioritaire, le délai souhaité et votre fourchette budgétaire.' : 'Share your organization, role, priority problem, desired timeline and budget range.'}</p>
-      <a href={`/${locale}#contact`} className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold text-black hover:bg-white/90">{page.cta}<ArrowRight className="h-4 w-4" /></a></div>
+      <p className="mt-5 text-white/60">{locale === 'fr' ? 'Décrivez simplement votre besoin. Le calendrier et le budget pourront être précisés ensemble.' : 'Simply describe your needs. We can work out the timeline and budget together.'}</p>
+      <a href={contactHref(locale, { service: slug })} className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold text-black hover:bg-white/90">{page.cta}<ArrowRight className="h-4 w-4" /></a></div>
     </section>
   </main>;
 }

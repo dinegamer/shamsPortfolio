@@ -1,0 +1,7 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "codex/shamsi-conversion-prospects": false
+    }
+  }
+}

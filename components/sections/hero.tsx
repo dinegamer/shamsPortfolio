@@ -1,13 +1,13 @@
 'use client';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import HeroShaderBg from '@/components/ui/hero-shader';
 import Image from 'next/image';
+import { ContactActions } from '@/components/contact-actions';
 
 export function Hero() {
   const t = useTranslations('hero');
-  const locale = useLocale();
   return (
-    <section id="top" className="relative min-h-[92vh] overflow-hidden flex items-end">
+    <section id="top" className="relative min-h-[70vh] overflow-hidden flex items-center">
       <HeroShaderBg />
 
       <div
@@ -38,7 +38,7 @@ export function Hero() {
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/75">
           {t('name')}
         </p>
-        <h1 className="text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight max-w-5xl lg:max-w-4xl">
+        <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-[1.08] tracking-tight max-w-5xl lg:max-w-4xl">
           <span
             className="block font-light text-white/90"
             style={{
@@ -59,27 +59,10 @@ export function Hero() {
         <p className="mt-4 text-sm text-white/60 max-w-xl">{t('brand')}</p>
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
-          <a
-            href={`/${locale}/services/consultant-informatique-bamako`}
-            className="inline-flex min-h-11 items-center px-8 py-4 rounded-full bg-brand-500 text-black font-semibold text-sm hover:bg-brand-400 transition"
-          >
-            {locale === 'fr' ? 'Découvrir mes missions' : 'Explore my services'}
-          </a>
-          <a
-            href="https://github.com/dinegamer"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center px-8 py-4 rounded-full bg-transparent border border-white/20 text-white font-medium text-sm hover:bg-white/10 hover:border-brand-400/50 transition"
-          >
-            {t('secondary')}
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex min-h-11 items-center px-8 py-4 rounded-full bg-transparent border border-white/20 text-white font-medium text-sm hover:bg-white/10 hover:border-brand-400/50 transition"
-          >
-            {t('tertiary')}
-          </a>
+          <a href="#contact" className="inline-flex min-h-12 items-center px-7 py-3.5 rounded-full bg-brand-500 text-black font-semibold text-sm hover:bg-brand-400 transition">{t('primary')}</a>
+          <a href="#services" className="inline-flex min-h-12 items-center px-7 py-3.5 rounded-full border border-white/20 text-white font-medium text-sm hover:bg-white/10 transition">{t('secondary')}</a>
         </div>
+        <div className="mt-4"><ContactActions /></div>
 
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
           {[

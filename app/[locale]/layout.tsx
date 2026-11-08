@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/i18n';
 import { identityGraph, portraitUrl } from '@/lib/structured-data';
 import '../globals.css';
+import { LeadAttribution } from '@/components/lead-attribution';
 
 const siteUrl = 'https://shamsi-dev.vercel.app';
 
@@ -130,7 +131,7 @@ export default async function LocaleLayout({
         >
           {locale === 'fr' ? 'Aller au contenu' : 'Skip to content'}
         </a>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}><LeadAttribution />{children}</NextIntlClientProvider>
       </body>
     </html>
   );

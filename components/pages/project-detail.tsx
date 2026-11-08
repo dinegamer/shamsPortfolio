@@ -1,3 +1,4 @@
+import { contactHref } from '@/lib/contact-options';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, Check, Github, Linkedin, Mail } from 'lucide-react';
@@ -79,6 +80,7 @@ export function ProjectDetail({ locale, slug }: ProjectDetailProps) {
             {project.summary}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
+            <Link href={contactHref(locale, { project: slug })} className="inline-flex min-h-11 items-center rounded-full bg-brand-500 px-6 py-3 font-semibold text-black hover:bg-brand-400">{locale === 'fr' ? 'Discuter d’un projet similaire' : 'Discuss a similar project'}</Link>
             {project.github ? (
               <a
                 href={project.github}
@@ -195,11 +197,11 @@ export function ProjectDetail({ locale, slug }: ProjectDetailProps) {
           <p className="mx-auto mt-4 max-w-2xl text-white/65">{labels.ctaBody}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
-              href="mailto:teenagerdine@gmail.com"
+              href={contactHref(locale, { project: slug })}
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-500 px-6 py-3 font-semibold text-black transition hover:bg-brand-400"
             >
               <Mail className="h-4 w-4" />
-              {navigation.email}
+              {locale === 'fr' ? 'Demander un devis' : 'Request a quote'}
             </a>
             <a
               href={linkedInUrl}

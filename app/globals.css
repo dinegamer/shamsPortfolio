@@ -86,3 +86,5 @@ body {
     transition-duration: 0.001ms !important;
   }
 }
+
+section[id] { scroll-margin-top: 6rem; }

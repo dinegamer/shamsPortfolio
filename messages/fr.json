@@ -4,23 +4,24 @@
     "services": "Services",
     "about": "À propos",
     "contact": "Contact",
-    "cta": "Me contacter",
+    "cta": "Demander un devis",
     "primaryNav": "Navigation principale",
     "mobileNav": "Navigation mobile",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
-    "business": "Entreprise"
+    "business": "Entreprise",
+    "ctaShort": "Devis"
   },
   "hero": {
     "name": "Chamsoudine THIENTA — Shams",
     "badge": "Consultant informatique à Bamako — disponible au Mali et à distance",
-    "line1": "Consultant informatique",
-    "line2": "& ingénieur logiciel",
-    "line3": "Data, API, bases de données & systèmes métier",
+    "line1": "Logiciels métier",
+    "line2": "& conseil informatique",
+    "line3": "à Bamako et à distance",
     "subtitle": "J'accompagne entreprises, ONG et établissements d'enseignement dans la conception de logiciels, l'automatisation de leurs processus et l'exploitation de leurs données.",
     "brand": "SHAMSI DIGITAL — entreprise individuelle à Bamako",
-    "primary": "Voir mes projets",
-    "secondary": "Explorer mon GitHub",
+    "primary": "Demander un devis",
+    "secondary": "Voir les prestations",
     "tertiary": "Me contacter",
     "metric1": "200+",
     "metric1Label": "Étudiants formés",
@@ -156,8 +157,8 @@
   },
   "contact": {
     "kicker": "Contact",
-    "title": "Parlons de votre mission.",
-    "body": "Besoin d'un consultant informatique à Bamako ou à distance ? Décrivez votre problème, vos délais et le résultat attendu. Je vous répondrai avec une première proposition de cadrage.",
+    "title": "Parlons de votre projet.",
+    "body": "Décrivez votre besoin en quelques lignes, même sans cahier des charges. Nous pourrons préciser ensemble la solution, le calendrier et le budget. Vous préférez échanger directement ?",
     "privacy": "Les informations demandées servent uniquement à vous répondre. N’envoyez aucun mot de passe, document d’identité ni donnée confidentielle.",
     "email": "E-mail direct",
     "optional": "Facultatif",
@@ -170,7 +171,8 @@
       "timeline": "Délai souhaité",
       "budget": "Budget envisagé",
       "subject": "Objet",
-      "message": "Message"
+      "message": "Votre besoin",
+      "service": "Prestation souhaitée"
     },
     "placeholders": {
       "name": "Votre nom",
@@ -181,7 +183,8 @@
       "timeline": "Choisir un délai",
       "budget": "Choisir une fourchette",
       "subject": "En quelques mots",
-      "message": "Présentez votre besoin, le contexte et, si possible, vos délais."
+      "message": "Exemple : nous souhaitons suivre les paiements et les inscriptions de notre établissement. Vous pouvez préciser vos délais si vous les connaissez.",
+      "service": "À préciser ensemble"
     },
     "timelines": {
       "urgent": "Moins de 2 semaines",
@@ -203,20 +206,38 @@
       "partnership": "Partenariat",
       "other": "Autre demande"
     },
-    "submit": "Envoyer le message",
+    "submit": "Envoyer ma demande",
     "sending": "Envoi en cours…",
     "submissionFrameTitle": "Transmission sécurisée du formulaire",
     "success": {
-      "title": "Message envoyé",
-      "body": "Merci. Votre message a bien été transmis et je vous répondrai directement par e-mail.",
+      "title": "Demande transmise",
+      "body": "Merci. Le service d’envoi a accepté votre demande. La réponse sera adressée à votre e-mail. Vous pouvez aussi nous joindre sur WhatsApp ou par téléphone.",
       "again": "Envoyer un autre message"
     },
     "errors": {
-      "generic": "L’envoi a échoué. Réessayez ou utilisez l’e-mail direct.",
+      "generic": "Le service a refusé l’envoi. Votre texte est conservé. Réessayez ou utilisez WhatsApp, le téléphone ou l’e-mail ci-contre.",
       "tooFast": "Veuillez patienter un instant, puis renvoyer le formulaire.",
-      "wait": "Un message vient d’être envoyé. Patientez une minute avant un nouvel envoi."
+      "wait": "Un message vient d’être envoyé. Patientez une minute avant un nouvel envoi.",
+      "invalid": "Vérifiez votre nom et votre message avant de réessayer.",
+      "unconfirmed": "La transmission n’a pas pu être confirmée. Votre texte est conservé. Pour éviter un doublon, vous pouvez nous contacter directement avant de réessayer."
     },
-    "privacyLink": "Confidentialité"
+    "privacyLink": "Confidentialité",
+    "formLabel": "Demande de devis",
+    "requiredHint": "Seuls votre nom, votre e-mail et votre besoin sont obligatoires.",
+    "directContact": "Autres moyens de contact",
+    "call": "Appeler",
+    "services": {
+      "developpement-application-mali": "Logiciel métier ou site web",
+      "consultant-informatique-bamako": "Conseil informatique",
+      "data-automatisation": "Données et automatisation",
+      "consultant-si-ong": "Système d’information pour une ONG",
+      "kalansup-universites": "KalanSUP — gestion universitaire",
+      "kalanplus-ecoles": "KalanPlus — gestion scolaire",
+      "smartcare-cliniques": "SmartCare — gestion de clinique",
+      "formation": "Formation",
+      "maintenance": "Maintenance et support",
+      "other": "Autre besoin"
+    }
   },
   "footer": {
     "rights": "Chamsoudine THIENTA — SHAMSI Digital Mali — Bamako — 2026"
