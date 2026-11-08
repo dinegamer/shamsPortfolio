@@ -302,7 +302,8 @@ test('serves a short factual llms.txt with official routes and profiles', async 
   expect(response.headers()['content-type']).toContain('text/plain');
   const content = await response.text();
   expect(content).toContain('Chamsoudine Thienta');
-  expect(content).toContain('Software Engineer and Data Analyst');
+  expect(content).toContain('Software Engineer');
+  expect(content).toContain('Data Analyst');
   expect(content).toContain('Bamako, Mali');
   expect(content).toContain(`${siteUrl}/fr/about`);
   expect(content).toContain(`${siteUrl}/en/projects/storesup`);

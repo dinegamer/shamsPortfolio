@@ -46,7 +46,7 @@ for (const failure of ['false', '400', '503', 'html', 'network', 'timeout']) {
     await page.goto('/fr/shamsi-digital');
     await fillEnquiry(page);
     await send(page).click();
-    await expect(page.getByRole('alert')).toBeVisible({ timeout: 18000 });
+    await expect(page.locator('#contact').getByRole('alert')).toBeVisible({ timeout: 18000 });
     await expect(page.getByRole('status')).toHaveCount(0);
     await expect(page.locator('#contact-message')).toHaveValue(needs);
     await expect(page.locator('#contact-name')).toHaveValue('Test prospect');
@@ -65,7 +65,7 @@ test('retry after rejection works and a double submit sends only once', async ({
   });
   await page.goto('/fr'); await fillEnquiry(page);
   await send(page).click();
-  await expect(page.getByRole('alert')).toBeVisible();
+  await expect(page.locator('#contact').getByRole('alert')).toBeVisible();
   await send(page).evaluate((button: HTMLButtonElement) => { button.click(); button.click(); });
   await expect(page.getByRole('status')).toBeVisible();
   expect(count).toBe(2);
@@ -117,7 +117,7 @@ for (const width of [320, 390, 768, 1024]) {
     for (const locale of ['fr', 'en']) {
       for (const path of ['', '/shamsi-digital']) {
         await page.goto(`/${locale}${path}`);
-        const quote = page.locator('header.fixed a[aria-label]');
+        const quote = page.locator('header.fixed').getByRole('link', { name: locale === 'fr' ? 'Demander un devis' : 'Request a quote', exact: true });
         await expect(quote).toBeVisible();
         await expect(quote).toHaveAttribute('href', '#contact');
         await quote.click();

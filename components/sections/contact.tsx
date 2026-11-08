@@ -90,7 +90,7 @@ export function Contact() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025]">
           <div className="grid lg:grid-cols-[0.8fr_1.2fr]">
-            <div className="border-b border-white/10 p-6 md:p-10 lg:border-b-0 lg:border-r">
+            <div className="min-w-0 border-b border-white/10 p-6 md:p-10 lg:border-b-0 lg:border-r">
               <p className="mb-3 text-sm uppercase tracking-[0.3em] text-brand-400">{t('kicker')}</p>
               <h2 id="contact-title" className="text-3xl font-bold tracking-tight md:text-5xl">{t('title')}</h2>
               <p className="mt-5 max-w-lg text-base leading-relaxed text-white/65">{t('body')}</p>
@@ -102,7 +102,7 @@ export function Contact() {
                 </p>
               </div>
             </div>
-            <div className="p-6 md:p-10">
+            <div className="min-w-0 p-6 md:p-10">
               {status === 'success' ? (
                 <div className="flex min-h-[420px] flex-col items-center justify-center text-center" role="status" aria-live="polite">
                   <CheckCircle2 aria-hidden="true" className="h-12 w-12 text-emerald-300" />
@@ -112,6 +112,7 @@ export function Contact() {
                 </div>
               ) : (
                 <form action={formSubmitEndpoint} method="POST" onSubmit={handleSubmit} aria-label={t('formLabel')} aria-busy={status === 'sending'} className="space-y-5">
+                  <fieldset disabled={status === 'sending'} className="space-y-5">
                   <p className="text-sm text-white/65">{t('requiredHint')}</p>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <FormField label={t('fields.name')} htmlFor="contact-name">
@@ -147,6 +148,7 @@ export function Contact() {
                     {status === 'sending' ? <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" /> : <ArrowRight aria-hidden="true" className="h-4 w-4" />}
                     {status === 'sending' ? t('sending') : t('submit')}
                   </button>
+                  </fieldset>
                 </form>
               )}
             </div>
