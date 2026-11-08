@@ -6,6 +6,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { Navbar } from '@/components/sections/navbar';
 import { Contact } from '@/components/sections/contact';
 import { ContactActions } from '@/components/contact-actions';
+import { DeliveryModes } from '@/components/delivery-modes';
 import { Footer } from '@/components/sections/footer';
 import { locales, type Locale } from '@/i18n';
 import { business } from '@/lib/business';
@@ -25,7 +26,7 @@ const copy = {
     services: 'Des prestations adaptées au terrain',
     offers: [
       ['Logiciels métier & API', 'Applications web, portails par rôle, workflows, intégrations et reprise d’applications. React, Spring Boot et PostgreSQL font partie des technologies utilisées.', 'developpement-application-mali'],
-      ['Systèmes d’information pour les ONG', 'Analyse des besoins, structuration des données, outils de suivi, automatisation du reporting et accompagnement des équipes.', 'consultant-si-ong'],
+      ['Reporting & systèmes d’information pour les ONG', 'Commencer par un lot limité : données existantes, indicateurs convenus, tableau de bord et guide de mise à jour. Le périmètre est validé avant devis.', 'consultant-si-ong'],
       ['Conseil, data & formation', 'Audit ciblé, cahier des charges, SQL, tableaux de bord et formation à l’utilisation des outils livrés.', 'consultant-informatique-bamako']
     ],
     cases: 'Des réalisations à examiner',
@@ -37,7 +38,7 @@ const copy = {
     caseLink: 'Voir la réalisation',
     working: 'Pour les missions et consultations',
     workingBody: 'Quelques lignes suffisent pour commencer. Si vous disposez déjà d’un cahier des charges ou de termes de référence, nous pourrons les examiner lors du premier échange. Le périmètre, les livrables, le calendrier, le budget et les modalités de paiement sont définis avant tout engagement. Les justificatifs administratifs disponibles sont communiqués dans un cadre approprié, selon les exigences de la consultation.',
-    workingNote: 'Interventions à Bamako et collaboration à distance selon la mission. Les disponibilités sont confirmées au cas par cas.',
+    workingNote: 'Développement et maintenance logicielle à distance au Mali et à l’international. Maintenance sur site au Mali, selon la localité et les disponibilités confirmées.',
     legal: 'Identité légale et confidentialité',
     directory: 'Fiche professionnelle Maliya'
   },
@@ -54,7 +55,7 @@ const copy = {
     services: 'Services for practical operating needs',
     offers: [
       ['Business software & APIs', 'Web applications, role-based portals, workflows, integrations and application maintenance. Technologies include React, Spring Boot and PostgreSQL.', 'developpement-application-mali'],
-      ['Information systems for NGOs', 'Requirements analysis, data organization, monitoring tools, reporting automation and support for operational teams.', 'consultant-si-ong'],
+      ['Reporting & information systems for NGOs', 'Start with a limited package: existing data, agreed indicators, a dashboard and an update guide. Scope is validated before a quote.', 'consultant-si-ong'],
       ['Consulting, data & training', 'Focused audits, specifications, SQL, dashboards and training on delivered tools.', 'consultant-informatique-bamako']
     ],
     cases: 'Work you can review',
@@ -66,7 +67,7 @@ const copy = {
     caseLink: 'View the case study',
     working: 'For assignments and procurement enquiries',
     workingBody: 'A few lines are enough to get started. If you already have specifications or terms of reference, we can review them during our first conversation. Scope, deliverables, schedule, budget and payment terms are agreed before an engagement begins. Available administrative documents can be provided through an appropriate channel according to the requirements of the consultation.',
-    workingNote: 'Work in Bamako and remote collaboration depend on the assignment. Availability is confirmed individually.',
+    workingNote: 'Remote development and software maintenance in Mali and internationally. On-site maintenance in Mali, subject to confirmed location and availability.',
     legal: 'Legal identity and privacy',
     directory: 'Maliya business listing'
   }
@@ -105,6 +106,7 @@ export default async function BusinessPage({ params }: { params: Promise<{ local
               <div><dt className="text-sm text-white/50">RCCM</dt><dd className="mt-1 break-words font-medium">{business.rccm}</dd></div>
             </dl>
           </section>
+          <div className="mt-10"><DeliveryModes locale={locale} /></div>
           <section className="mt-20">
             <h2 className="text-3xl font-bold">{c.services}</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-3">{c.offers.map(([title, body, slug]) => (

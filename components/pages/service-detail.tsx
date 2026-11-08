@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { Locale } from '@/i18n';
 import { serviceContent, type ServiceSlug } from '@/lib/service-content';
 import { personId, organizationId } from '@/lib/structured-data';
+import { DeliveryModes } from '@/components/delivery-modes';
 
 export function ServiceDetail({ locale, slug }: { locale: Locale; slug: ServiceSlug }) {
   const page = serviceContent[locale][slug];
@@ -12,7 +13,9 @@ export function ServiceDetail({ locale, slug }: { locale: Locale; slug: ServiceS
     '@context': 'https://schema.org', '@type': 'Service', '@id': `${url}#service`,
     name: page.title, description: page.promise, url,
     provider: { '@id': organizationId }, broker: { '@id': personId },
-    areaServed: ['Mali', 'Guinea', 'Francophone Africa'], inLanguage: locale
+    areaServed: slug === 'developpement-application-mali'
+      ? ['Mali', 'Worldwide (remote development)']
+      : ['Mali', 'Guinea', 'Francophone Africa'], inLanguage: locale
   };
 
   return <main id="content" className="min-h-screen bg-black pt-28 text-white">
@@ -32,6 +35,20 @@ export function ServiceDetail({ locale, slug }: { locale: Locale; slug: ServiceS
       <Block title={locale === 'fr' ? 'Livrables possibles' : 'Possible deliverables'}><List items={page.deliverables} /></Block>
       <Block title={locale === 'fr' ? 'Preuve et limites' : 'Evidence and limits'}><p>{page.proof}</p></Block>
     </div></section>
+    {page.starterPackage ? <section aria-labelledby="reporting-package-title" className="px-6 pb-20">
+      <div className="mx-auto max-w-6xl rounded-2xl border border-brand-400/25 bg-brand-500/5 p-6 md:p-10">
+        <p className="text-sm uppercase tracking-[0.25em] text-brand-400">{locale === 'fr' ? 'Premier lot proposé' : 'Suggested first package'}</p>
+        <h2 id="reporting-package-title" className="mt-3 text-3xl font-bold">{page.starterPackage.title}</h2>
+        <p className="mt-5 max-w-3xl leading-relaxed text-white/70">{page.starterPackage.scope}</p>
+        <div className="mt-8 grid gap-8 md:grid-cols-2">
+          <div><h3 className="mb-4 font-semibold">{locale === 'fr' ? 'Livrables du lot' : 'Package deliverables'}</h3><List items={page.starterPackage.deliverables} /></div>
+          <div><h3 className="mb-4 font-semibold">{locale === 'fr' ? 'Périmètre et conditions' : 'Scope and conditions'}</h3><p className="leading-relaxed text-white/70">{page.starterPackage.limits}</p></div>
+        </div>
+        <p className="mt-8 border-t border-white/10 pt-6 text-sm leading-relaxed text-white/65">{page.starterPackage.preparation}</p>
+        <a href={contactHref(locale, { service: slug })} className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full bg-brand-500 px-6 py-3 font-semibold text-black hover:bg-brand-400">{page.cta}<ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
+      </div>
+    </section> : null}
+    {['consultant-informatique-bamako', 'developpement-application-mali', 'consultant-si-ong'].includes(slug) ? <div className="mx-auto max-w-6xl px-6 pb-20"><DeliveryModes locale={locale} /></div> : null}
     {slug === 'consultant-informatique-bamako' ? <section className="px-6 pb-20"><div className="mx-auto max-w-6xl rounded-2xl border border-white/10 bg-white/[0.03] p-8 md:p-10"><p className="text-sm uppercase tracking-[0.25em] text-brand-400">{locale === 'fr' ? 'Ressource acheteur' : 'Buyer resource'}</p><h2 className="mt-3 text-2xl font-bold">{locale === 'fr' ? 'Comment choisir un consultant informatique au Mali ?' : 'How to choose an IT consultant in Mali'}</h2><p className="mt-3 max-w-3xl text-white/65">{locale === 'fr' ? 'Un guide transparent sur les preuves, le cadrage, les données, les pilotes et la recette — même si vous choisissez un autre prestataire.' : 'A transparent guide to evidence, scoping, data, pilots and acceptance — even if you select another provider.'}</p><Link href={`/${locale}/guides/choisir-consultant-informatique-mali`} className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-brand-400 hover:text-brand-300">{locale === 'fr' ? 'Lire le guide' : 'Read the guide'}<ArrowRight className="h-4 w-4"/></Link></div></section> : null}
     <section id="demande" className="border-y border-white/10 bg-neutral-950 px-6 py-20 text-center">
       <div className="mx-auto max-w-3xl"><p className="text-sm uppercase tracking-[0.3em] text-brand-400">{locale === 'fr' ? 'Première étape' : 'First step'}</p><h2 className="mt-4 text-3xl font-bold">{page.firstStep}</h2>
