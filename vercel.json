@@ -1,7 +1,8 @@
 {
   "git": {
     "deploymentEnabled": {
-      "codex/shamsi-conversion-prospects": false
+      "codex/shamsi-conversion-prospects": false,
+      "codex/shamsi-contact-confirmation": false
     }
   }
 }
