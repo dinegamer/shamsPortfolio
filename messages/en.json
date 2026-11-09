@@ -183,7 +183,6 @@
       "timeline": "Select a timeline",
       "budget": "Select a range",
       "subject": "A short summary",
-      "message": "For example: we need to track payments and enrolments at our institution. Include your timeline if you know it.",
       "service": "Let’s discuss it"
     },
     "timelines": {
@@ -225,6 +224,7 @@
     "privacyLink": "Privacy",
     "formLabel": "Quote enquiry",
     "requiredHint": "Only your name, email and needs are required.",
+    "messageHelp": "For example: we need to track payments and enrolments at our institution. Include your timeline if you know it.",
     "directContact": "Direct contact options",
     "call": "Call",
     "services": {

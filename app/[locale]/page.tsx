@@ -14,8 +14,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   setRequestLocale(locale);
   return (
     <>
+      <Navbar />
       <main className="relative" id="content" tabIndex={-1}>
-        <Navbar />
         <Hero />
         <Services />
         <MorphStrip />
@@ -23,8 +23,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <About />
         <Stack />
         <Contact />
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 }

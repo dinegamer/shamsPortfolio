@@ -3,6 +3,7 @@ import { useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { locales } from '@/i18n';
+import { contactLocaleChangeEvent } from '@/lib/contact-draft';
 
 export function LanguageSwitcher() {
   const pathname = usePathname();
@@ -31,7 +32,12 @@ export function LanguageSwitcher() {
           href={getHref(nextLocale)}
           onClick={(event) => {
             event.preventDefault();
-            router.replace(`${getHref(nextLocale)}${window.location.search}${window.location.hash}`);
+            if (nextLocale === locale) return;
+            const nextPathname = getHref(nextLocale);
+            const canNavigate = window.dispatchEvent(new CustomEvent(contactLocaleChangeEvent, {
+              cancelable: true, detail: { pathname: nextPathname }
+            }));
+            if (canNavigate) router.replace(`${nextPathname}${window.location.search}${window.location.hash}`);
           }}
           className={`inline-flex min-h-11 items-center rounded-full px-2 sm:px-3 py-2 transition ${
             locale === nextLocale
