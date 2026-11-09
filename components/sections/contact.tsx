@@ -7,6 +7,7 @@ import { ContactActions } from '@/components/contact-actions';
 import { contactServices, isContactService, readContactContext } from '@/lib/contact-options';
 import { getLeadAttribution } from '@/lib/lead-attribution';
 import { formSubmitEndpoint, SubmissionError, submissionTimeout, submitContact } from '@/lib/contact-submission';
+import { contactLocaleChangeEvent, saveContactDraft, takeContactDraft } from '@/lib/contact-draft';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 const lastSubmissionKey = 'shams-portfolio-contact-last-submission';
@@ -19,6 +20,7 @@ export function Contact() {
   const controllerRef = useRef<AbortController | null>(null);
   const mounted = useRef(true);
   const serviceEdited = useRef(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [status, setStatus] = useState<FormStatus>('idle');
   const [error, setError] = useState('');
   const [service, setService] = useState('');
@@ -27,10 +29,38 @@ export function Contact() {
   useEffect(() => {
     mounted.current = true;
     const context = readContactContext(window.location.search);
-    if (!serviceEdited.current) setService(context.service);
-    setProject(context.project);
+    const draft = takeContactDraft(window.location.pathname);
+    if (draft && formRef.current) {
+      for (const name of ['name', 'email', 'organization', 'message'] as const) {
+        const field = formRef.current.elements.namedItem(name);
+        if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) field.value = draft[name];
+      }
+      serviceEdited.current = true;
+      setService(draft.service);
+      startedAt.current = draft.startedAt;
+    } else if (!serviceEdited.current) setService(context.service);
+    setProject(draft?.project ?? context.project);
     getLeadAttribution();
-    return () => { mounted.current = false; controllerRef.current?.abort(); };
+    const preserveDraft = (event: Event) => {
+      // Do not interrupt an in-flight submission or make its outcome uncertain.
+      if (inFlight.current) { event.preventDefault(); return; }
+      const form = formRef.current;
+      const pathname = (event as CustomEvent<{ pathname: string }>).detail?.pathname;
+      if (!form || !pathname) return;
+      const data = new FormData(form);
+      const value = (key: string) => String(data.get(key) ?? '');
+      saveContactDraft(pathname, {
+        name: value('name'), email: value('email'), organization: value('organization'),
+        message: value('message'), service: isContactService(value('service')) ? value('service') : '',
+        project: draft?.project ?? context.project, startedAt: startedAt.current
+      });
+    };
+    window.addEventListener(contactLocaleChangeEvent, preserveDraft);
+    return () => {
+      window.removeEventListener(contactLocaleChangeEvent, preserveDraft);
+      mounted.current = false;
+      controllerRef.current?.abort();
+    };
   }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -114,7 +144,7 @@ export function Contact() {
                   <button type="button" onClick={() => { startedAt.current = Date.now(); setStatus('idle'); }} className="mt-7 min-h-11 rounded-full border border-white/15 px-6 py-3 text-sm font-medium hover:bg-white/10">{t('success.again')}</button>
                 </div>
               ) : (
-                <form action={formSubmitEndpoint} method="POST" onSubmit={handleSubmit} aria-label={t('formLabel')} aria-busy={status === 'sending'} className="space-y-5">
+                <form ref={formRef} action={formSubmitEndpoint} method="POST" onSubmit={handleSubmit} aria-label={t('formLabel')} aria-busy={status === 'sending'} className="space-y-5">
                   <fieldset disabled={status === 'sending'} className="space-y-5">
                   <p className="text-sm text-white/65">{t('requiredHint')}</p>
                   <div className="grid gap-5 sm:grid-cols-2">
@@ -137,7 +167,8 @@ export function Contact() {
                     </FormField>
                   </div>
                   <FormField label={t('fields.message')} htmlFor="contact-message">
-                    <textarea id="contact-message" name="message" required maxLength={3000} rows={5} className="contact-input resize-y" placeholder={t('placeholders.message')} />
+                    <p id="contact-message-help" className="mb-3 text-sm leading-relaxed text-slate-300">{t('messageHelp')}</p>
+                    <textarea id="contact-message" name="message" required maxLength={3000} rows={5} className="contact-input resize-y" aria-describedby="contact-message-help" />
                   </FormField>
                   <input type="hidden" name="_subject" value="[SHAMSI DIGITAL] Contact" />
                   <input type="hidden" name="_template" value="table" />

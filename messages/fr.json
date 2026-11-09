@@ -183,7 +183,6 @@
       "timeline": "Choisir un délai",
       "budget": "Choisir une fourchette",
       "subject": "En quelques mots",
-      "message": "Exemple : nous souhaitons suivre les paiements et les inscriptions de notre établissement. Vous pouvez préciser vos délais si vous les connaissez.",
       "service": "À préciser ensemble"
     },
     "timelines": {
@@ -225,6 +224,7 @@
     "privacyLink": "Confidentialité",
     "formLabel": "Demande de devis",
     "requiredHint": "Seuls votre nom, votre e-mail et votre besoin sont obligatoires.",
+    "messageHelp": "Exemple : nous souhaitons suivre les paiements et les inscriptions de notre établissement. Vous pouvez préciser vos délais si vous les connaissez.",
     "directContact": "Autres moyens de contact",
     "call": "Appeler",
     "services": {
