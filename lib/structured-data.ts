@@ -64,7 +64,7 @@ export const identityGraph = {
       identifier: { '@type': 'PropertyValue', propertyID: 'RCCM', value: business.rccm },
       sameAs: [business.directoryUrl],
       description:
-        'SHAMSI DIGITAL est le nom commercial de l’entreprise individuelle de Chamsoudine THIENTA à Bamako, au Mali : conseil informatique, logiciels métier, API, données, automatisation et formation.',
+        'SHAMSI DIGITAL est le nom commercial de l’entreprise individuelle de Chamsoudine THIENTA à Bamako, au Mali : maintenance informatique sur site au Mali, création de sites web, conseil, développement et reprise d’applications à distance.',
       disambiguatingDescription:
         'Entreprise individuelle immatriculée au Mali sous le RCCM ML-BKO-01-2026-A-07041, également présentée comme SHAMSI Digital Mali ou ShamsiDigital.',
       address: {
@@ -91,7 +91,9 @@ export const identityGraph = {
         '@type': 'OfferCatalog',
         name: 'Services SHAMSI Digital Mali',
         itemListElement: [
-          'Développement de logiciels métiers',
+          'Maintenance informatique sur site au Mali',
+          'Création et refonte de sites web',
+          'Développement et reprise d’applications métier à distance',
           'Audit et automatisation SI',
           'Data, SQL et tableaux de bord',
           'Formation et support utilisateurs'

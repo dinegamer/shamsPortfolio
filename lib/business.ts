@@ -9,9 +9,9 @@ export const business = {
   directoryUrl: 'https://www.maliya.net/annonce/shamsi-digital-mali-conseil-informatique-logiciels-et-data/'
 } as const;
 
-export function whatsappHref(locale: string, fromGoogle = false) {
-  const message = locale === 'fr'
+export function whatsappHref(locale: string, fromGoogle = false, customMessage?: string) {
+  const message = customMessage ?? (locale === 'fr'
     ? `Bonjour SHAMSI DIGITAL.${fromGoogle ? ' Je viens de votre fiche Google.' : ''} Je souhaite échanger au sujet de mon projet : `
-    : `Hello SHAMSI DIGITAL.${fromGoogle ? ' I found you on Google.' : ''} I would like to discuss my project: `;
+    : `Hello SHAMSI DIGITAL.${fromGoogle ? ' I found you on Google.' : ''} I would like to discuss my project: `);
   return `https://wa.me/${business.telephone.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
 }
