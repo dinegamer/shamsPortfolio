@@ -14,10 +14,10 @@ import { createPageMetadata } from '@/lib/page-metadata';
 
 const copy = {
   fr: {
-    title: 'SHAMSI DIGITAL Mali — Logiciels et conseil informatique à Bamako',
-    description: 'SHAMSI DIGITAL, entreprise individuelle de Chamsoudine THIENTA à Bamako. Logiciels métier, React, Spring Boot, PostgreSQL, data et accompagnement des ONG et entreprises.',
-    heading: 'Des logiciels au service de vos opérations.',
-    intro: 'SHAMSI DIGITAL accompagne les entreprises, ONG et établissements d’enseignement dans la conception de logiciels métier, l’organisation de leurs données et l’amélioration de leurs systèmes d’information.',
+    title: 'SHAMSI DIGITAL Mali | Maintenance IT, sites web, conseil et développement',
+    description: 'SHAMSI Digital, prestataire informatique à Bamako : maintenance IT sur site au Mali, création de sites web, conseil, développement et reprise d’applications à distance.',
+    heading: 'Votre prestataire informatique au Mali et à distance',
+    intro: 'SHAMSI DIGITAL aide les entreprises, ONG et établissements d’enseignement à remettre leurs outils en service, créer un site web, automatiser leurs opérations ou développer une application. Nous intervenons sur site au Mali selon le besoin, et à distance au Mali et à l’international.',
     status: 'Entreprise individuelle · Bamako, Mali',
     contact: 'Demander un devis',
     identity: 'Une entreprise, un interlocuteur identifié',
@@ -25,9 +25,11 @@ const copy = {
     owner: 'Entrepreneur individuel',
     services: 'Des prestations adaptées au terrain',
     offers: [
-      ['Logiciels métier & API', 'Applications web, portails par rôle, workflows, intégrations et reprise d’applications. React, Spring Boot et PostgreSQL font partie des technologies utilisées.', 'developpement-application-mali'],
+      ['Maintenance informatique et support au Mali', 'Diagnostiquer une panne, remettre en service les postes ou logiciels concernés et documenter l’intervention. L’assistance à distance est possible pour les problèmes logiciels.', '?service=maintenance#contact'],
+      ['Création et refonte de sites web', 'Mettre en ligne un site vitrine ou institutionnel utilisable sur mobile, avec un parcours clair pour contacter votre équipe ou demander un devis.', '?service=developpement-application-mali#contact'],
+      ['Développement et reprise d’applications', 'Créer ou remettre en service un outil métier : interfaces React, API, bases de données, corrections et mise en ligne par lots.', 'developpement-application-mali'],
       ['Reporting & systèmes d’information pour les ONG', 'Commencer par un lot limité : données existantes, indicateurs convenus, tableau de bord et guide de mise à jour. Le périmètre est validé avant devis.', 'consultant-si-ong'],
-      ['Conseil, data & formation', 'Audit ciblé, cahier des charges, SQL, tableaux de bord et formation à l’utilisation des outils livrés.', 'consultant-informatique-bamako']
+      ['Conseil informatique et audit SI', 'Identifier ce qui ralentit votre équipe, prioriser les corrections et traduire un besoin en cahier des charges ou en plan de mise en œuvre.', 'consultant-informatique-bamako']
     ],
     cases: 'Des réalisations à examiner',
     projects: [
@@ -43,10 +45,10 @@ const copy = {
     directory: 'Fiche professionnelle Maliya'
   },
   en: {
-    title: 'SHAMSI DIGITAL Mali — Business software and IT consulting in Bamako',
-    description: 'SHAMSI DIGITAL is Chamsoudine THIENTA’s sole proprietorship in Bamako, Mali. Business software, React, Spring Boot, PostgreSQL, data and support for NGOs and businesses.',
-    heading: 'Software built around your operations.',
-    intro: 'SHAMSI DIGITAL helps businesses, NGOs and educational institutions build business applications, organize their data and improve their information systems.',
+    title: 'SHAMSI DIGITAL Mali | IT Support, Websites, Consulting and Development',
+    description: 'Bamako-based SHAMSI Digital provides on-site IT support in Mali and remote website development, IT consulting, application development and recovery.',
+    heading: 'IT services in Mali and remotely',
+    intro: 'SHAMSI DIGITAL helps businesses, NGOs and educational institutions get their tools working again, launch websites, automate operations or build applications. On-site work is available in Mali as agreed; remote projects are available in Mali and internationally.',
     status: 'Sole proprietorship · Bamako, Mali',
     contact: 'Request a quote',
     identity: 'An identified business and a direct contact',
@@ -54,9 +56,11 @@ const copy = {
     owner: 'Sole proprietor',
     services: 'Services for practical operating needs',
     offers: [
-      ['Business software & APIs', 'Web applications, role-based portals, workflows, integrations and application maintenance. Technologies include React, Spring Boot and PostgreSQL.', 'developpement-application-mali'],
+      ['IT maintenance and support in Mali', 'Diagnose a fault, restore affected workstations or software, and document the work. Remote assistance is available for software issues.', '?service=maintenance#contact'],
+      ['Website design and redevelopment', 'Launch a mobile-friendly business or institutional website that makes it easy for visitors to contact your team or request a quote.', '?service=developpement-application-mali#contact'],
+      ['Application development and recovery', 'Build or restore a business tool: React interfaces, APIs, databases, bug fixes and deployment in stages.', 'developpement-application-mali'],
       ['Reporting & information systems for NGOs', 'Start with a limited package: existing data, agreed indicators, a dashboard and an update guide. Scope is validated before a quote.', 'consultant-si-ong'],
-      ['Consulting, data & training', 'Focused audits, specifications, SQL, dashboards and training on delivered tools.', 'consultant-informatique-bamako']
+      ['IT consulting and systems audits', 'Find what is slowing down your team, prioritize fixes and turn your needs into specifications or an implementation plan.', 'consultant-informatique-bamako']
     ],
     cases: 'Work you can review',
     projects: [
@@ -109,8 +113,15 @@ export default async function BusinessPage({ params }: { params: Promise<{ local
           <div className="mt-10"><DeliveryModes locale={locale} /></div>
           <section className="mt-20">
             <h2 className="text-3xl font-bold">{c.services}</h2>
-            <div className="mt-8 grid gap-6 md:grid-cols-3">{c.offers.map(([title, body, slug]) => (
-              <article key={slug} className="rounded-xl border border-white/10 p-6"><h3 className="text-xl font-semibold"><Link href={`/${locale}/services/${slug}`} className="hover:text-brand-400">{title}</Link></h3><p className="mt-4 leading-relaxed text-white/65">{body}</p></article>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">{c.offers.map(([title, body, slug]) => (
+              <article key={slug} className="rounded-xl border border-white/10 p-6">
+                <h3 className="text-xl font-semibold">
+                  {slug.startsWith('?')
+                    ? <a href={`/${locale}/shamsi-digital${slug}`} className="hover:text-brand-400">{title}</a>
+                    : <Link href={`/${locale}/services/${slug}`} className="hover:text-brand-400">{title}</Link>}
+                </h3>
+                <p className="mt-4 leading-relaxed text-white/65">{body}</p>
+              </article>
             ))}</div>
           </section>
           <section className="mt-20">

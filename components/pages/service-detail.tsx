@@ -1,3 +1,4 @@
+import { whatsappHref } from '@/lib/business';
 import { contactHref } from '@/lib/contact-options';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -8,6 +9,7 @@ import { DeliveryModes } from '@/components/delivery-modes';
 
 export function ServiceDetail({ locale, slug }: { locale: Locale; slug: ServiceSlug }) {
   const page = serviceContent[locale][slug];
+  const packageTitleId = slug === 'consultant-si-ong' ? 'reporting-package-title' : 'application-package-title';
   const url = `https://shamsi-dev.vercel.app/${locale}/services/${slug}`;
   const jsonLd = {
     '@context': 'https://schema.org', '@type': 'Service', '@id': `${url}#service`,
@@ -26,7 +28,8 @@ export function ServiceDetail({ locale, slug }: { locale: Locale; slug: ServiceS
         <p className="mt-12 text-sm uppercase tracking-[0.3em] text-brand-400">{page.eyebrow}</p>
         <h1 className="mt-4 max-w-5xl text-5xl font-bold leading-tight md:text-7xl">{page.title}</h1>
         <p className="mt-7 max-w-3xl text-lg leading-relaxed text-white/70 md:text-xl">{page.promise}</p>
-        <a href={contactHref(locale, { service: slug })} className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-brand-500 px-7 py-3.5 font-semibold text-black hover:bg-brand-400">{page.cta}<ArrowRight className="h-4 w-4" /></a>
+        <ServiceContact locale={locale} slug={slug} />
+        {page.contactSafety ? <p className="mt-4 max-w-3xl text-sm leading-relaxed text-white/65">{page.contactSafety}</p> : null}
       </div>
     </header>
     <section className="px-6 py-20"><div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-2">
@@ -35,17 +38,40 @@ export function ServiceDetail({ locale, slug }: { locale: Locale; slug: ServiceS
       <Block title={locale === 'fr' ? 'Livrables possibles' : 'Possible deliverables'}><List items={page.deliverables} /></Block>
       <Block title={locale === 'fr' ? 'Preuve et limites' : 'Evidence and limits'}><p>{page.proof}</p></Block>
     </div></section>
-    {page.starterPackage ? <section aria-labelledby="reporting-package-title" className="px-6 pb-20">
+    {page.starterPackage ? <section aria-labelledby={packageTitleId} className="px-6 pb-20">
       <div className="mx-auto max-w-6xl rounded-2xl border border-brand-400/25 bg-brand-500/5 p-6 md:p-10">
         <p className="text-sm uppercase tracking-[0.25em] text-brand-400">{locale === 'fr' ? 'Premier lot proposé' : 'Suggested first package'}</p>
-        <h2 id="reporting-package-title" className="mt-3 text-3xl font-bold">{page.starterPackage.title}</h2>
+        <h2 id={packageTitleId} className="mt-3 text-3xl font-bold">{page.starterPackage.title}</h2>
         <p className="mt-5 max-w-3xl leading-relaxed text-white/70">{page.starterPackage.scope}</p>
         <div className="mt-8 grid gap-8 md:grid-cols-2">
           <div><h3 className="mb-4 font-semibold">{locale === 'fr' ? 'Livrables du lot' : 'Package deliverables'}</h3><List items={page.starterPackage.deliverables} /></div>
           <div><h3 className="mb-4 font-semibold">{locale === 'fr' ? 'Périmètre et conditions' : 'Scope and conditions'}</h3><p className="leading-relaxed text-white/70">{page.starterPackage.limits}</p></div>
         </div>
         <p className="mt-8 border-t border-white/10 pt-6 text-sm leading-relaxed text-white/65">{page.starterPackage.preparation}</p>
-        <a href={contactHref(locale, { service: slug })} className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full bg-brand-500 px-6 py-3 font-semibold text-black hover:bg-brand-400">{page.cta}<ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
+        <ServiceContact locale={locale} slug={slug} />
+      </div>
+    </section> : null}
+    {page.example ? <section aria-labelledby="service-example-title" className="px-6 pb-20">
+      <div className="mx-auto max-w-6xl rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-10">
+        <h2 id="service-example-title" className="text-3xl font-bold">{page.example.title}</h2>
+        <div className="mt-6 max-w-3xl space-y-4 leading-relaxed text-white/70">
+          <p>{page.example.context}</p>
+          <p>{page.example.change}</p>
+          <p>{page.example.verification}</p>
+          <p>{page.example.limits}</p>
+        </div>
+        <a href={page.example.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-brand-400 hover:text-brand-300">{page.example.sourceLabel}<ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
+      </div>
+    </section> : null}
+    {page.questions ? <section aria-labelledby="service-questions-title" className="px-6 pb-20">
+      <div className="mx-auto max-w-6xl">
+        <h2 id="service-questions-title" className="text-3xl font-bold">{locale === 'fr' ? 'Questions avant de reprendre une application' : 'Questions before taking over an application'}</h2>
+        <dl className="mt-8 grid gap-8 md:grid-cols-2">
+          {page.questions.map(({ question, answer }) => <div key={question}>
+            <dt className="text-lg font-semibold">{question}</dt>
+            <dd className="mt-3 leading-relaxed text-white/70">{answer}</dd>
+          </div>)}
+        </dl>
       </div>
     </section> : null}
     {['consultant-informatique-bamako', 'developpement-application-mali', 'consultant-si-ong'].includes(slug) ? <div className="mx-auto max-w-6xl px-6 pb-20"><DeliveryModes locale={locale} /></div> : null}
@@ -53,10 +79,24 @@ export function ServiceDetail({ locale, slug }: { locale: Locale; slug: ServiceS
     <section id="demande" className="border-y border-white/10 bg-neutral-950 px-6 py-20 text-center">
       <div className="mx-auto max-w-3xl"><p className="text-sm uppercase tracking-[0.3em] text-brand-400">{locale === 'fr' ? 'Première étape' : 'First step'}</p><h2 className="mt-4 text-3xl font-bold">{page.firstStep}</h2>
       <p className="mt-5 text-white/60">{locale === 'fr' ? 'Décrivez simplement votre besoin. Le calendrier et le budget pourront être précisés ensemble.' : 'Simply describe your needs. We can work out the timeline and budget together.'}</p>
-      <a href={contactHref(locale, { service: slug })} className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold text-black hover:bg-white/90">{page.cta}<ArrowRight className="h-4 w-4" /></a></div>
+      <ServiceContact locale={locale} slug={slug} centered /></div>
     </section>
   </main>;
 }
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) { return <section><h2 className="text-sm uppercase tracking-[0.25em] text-brand-400">{title}</h2><div className="mt-4 leading-relaxed text-white/70">{children}</div></section>; }
 function List({ items }: { items: string[] }) { return <ul className="space-y-3">{items.map(item => <li key={item} className="flex items-start gap-3"><CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-brand-400" />{item}</li>)}</ul>; }
+
+function ServiceContact({ locale, slug, centered = false }: { locale: Locale; slug: ServiceSlug; centered?: boolean }) {
+  const page = serviceContent[locale][slug];
+  const isWhatsApp = Boolean(page.whatsappMessage);
+  return <div className={`mt-8 flex flex-wrap items-center gap-4${centered ? ' justify-center' : ''}`}>
+    <a
+      href={isWhatsApp ? whatsappHref(locale, false, page.whatsappMessage) : contactHref(locale, { service: slug })}
+      target={isWhatsApp ? '_blank' : undefined}
+      rel={isWhatsApp ? 'noopener noreferrer' : undefined}
+      className="inline-flex min-h-12 items-center gap-2 rounded-full bg-brand-500 px-7 py-3.5 font-semibold text-black hover:bg-brand-400"
+    >{page.cta}<ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
+    {isWhatsApp ? <a href={contactHref(locale, { service: slug })} className="inline-flex min-h-11 items-center text-sm text-white/75 underline underline-offset-4 hover:text-white">{locale === 'fr' ? 'Préférer le formulaire' : 'Use the contact form instead'}</a> : null}
+  </div>;
+}

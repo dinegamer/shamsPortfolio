@@ -4,7 +4,12 @@ Chamsoudine Thienta, also known as Shams and Chamsoudine THIENTA, is an IT consu
 
 Business identity: SHAMSI DIGITAL is the trade name of Chamsoudine THIENTA's sole proprietorship in Bamako, Mali. RCCM: ML-BKO-01-2026-A-07041. SHAMSI Digital Mali and ShamsiDigital refer to this business. No tax identification number or procurement accreditation is claimed here. KalanSUP source code and project data are private; only public case studies and demonstrations with synthetic data may be shared.
 
-Consulting services include business software and REST APIs, database design, SQL and data cleaning, Power BI dashboards, workflow automation, short information-system audits, specifications, training and user support. Engagements can be delivered in Bamako, across Mali or remotely.
+Services and where they can be delivered:
+- On-site IT maintenance, workstation support and installation in Mali, subject to location and availability.
+- Remote website design and redevelopment for businesses and institutions in Mali or internationally.
+- Remote business application development, REST API and database integration, bug fixes and recovery of stalled applications.
+- IT consulting: problem diagnosis, requirements, process automation, SQL and reporting, particularly for businesses, NGOs and schools.
+- Each engagement starts with an agreed scope, deliverables, schedule and quote. The French and English business pages below describe the services and link to the official contact options.
 
 Verified professional context:
 - More than 200 students trained in software development, databases, MERISE and computer architecture.

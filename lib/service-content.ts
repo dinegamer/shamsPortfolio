@@ -23,6 +23,18 @@ type ServicePage = {
   cta: string;
   seoTitle: string;
   seoDescription: string;
+  whatsappMessage?: string;
+  contactSafety?: string;
+  example?: {
+    title: string;
+    context: string;
+    change: string;
+    verification: string;
+    limits: string;
+    sourceUrl: string;
+    sourceLabel: string;
+  };
+  questions?: Array<{ question: string; answer: string }>;
   starterPackage?: {
     title: string;
     scope: string;
@@ -86,17 +98,41 @@ const fr: Record<ServiceSlug, ServicePage> = {
     seoDescription: 'SmartCare aide à étudier et prototyper l’accueil, les files et les parcours de service des cliniques au Mali.'
   },
   'developpement-application-mali': {
-    eyebrow: 'Entreprises, startups et organisations',
-    title: 'Passer d’une idée d’application à un périmètre livrable et chiffrable.',
-    promise: 'Depuis Bamako, j’accompagne à distance le cadrage, la conception et le développement d’applications web, API, bases de données et outils métiers au Mali et à l’international.',
-    audience: 'Porteurs de projet, PME, cabinets, agences et organisations au Mali ou ailleurs dans le monde, avec un besoin applicatif précis.',
-    pains: ['Idée utile mais périmètre encore flou', 'Projet commencé puis bloqué', 'Bugs ou dette technique empêchant la livraison', 'Budget difficile à estimer sans spécifications'],
-    deliverables: ['Entretien de découverte de 20 minutes', 'Cadrage écrit : utilisateurs, fonctions, contraintes et étapes', 'Devis après validation du périmètre', 'Livraison par lots, recette et maintenance optionnelle'],
-    proof: 'Les réalisations et prototypes visibles sur ce portfolio montrent des architectures web, API, bases de données et interfaces métier. Chaque nouveau projet reste chiffré après cadrage.',
-    firstStep: 'Le cadrage applicatif est proposé avant tout engagement de développement important.',
-    cta: 'Présenter mon projet d’application',
-    seoTitle: 'Développement web au Mali et à distance | SHAMSI Digital',
-    seoDescription: 'Applications web, API et logiciels métiers pour des clients au Mali et à l’international. Cadrage et développement à distance depuis Bamako.'
+    eyebrow: 'Reprise d’application · Mali et à distance',
+    title: 'On reprend votre application bloquée et on vous montre ce qui peut être remis en service.',
+    promise: 'SHAMSI Digital, à Bamako, commence par examiner le parcours qui ne fonctionne plus, le code disponible et les contraintes de votre application web. Vous obtenez un diagnostic et un premier lot de corrections à valider avant toute intervention en production.',
+    audience: 'PME, agences et porteurs de projet au Mali et à l’international dont une application web, une API ou un outil métier existe déjà, mais reste bloqué avant livraison ou après une panne.',
+    pains: ['Un parcours essentiel ne fonctionne plus : connexion, formulaire ou opération métier', 'Une application commencée sans documentation suffisante pour la reprendre', 'Des erreurs entre interface, API et base de données', 'Une livraison bloquée sans savoir quoi corriger en premier'],
+    deliverables: ['Diagnostic écrit : blocages reproduits, limites et priorités', 'Premier lot défini : parcours concerné, corrections proposées et critères de validation', 'Devis et calendrier après examen de l’existant', 'Corrections testées dans un environnement séparé, puis transmission des changements'],
+    proof: 'Le cas ci-dessous documente une correction sur le propre site de SHAMSI Digital, avec du code et des tests publics. Il montre une démarche de maintenance, pas le sauvetage d’une application cliente ni un résultat commercial.',
+    firstStep: 'Décrivez le parcours bloqué et ce qui devrait se passer.',
+    cta: 'Décrire mon blocage sur WhatsApp',
+    whatsappMessage: 'Bonjour SHAMSI Digital, je vous contacte depuis la page Reprise d’application. Le parcours bloqué est : ',
+    contactSafety: 'Pour ce premier échange, ne transmettez ni mot de passe, ni clé API, ni données personnelles de vos utilisateurs.',
+    seoTitle: 'Reprise d’application bloquée au Mali | SHAMSI Digital',
+    seoDescription: 'Application web bloquée ? Diagnostic, corrections ciblées et tests avec SHAMSI Digital à Bamako, au Mali et à l’international. Échange sur WhatsApp.',
+    starterPackage: {
+      title: 'Commencer par un seul parcours bloqué',
+      scope: 'Nous choisissons une fonction précise et le résultat attendu. Le diagnostic distingue ce qui a pu être vérifié, les informations manquantes et les corrections possibles, sans présumer qu’une réécriture complète est nécessaire.',
+      deliverables: ['Compte rendu du blocage et des vérifications effectuées', 'Plan de correction priorisé avec périmètre et critères de recette', 'Si le lot est accepté : changements documentés et tests du parcours convenu'],
+      limits: 'La récupération de données, les services tiers, les nouvelles fonctionnalités et la maintenance continue sont évalués séparément. Aucun délai, prix ou rétablissement complet n’est garanti avant examen. Une mise en production nécessite votre validation et un plan de sauvegarde et de retour arrière.',
+      preparation: 'Indiquez ce qui bloque, depuis quand, les technologies si vous les connaissez et si vous disposez du code. Une capture anonymisée ou le texte d’une erreur suffit pour commencer. Les accès nécessaires seront définis ensuite par un canal adapté ; pas de secrets ni de données clients sur WhatsApp ou le formulaire public.'
+    },
+    example: {
+      title: 'Cas réel : préserver une demande lors du changement de langue',
+      context: 'Sur ce site SHAMSI Digital, le parcours concerné est le formulaire de contact lorsque le visiteur passe du français à l’anglais ou revient au français.',
+      change: 'Le code public conserve temporairement la saisie pendant cette navigation et empêche un changement de langue d’interrompre un envoi en cours.',
+      verification: 'Les tests publics couvrent les changements de langue répétés, la conservation des champs et l’absence de double envoi. Ils simulent le service d’envoi : aucun message client n’est nécessaire pour ce contrôle.',
+      limits: 'Exemple de maintenance de notre propre site, sans client externe ni gain chiffré revendiqué. La saisie n’est pas conservée après un rechargement de page. Ces tests ne prouvent pas la réception d’un e-mail réel.',
+      sourceUrl: 'https://github.com/dinegamer/shamsPortfolio/commit/1e3c898ccafc9c61e6796e7ffcc37880360fadb8',
+      sourceLabel: 'Voir la correction et les tests publics'
+    },
+    questions: [
+      { question: 'Faut-il refaire toute l’application ?', answer: 'Pas nécessairement. Le diagnostic commence par un parcours précis et les éléments disponibles. Il sert à comparer une correction ciblée, une reprise progressive ou une refonte, avec leurs limites.' },
+      { question: 'Quel budget et quel délai prévoir ?', answer: 'Le prix et le calendrier dépendent du code, des accès, des dépendances et du blocage constaté. Le diagnostic et les corrections font l’objet d’un périmètre et de conditions convenus avant de commencer.' },
+      { question: 'Peut-on travailler à distance depuis un autre pays ?', answer: 'Oui. SHAMSI Digital est basé à Bamako et propose cette intervention à distance au Mali et à l’international. Les échanges, l’environnement de test et les modalités d’accès sont définis avant la mission.' },
+      { question: 'Et si je n’ai pas le code source ?', answer: 'Précisez-le dès le premier échange. Nous identifions les éléments disponibles et les accès que vous pouvez légitimement obtenir. Certaines corrections restent impossibles sans code ou sans accès autorisé ; aucun contournement d’accès n’est proposé.' }
+    ]
   },
   'consultant-si-ong': {
     eyebrow: 'ONG et programmes de développement',
@@ -174,17 +210,41 @@ const en: Record<ServiceSlug, ServicePage> = {
     seoDescription: 'SmartCare helps study and prototype reception, queues and service flows for clinics in Mali.'
   },
   'developpement-application-mali': {
-    eyebrow: 'Companies, startups and organizations',
-    title: 'Turn an application idea into a deliverable, estimable scope.',
-    promise: 'From Bamako, I remotely scope, design and develop web applications, APIs, databases and business tools for clients in Mali and internationally.',
-    audience: 'Project owners, SMEs, consultancies, agencies and organizations in Mali or anywhere else in the world with a specific application need.',
-    pains: ['A useful idea with an unclear scope', 'A project that started and stalled', 'Bugs or technical debt blocking delivery', 'A budget that cannot be estimated without specifications'],
-    deliverables: ['20-minute discovery call', 'Written scope: users, features, constraints and milestones', 'Quote after scope validation', 'Staged delivery, acceptance and optional maintenance'],
-    proof: 'The portfolio shows web, API, database and business-interface work. Every new project is priced only after scoping.',
-    firstStep: 'Application scoping comes before any major development commitment.',
-    cta: 'Present my application project',
-    seoTitle: 'Web development in Mali and remotely | SHAMSI Digital',
-    seoDescription: 'Web applications, APIs and business software for clients in Mali and internationally. Remote scoping and development from Bamako.'
+    eyebrow: 'Application recovery · Mali and remote',
+    title: 'We take over your stalled application and show you what can be restored.',
+    promise: 'SHAMSI Digital, based in Bamako, starts by examining the broken workflow, available code and constraints of your web application. You receive an assessment and a first set of proposed fixes to approve before any production changes.',
+    audience: 'SMEs, agencies and project owners in Mali and internationally with an existing web application, API or business tool stalled before delivery or after a failure.',
+    pains: ['An essential workflow fails: sign-in, a form or a business operation', 'An application started without enough documentation to take it over', 'Errors between the interface, API and database', 'A blocked release with no clear order for fixing issues'],
+    deliverables: ['Written assessment: reproduced issues, limitations and priorities', 'A defined first package: affected workflow, proposed fixes and acceptance criteria', 'A quote and timeline after reviewing the existing application', 'Fixes tested in a separate environment, followed by a documented handover'],
+    proof: 'The example below documents a fix on SHAMSI Digital’s own website, with public code and tests. It demonstrates maintenance work, not a rescued client application or a commercial outcome.',
+    firstStep: 'Describe the broken workflow and what should happen instead.',
+    cta: 'Describe my issue on WhatsApp',
+    whatsappMessage: 'Hello SHAMSI Digital, I found your Application recovery page. The broken workflow is: ',
+    contactSafety: 'For this first conversation, do not send passwords, API keys or your users’ personal data.',
+    seoTitle: 'Stalled application recovery in Mali | SHAMSI Digital',
+    seoDescription: 'Stalled web application? Assessment, focused fixes and tests with SHAMSI Digital in Bamako, Mali and internationally. Start a WhatsApp conversation.',
+    starterPackage: {
+      title: 'Start with one broken workflow',
+      scope: 'We choose one specific function and the expected result. The assessment separates verified findings, missing information and possible fixes without assuming a complete rewrite is needed.',
+      deliverables: ['A report on the issue and checks performed', 'A prioritized correction plan with scope and acceptance criteria', 'If the package is approved: documented changes and tests for the agreed workflow'],
+      limits: 'Data recovery, third-party services, new features and ongoing maintenance are assessed separately. No price, deadline or full recovery is guaranteed before review. Production changes require your approval and a backup and rollback plan.',
+      preparation: 'Describe what fails, when it started, the technologies if known and whether you have the code. An anonymized screenshot or an error message is enough to start. Required access will be arranged later through an appropriate channel; do not send secrets or client data on WhatsApp or the public form.'
+    },
+    example: {
+      title: 'Real example: keeping an enquiry during a language change',
+      context: 'On this SHAMSI Digital website, the affected workflow is the contact form when a visitor switches from French to English or back again.',
+      change: 'The public code temporarily preserves entered details during this navigation and prevents a language switch from interrupting a pending submission.',
+      verification: 'The public tests cover repeated language changes, retained fields and the absence of duplicate submissions. They simulate the sending service: no client message is needed for this check.',
+      limits: 'Maintenance of our own website, with no external client or quantified gain claimed. Entered details are not retained after a page reload. These tests do not prove delivery of a real email.',
+      sourceUrl: 'https://github.com/dinegamer/shamsPortfolio/commit/1e3c898ccafc9c61e6796e7ffcc37880360fadb8',
+      sourceLabel: 'View the public fix and tests'
+    },
+    questions: [
+      { question: 'Does the whole application need to be rebuilt?', answer: 'Not necessarily. The assessment starts with one workflow and the available materials. It helps compare a targeted fix, a gradual takeover or a rebuild, including their limitations.' },
+      { question: 'What budget and timeline should I expect?', answer: 'Price and timing depend on the code, access, dependencies and the issue found. The assessment and fixes have an agreed scope and terms before work starts.' },
+      { question: 'Can we work remotely from another country?', answer: 'Yes. SHAMSI Digital is based in Bamako and offers this service remotely in Mali and internationally. Communication, the test environment and access arrangements are defined before the assignment.' },
+      { question: 'What if I do not have the source code?', answer: 'Mention this in the first conversation. We identify the available materials and access you can legitimately obtain. Some fixes are impossible without code or authorized access; bypassing access controls is not offered.' }
+    ]
   },
   'consultant-si-ong': {
     eyebrow: 'NGOs and development programmes',
