@@ -142,6 +142,8 @@ export function ProjectDetail({ locale, slug }: ProjectDetailProps) {
         </div>
       </section>
 
+      {slug === 'kalansup' ? <KalanSupProof locale={locale} /> : null}
+
       {project.image ? (
         <section className="border-y border-white/10 bg-neutral-950 px-6 py-20 md:py-28">
           <figure className="mx-auto max-w-6xl">
@@ -244,5 +246,60 @@ function FeatureList({ items }: { items: string[] }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+function KalanSupProof({ locale }: { locale: Locale }) {
+  const fr = locale === 'fr';
+  const examples = [
+    {
+      title: fr
+        ? 'Repérer un conflit avant de publier les emplois du temps'
+        : 'Spot a timetable conflict before publishing',
+      description: fr
+        ? 'Un enseignant est prévu dans deux classes sur deux sites au même créneau. KalanSUP affiche les deux séances ensemble pour que la direction sache quel planning revoir.'
+        : 'An instructor is assigned to two classes at different campuses at the same time. KalanSUP shows both sessions together so the academic office can see what needs correcting.',
+      href: 'https://fr.linkedin.com/posts/chamsoudine-thienta-146b21183_kalansup-shamsidigital-enseignementsup%C3%A9rieur-activity-7514026052118028288-b_V0'
+    },
+    {
+      title: fr ? 'Retrouver une information dans l’espace étudiant' : 'Find information in the student portal',
+      description: fr
+        ? 'Sur un dossier fictif, le service envoie un rappel. L’étudiant retrouve le même solde dans Paiements, puis consulte son prochain cours et les notes déjà publiées.'
+        : 'For a fictional student record, the office sends a reminder. The student sees the same balance in Payments, then finds their next class and already published grades.',
+      href: 'https://fr.linkedin.com/posts/chamsoudine-thienta-146b21183_shamsidigital-kalansup-enseignementsuperieur-activity-7519453453882961920-mRbG'
+    }
+  ];
+
+  return (
+    <section aria-labelledby="kalansup-demo-title" className="border-y border-white/10 bg-neutral-950 px-6 py-20 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        <h2 id="kalansup-demo-title" className="text-3xl font-bold md:text-4xl">
+          {fr ? 'KalanSUP en action : deux démonstrations' : 'KalanSUP in action: two walkthroughs'}
+        </h2>
+        <p className="mt-4 max-w-3xl text-white/70">
+          {fr
+            ? 'Ces vidéos utilisent des données fictives. Elles montrent le comportement de l’application, pas un déploiement chez un client ni un gain mesuré.'
+            : 'These videos use fictional data. They show how the application works, not a client deployment or a measured improvement.'}
+        </p>
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {examples.map(({ title, description, href }) => (
+            <article key={href} className="flex h-full flex-col items-start rounded-lg border border-white/15 bg-white/[0.03] p-6">
+              <h3 className="text-xl font-semibold">{title}</h3>
+              <p className="mt-3 flex-1 leading-relaxed text-white/70">{description}</p>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${fr ? 'Voir sur LinkedIn' : 'Watch in French on LinkedIn'}: ${title}`}
+                className="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold text-brand-400 underline underline-offset-4 hover:text-white"
+              >
+                {fr ? 'Voir sur LinkedIn' : 'Watch in French on LinkedIn'}
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
