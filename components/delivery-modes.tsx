@@ -1,4 +1,6 @@
 import { Globe2, MapPin } from 'lucide-react';
+import Link from 'next/link';
+import { maintenanceBamakoPath } from '@/lib/service-routes';
 
 const copy = {
   fr: {
@@ -17,7 +19,7 @@ const copy = {
   }
 };
 
-export function DeliveryModes({ locale }: { locale: string }) {
+export function DeliveryModes({ locale, showMaintenanceLink = false }: { locale: string; showMaintenanceLink?: boolean }) {
   const c = locale === 'fr' ? copy.fr : copy.en;
   return (
     <section aria-labelledby="delivery-modes-title" className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
@@ -32,6 +34,7 @@ export function DeliveryModes({ locale }: { locale: string }) {
           <MapPin aria-hidden="true" className="mb-3 h-6 w-6 text-brand-400" />
           <h3 className="text-lg font-semibold">{c.localTitle}</h3>
           <p className="mt-3 text-sm leading-relaxed text-white/65">{c.localBody}</p>
+          {locale === 'fr' && showMaintenanceLink ? <Link href={`/fr${maintenanceBamakoPath}`} className="mt-2 inline-flex min-h-11 items-center text-sm font-semibold text-brand-400 hover:underline">Maintenance informatique à Bamako</Link> : null}
         </div>
       </div>
     </section>

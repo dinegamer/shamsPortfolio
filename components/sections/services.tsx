@@ -37,7 +37,7 @@ export function Services() {
             </a>
           ))}
         </div>
-        <div className="mt-10"><DeliveryModes locale={locale} /></div>
+        <div className="mt-10"><DeliveryModes locale={locale} showMaintenanceLink /></div>
       </div>
     </section>
   );
