@@ -275,7 +275,10 @@ test('sitemap contains exactly the expected official content routes', async ({
     }
   }
 
-  expect((xml.match(/<url>/g) ?? []).length).toBe(locales.length * indexedPaths.length);
+  const maintenanceUrl = `${siteUrl}/fr/services/maintenance-informatique-bamako`;
+  expect(xml).toContain(`<loc>${maintenanceUrl}</loc>`);
+  expect(xml).not.toContain(`${siteUrl}/en/services/maintenance-informatique-bamako`);
+  expect((xml.match(/<url>/g) ?? []).length).toBe(locales.length * indexedPaths.length + 1);
   expect(xml).not.toContain('localhost');
   expect(xml).not.toContain('shams-portfolio-');
 });

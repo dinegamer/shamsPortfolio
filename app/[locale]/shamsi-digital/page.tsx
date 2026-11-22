@@ -110,7 +110,7 @@ export default async function BusinessPage({ params }: { params: Promise<{ local
               <div><dt className="text-sm text-white/50">RCCM</dt><dd className="mt-1 break-words font-medium">{business.rccm}</dd></div>
             </dl>
           </section>
-          <div className="mt-10"><DeliveryModes locale={locale} /></div>
+          <div className="mt-10"><DeliveryModes locale={locale} showMaintenanceLink /></div>
           <section className="mt-20">
             <h2 className="text-3xl font-bold">{c.services}</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2">{c.offers.map(([title, body, slug]) => (

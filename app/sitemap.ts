@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { projectSlugs, siteUrl } from '@/lib/portfolio-content';
 import { serviceSlugs } from '@/lib/service-content';
+import { maintenanceBamakoPath } from '@/lib/service-routes';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date('2026-10-31');
@@ -16,9 +17,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return locales.flatMap((locale) =>
-    paths.map((path) => ({
+    (locale === 'fr' ? [...paths, maintenanceBamakoPath] : paths).map((path) => ({
       url: `${siteUrl}/${locale}${path}`,
-      lastModified: ['', '/shamsi-digital', '/services/developpement-application-mali'].includes(path)
+      lastModified: path === maintenanceBamakoPath
+        ? new Date('2026-11-22')
+        : ['', '/shamsi-digital', '/services/developpement-application-mali'].includes(path)
         ? new Date('2026-11-14')
         : path === '/about' || path.startsWith('/guides/') ? lastModified : new Date('2026-11-08'),
       changeFrequency: path ? ('monthly' as const) : ('weekly' as const),
