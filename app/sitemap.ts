@@ -5,6 +5,7 @@ import { maintenanceBamakoPath } from '@/lib/service-routes';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date('2026-10-31');
+  const updatedOn20261127 = new Set(['/services/kalansup-universites', '/projects/kalansup']);
   const locales = ['fr', 'en'] as const;
   const paths = [
     '',
@@ -19,7 +20,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((locale) =>
     (locale === 'fr' ? [...paths, maintenanceBamakoPath] : paths).map((path) => ({
       url: `${siteUrl}/${locale}${path}`,
-      lastModified: path === maintenanceBamakoPath
+      lastModified: updatedOn20261127.has(path) || path === maintenanceBamakoPath
+        ? new Date('2026-11-27')
+        : (locale === 'fr' && ['', '/shamsi-digital'].includes(path))
         ? new Date('2026-11-22')
         : ['', '/shamsi-digital', '/services/developpement-application-mali'].includes(path)
         ? new Date('2026-11-14')

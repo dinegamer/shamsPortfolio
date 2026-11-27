@@ -7,10 +7,23 @@ import { Navbar } from '@/components/sections/navbar';
 import { Footer } from '@/components/sections/footer';
 import { contactHref } from '@/lib/contact-options';
 import { createPageMetadata } from '@/lib/page-metadata';
+import { siteUrl } from '@/lib/portfolio-content';
 import { maintenanceBamakoPath } from '@/lib/service-routes';
+import { organizationId } from '@/lib/structured-data';
 
 const title = 'Maintenance informatique à Bamako pour PME et ONG | SHAMSI Digital';
 const description = 'Dépannage informatique ciblé à Bamako : postes de travail, logiciels et problèmes de connexion. Diagnostic, tests et compte rendu. Intervention sur place selon le besoin.';
+const serviceUrl = `${siteUrl}/fr${maintenanceBamakoPath}`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${serviceUrl}#service`,
+  name: 'Maintenance informatique à Bamako pour PME et ONG',
+  description,
+  url: serviceUrl,
+  provider: { '@id': organizationId },
+  areaServed: { '@type': 'City', name: 'Bamako' }
+};
 const contact = contactHref('fr', { service: 'maintenance' });
 const body = 'mt-5 max-w-3xl leading-relaxed text-white/70';
 const heading = 'text-2xl font-bold sm:text-3xl';
@@ -42,6 +55,7 @@ export default async function MaintenanceBamakoPage({ params }: { params: Promis
   return <>
     <Navbar />
     <main id="content" tabIndex={-1} className="min-h-screen bg-black px-6 pb-16 pt-28 text-white sm:pt-36">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
       <div className="mx-auto max-w-5xl">
         <header className="pb-12">
           <Link href="/fr#services" className="inline-flex min-h-11 items-center text-sm text-white/65 hover:text-white">Retour aux services</Link>

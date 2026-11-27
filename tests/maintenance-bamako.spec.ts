@@ -10,6 +10,17 @@ test('French maintenance route is discoverable without a non-existent English al
   await expect(page).toHaveTitle('Maintenance informatique à Bamako pour PME et ONG | SHAMSI Digital');
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', canonical);
   await expect(page.locator('link[hreflang]')).toHaveCount(0);
+  const jsonLd = await page.locator('script[type="application/ld+json"]').allTextContents();
+  const services = jsonLd.map((value) => JSON.parse(value)).filter((value) => value['@type'] === 'Service');
+  expect(services).toHaveLength(1);
+  expect(services[0]).toMatchObject({
+    '@id': `${canonical}#service`,
+    url: canonical,
+    name: 'Maintenance informatique à Bamako pour PME et ONG',
+    provider: { '@id': 'https://shamsi-dev.vercel.app/#shamsi-digital' },
+    areaServed: { '@type': 'City', name: 'Bamako' }
+  });
+  expect(services[0]).not.toHaveProperty('offers');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Maintenance informatique à Bamako pour PME et ONG');
   await expect(page.getByRole('link', { name: 'reprise d’application à Bamako' })).toHaveAttribute('href', '/fr/services/developpement-application-mali');
   const sitemap = await request.get('/sitemap.xml');
@@ -17,6 +28,12 @@ test('French maintenance route is discoverable without a non-existent English al
   const xml = await sitemap.text();
   expect(xml).toContain(`<loc>${canonical}</loc>`);
   expect(xml).not.toMatch(/\/en\/services\/maintenance-informatique-bamako/);
+  for (const [source, date] of [
+    ['/fr', '2026-11-22'], ['/fr/shamsi-digital', '2026-11-22'],
+    ['/en', '2026-11-14'], ['/en/shamsi-digital', '2026-11-14']
+  ]) {
+    expect(xml).toContain(`<loc>https://shamsi-dev.vercel.app${source}</loc>\n<lastmod>${date}T00:00:00.000Z</lastmod>`);
+  }
   for (const source of ['/fr', '/fr/shamsi-digital']) {
     await page.goto(source);
     await expect(page.getByRole('link', { name: 'Maintenance informatique à Bamako', exact: true })).toHaveAttribute('href', route);
