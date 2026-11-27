@@ -193,6 +193,14 @@ export function ProjectDetail({ locale, slug }: ProjectDetailProps) {
         </div>
       </section>
 
+      {slug === 'kalansup' && (
+        <div className="mx-auto max-w-6xl px-6 pb-16">
+          <Link href={`/${locale}/services/kalansup-universites`} className="inline-flex min-h-11 items-center gap-2 font-semibold text-brand-400 underline underline-offset-4 hover:text-brand-300">
+            {locale === 'fr' ? 'Découvrir l’offre KalanSUP pour les universités' : 'Explore KalanSUP for universities'}
+            <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+          </Link>
+        </div>
+      )}
       <section className="border-t border-white/10 bg-neutral-950 px-6 py-20 text-center md:py-24">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-3xl font-bold md:text-4xl">{labels.ctaTitle}</h2>
