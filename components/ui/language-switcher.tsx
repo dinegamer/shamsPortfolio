@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { locales } from '@/i18n';
 import { contactLocaleChangeEvent } from '@/lib/contact-draft';
+import { maintenanceBamakoPath } from '@/lib/service-routes';
 
 export function LanguageSwitcher() {
   const pathname = usePathname();
@@ -17,8 +18,10 @@ export function LanguageSwitcher() {
   const getHref = (nextLocale: string) => {
     const segments = pathname.split('/').filter(Boolean);
     if (locales.includes(segments[0] as any)) segments.shift();
-    const rest = segments.join('/');
-    return `/${nextLocale}${rest ? `/${rest}` : ''}`;
+    const rest = segments.length ? `/${segments.join('/')}` : '';
+    // Maintenance has no English translation: link directly to the English agency page.
+    if (nextLocale === 'en' && rest === maintenanceBamakoPath) return '/en/shamsi-digital';
+    return `/${nextLocale}${rest}`;
   };
 
   return (
