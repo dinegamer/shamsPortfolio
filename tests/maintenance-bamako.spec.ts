@@ -49,6 +49,27 @@ test('mobile contact button selects maintenance without sending and English swit
   await expect(page).toHaveURL(/shamsi-digital\?service=maintenance#contact$/);
   await expect(page.locator('#contact-service')).toHaveValue('maintenance');
   await page.goto(route);
-  await page.getByRole('link', { name: 'Afficher le site en anglais' }).click();
+  const englishSwitch = page.getByRole('link', { name: 'Afficher le site en anglais' });
+  await expect(englishSwitch).toHaveAttribute('href', '/en/shamsi-digital');
+  await englishSwitch.click();
   await expect(page).toHaveURL(/\/en\/shamsi-digital$/);
+});
+
+test('French-only maintenance links directly to the English agency page without JavaScript', async ({ browser, baseURL }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, baseURL });
+  try {
+    const page = await context.newPage();
+    const navigations: string[] = [];
+    page.on('response', (response) => {
+      if (response.request().isNavigationRequest()) navigations.push(new URL(response.url()).pathname);
+    });
+    await page.goto(route);
+    const englishSwitch = page.getByRole('link', { name: 'Afficher le site en anglais' });
+    await expect(englishSwitch).toHaveAttribute('href', '/en/shamsi-digital');
+    await englishSwitch.click();
+    await expect(page).toHaveURL(/\/en\/shamsi-digital$/);
+    expect(navigations).toEqual([route, '/en/shamsi-digital']);
+  } finally {
+    await context.close();
+  }
 });
